@@ -1,0 +1,41 @@
+{
+    "subtitle": "Our Journey",
+    "title": "Empowering Change Through <br>Innovation and Technology",
+    "button": {
+        "label": "Learn More",
+        "link": "/about"
+    },
+    "items": [
+        {
+            "image": "/images/history/begin.gif",
+            "title": "Humble Beginnings, Bold Ambitions",
+            "subtitle": "2019",
+            "text": "Before it became AhazIO, the journey began in 2019 as a freelance venture, driven by a passion for technology and solving real-world problems. What started as individual projects quickly grew into a wave of opportunities, laying the foundation for what would become a full-fledged tech company focused on innovation and digital transformation."
+        },
+        {
+            "image": "/images/history/change2.jpg",
+            "subtitle": "2020",
+            "title": "From RoblexET to AhazIO",
+            "text": "As freelance work under the name 'roblexET' gained momentum, 2020 marked a turning point. With a growing client base ranging from small startups to established companies, the vision expanded beyond freelancing. This evolution led to the creation of AhazIO—a tech-driven company with a clear mission: to craft impactful digital solutions and help organizations of all sizes thrive in the digital era."
+        },
+        {
+            "image": "/images/history/desktop.jpg",
+            "subtitle": "2022",
+            "title": "Building Smart Solutions for Real-World Needs",
+            "text": "2022 marked a significant phase in AhazIO's journey. As client needs became more complex, we expanded our focus beyond website development to include the creation of custom HR management systems. This move allowed us to support businesses in streamlining operations, improving workflows, and managing teams more effectively through intuitive digital platforms."
+        },
+        {
+            "image": "/images/history/AI2.jpg",
+            "subtitle": "2024",
+            "title": "Embracing the Future with AI & ML",
+            "text": "By 2024, AhazIO had taken its innovation to the next level with the introduction of AI and machine learning services. From predictive analytics to intelligent automation, we began building smarter, data-driven systems that help businesses make faster, better decisions. This leap forward reflects our commitment to staying at the forefront of technology and delivering solutions that adapt to the future."
+        },
+        {
+            "image": "/images/history/2025.jpg",
+            "subtitle": "Present",
+            "title": "Driving Innovation, Empowering Digital Growth",
+            "text": "Today, AhazIO stands as a trusted tech partner, delivering intelligent digital solutions to clients around the world. With a continued focus on web technologies, custom systems, and AI-driven tools, we remain dedicated to pushing the limits of what's possible—empowering businesses through innovation, efficiency, and forward-thinking technology."
+        }
+        
+    ]
+}

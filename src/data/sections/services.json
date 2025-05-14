@@ -1,0 +1,22 @@
+{
+    "items": [
+        {
+            "image": "/images/web.svg",
+            "title": "Desktop/Web Applications",
+            "text": "Building robust desktop and web applications that offer seamless user experiences and intuitive design, bridging functionality with creativity.",
+            "link": "/services/service-1"
+        },
+        {
+            "image": "/images/website-design.svg",
+            "title": "Website Development",
+            "text": "Crafting responsive and user-friendly websites that not only capture your brand’s essence but also deliver an engaging online experience for your audience.",
+            "link": "/services/service-2"
+        },
+        {
+            "image": "/images/aiml.svg",
+            "title": "AI/ML Services",
+            "text": "Leveraging cutting-edge AI and machine learning technologies to drive innovation, automate processes, and unlock valuable insights for your business.",
+            "link": "/services/service-3"
+        }
+    ]
+}

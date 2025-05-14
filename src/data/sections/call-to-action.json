@@ -1,0 +1,30 @@
+{
+    "title": "Let's Turn Your <br/><strong>Ideas Into Reality</strong>",
+    "subtitle": "Get in Touch",
+    "text": "<a href=\"mailto:info@ahaz.io\" target=\"_blank\">info@ahaz.io</a><p>Addis Ababa, Ethiopia.</p>",
+    "bg_image": "/images/AS I Logo Variations-06.png",
+    "bg_image2": "/images/AS I Logo Variations-06.png",
+    "social": [
+        {
+
+            "link": "https://www.linkedin.com/company/ahaz-tech-solutions/",
+            "icon": "fab fa-linkedin-in",
+            "title": "LinkedIn"
+        },
+        {
+            "link": "https://dev.to/ahaz",
+            "icon": "fab fa-dev", 
+            "title": "DEV Community"
+        },
+        {
+            "link": "https://www.g2.com/users/ahazio",
+            "icon": "fab fa-dev", 
+            "title": "G2"
+        },
+        {
+            "link": "contact",
+            "icon": "fas fa-plus",  
+            "title": "Request a Demo"
+        }
+    ]
+}

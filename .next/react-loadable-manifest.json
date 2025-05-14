@@ -1,0 +1,180 @@
+{
+  "..\\layouts\\Layouts.js -> @components/SplitScrollAnimation": {
+    "id": 3752,
+    "files": [
+      "static/chunks/6144.e6c2ef261017acf4.js",
+      "static/css/f5912567c46843ed.css",
+      "static/chunks/6220.13f867586446769d.js"
+    ]
+  },
+  "about.jsx -> @components/sliders/History": {
+    "id": 4361,
+    "files": [
+      "static/chunks/5677.fccca1cf79f93e0c.js",
+      "static/css/732341223714fdbb.css",
+      "static/chunks/8339.0a5c3aa7f6649162.js"
+    ]
+  },
+  "about.jsx -> @components/sliders/Testimonial2": {
+    "id": 6351,
+    "files": [
+      "static/chunks/5677.fccca1cf79f93e0c.js",
+      "static/css/732341223714fdbb.css",
+      "static/chunks/3375.385ba9c644a565c3.js"
+    ]
+  },
+  "gallery.jsx -> @components/ProjectsGrid": {
+    "id": 1072,
+    "files": [
+      "static/chunks/3391.b27323978a470a7e.js",
+      "static/chunks/1072.3f431ca779592e69.js"
+    ]
+  },
+  "index-2.jsx -> @components/sections/Projects": {
+    "id": 5059,
+    "files": [
+      "static/chunks/3391.b27323978a470a7e.js",
+      "static/chunks/5059.3661e6a6deeaaae2.js"
+    ]
+  },
+  "index-2.jsx -> @components/sliders/Hero2": {
+    "id": 7759,
+    "files": [
+      "static/chunks/5677.fccca1cf79f93e0c.js",
+      "static/css/732341223714fdbb.css",
+      "static/chunks/4383.9379639306151202.js"
+    ]
+  },
+  "index-2.jsx -> @components/sliders/History": {
+    "id": 4361,
+    "files": [
+      "static/chunks/5677.fccca1cf79f93e0c.js",
+      "static/css/732341223714fdbb.css",
+      "static/chunks/8339.0a5c3aa7f6649162.js"
+    ]
+  },
+  "index-2.jsx -> @components/sliders/LatestPosts": {
+    "id": 5877,
+    "files": [
+      "static/chunks/3790-1f36824e4103ebc0.js",
+      "static/chunks/5677.fccca1cf79f93e0c.js",
+      "static/css/732341223714fdbb.css",
+      "static/chunks/3178.6e65dbed646b94d2.js"
+    ]
+  },
+  "index-2.jsx -> @components/sliders/Testimonial2": {
+    "id": 6351,
+    "files": [
+      "static/chunks/5677.fccca1cf79f93e0c.js",
+      "static/css/732341223714fdbb.css",
+      "static/chunks/3375.385ba9c644a565c3.js"
+    ]
+  },
+  "index-3.jsx -> @components/sliders/Hero3": {
+    "id": 7685,
+    "files": [
+      "static/chunks/5677.fccca1cf79f93e0c.js",
+      "static/css/732341223714fdbb.css",
+      "static/chunks/9261.622e04cc040c4d2d.js"
+    ]
+  },
+  "index-3.jsx -> @components/sliders/History": {
+    "id": 4361,
+    "files": [
+      "static/chunks/5677.fccca1cf79f93e0c.js",
+      "static/css/732341223714fdbb.css",
+      "static/chunks/8339.0a5c3aa7f6649162.js"
+    ]
+  },
+  "index-3.jsx -> @components/sliders/LatestPosts": {
+    "id": 5877,
+    "files": [
+      "static/chunks/3790-1f36824e4103ebc0.js",
+      "static/chunks/5677.fccca1cf79f93e0c.js",
+      "static/css/732341223714fdbb.css",
+      "static/chunks/3178.6e65dbed646b94d2.js"
+    ]
+  },
+  "index-3.jsx -> @components/sliders/Testimonial2": {
+    "id": 6351,
+    "files": [
+      "static/chunks/5677.fccca1cf79f93e0c.js",
+      "static/css/732341223714fdbb.css",
+      "static/chunks/3375.385ba9c644a565c3.js"
+    ]
+  },
+  "index-4.jsx -> @components/sliders/Hero4": {
+    "id": 4707,
+    "files": [
+      "static/chunks/5677.fccca1cf79f93e0c.js",
+      "static/css/732341223714fdbb.css",
+      "static/chunks/4890.4bf26103d04a9d09.js"
+    ]
+  },
+  "index.jsx -> @components/sections/Hero": {
+    "id": 746,
+    "files": [
+      "static/chunks/6144.e6c2ef261017acf4.js",
+      "static/css/f5912567c46843ed.css",
+      "static/chunks/6392.88f26e275cd9203c.js"
+    ]
+  },
+  "index.jsx -> @components/sliders/Testimonial": {
+    "id": 6769,
+    "files": [
+      "static/chunks/5677.fccca1cf79f93e0c.js",
+      "static/css/732341223714fdbb.css",
+      "static/chunks/1551.58dad8360ab05424.js"
+    ]
+  },
+  "index.jsx -> @components/sliders/Ticker": {
+    "id": 2610,
+    "files": [
+      "static/chunks/5677.fccca1cf79f93e0c.js",
+      "static/css/732341223714fdbb.css",
+      "static/chunks/3068.8c8f5361b55f9ffe.js"
+    ]
+  },
+  "projects-2.jsx -> @components/ProjectsGrid": {
+    "id": 1072,
+    "files": [
+      "static/chunks/3391.b27323978a470a7e.js",
+      "static/chunks/1072.3f431ca779592e69.js"
+    ]
+  },
+  "projects-3.jsx -> @components/ProjectsGrid": {
+    "id": 1072,
+    "files": [
+      "static/chunks/3391.b27323978a470a7e.js",
+      "static/chunks/1072.3f431ca779592e69.js"
+    ]
+  },
+  "projects-4.jsx -> @components/ProjectsGrid-Soft": {
+    "id": 4472,
+    "files": [
+      "static/chunks/3391.b27323978a470a7e.js",
+      "static/chunks/4472.5c33c16ce1b6bef9.js"
+    ]
+  },
+  "projects-5.jsx -> @components/ProjectsGrid": {
+    "id": 1072,
+    "files": [
+      "static/chunks/3391.b27323978a470a7e.js",
+      "static/chunks/1072.3f431ca779592e69.js"
+    ]
+  },
+  "projects-app.jsx -> @components/ProjectsGrid": {
+    "id": 1072,
+    "files": [
+      "static/chunks/3391.b27323978a470a7e.js",
+      "static/chunks/1072.3f431ca779592e69.js"
+    ]
+  },
+  "projects.jsx -> @components/ProjectsGrid-AI": {
+    "id": 3853,
+    "files": [
+      "static/chunks/3391.b27323978a470a7e.js",
+      "static/chunks/3853.d390d387f5001d48.js"
+    ]
+  }
+}

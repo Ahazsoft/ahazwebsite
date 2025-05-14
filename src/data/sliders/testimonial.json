@@ -1,0 +1,20 @@
+{
+    "title":  "Testimonials",
+    "rating": {
+        "value": "5.0",
+        "label": "Rating from all Client's"
+    },
+    "items": [
+        {
+            "name": "Yishak Zelleke",
+            "role": "Managing Director, Prologue BCW",
+            "text": "The team consistently delivered <br />top-notch solutions with precision. <br />They listened to our needs, adapted <br />quickly, and brought a strong sense <br />of collaboration to the table."
+        },        {
+            "name": "Abrham Amare",
+            "role": "Creative Director, Bala Media",
+            "text": "Their professionalism and attention <br />to detail made all the difference. <br />We felt supported every step of <br />the way, and their ability to solve <br />complex problems was unmatched."
+        }
+
+
+    ]
+}

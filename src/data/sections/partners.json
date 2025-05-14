@@ -1,0 +1,46 @@
+{
+    "subtitle": "Fantastic and Premium Clients",
+    "title": "We Have Had the Pleasure of <br/>Working with Some Clients",
+    "items": [
+        {
+            "link": "https://bgiethiopia.com/",
+            "label": "Visit Website",
+            "image": "/images/clients/C3C.png"
+        },
+        {
+            "link": "https://www.ubethiopia.com/",
+            "label": "Visit Website",
+            "image": "/images/clients/UB.png"
+        },
+        {
+            "link": "https://www.prologueethiopia.com",
+            "label": "Visit Website",
+            "image": "/images/clients/prologue.png"
+        },
+        {
+            "link": "https://zeleman.com/",
+            "label": "Visit Website",
+            "image": "/images/clients/zeleman_new_logo.png"
+        },
+        {
+            "link": "https://nthds.com/",
+            "label": "Visit Website",
+            "image": "/images/clients/nthds_logo.png"
+        },
+        {
+            "link": "https://bala.media/",
+            "label": "Visit Website",
+            "image": "/images/clients/bala_media.png"
+        },
+        {
+            "link": "https://msaethiopia.com/",
+            "label": "Visit Website",
+            "image": "/images/clients/msa.png"
+        },
+        {
+            "link": "",
+            "label": "Visit Website",
+            "image": "/images/clients/gabi.png"
+        }
+    ]
+}

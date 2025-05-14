@@ -1,0 +1,21 @@
+{
+    "title": "A Technology Company <br/>Empowering Innovation by <br/>Transforming Ideas into Impact",
+    "subtitle": "Welcome to Ahaz IO",
+    "number": {
+        "value": "6",
+        "label": "Years of Crafting Innovative Solutions"
+    },
+    "items": [
+        {
+            "title": "Our Mission",
+            "text": "Since our inception, we've been dedicated to empowering businesses with <strong>innovative digital solutions</strong>, seamless user experiences, and cutting-edge technologies. Our expertise grows every year, and we continue to push the boundaries of what’s possible in web, app development, and AI-driven transformations."
+        },
+        {
+            "title": "Our Goal",
+            "text": "Our goal is to create impactful experiences that inspire conversation and drive strategic value across industries like tech, entertainment, and beyond.",            "button": {
+                "label": "More About Us",
+                "link": "/about"
+            }
+        }
+    ]
+}

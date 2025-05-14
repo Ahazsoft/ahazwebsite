@@ -1,0 +1,9 @@
+{
+    "subtitle": "Featured Projects",
+    "title": "Project Showcase",
+    "button": {
+        "label": "All Projects",
+        "link": "/projects"
+    },
+    "numOfItems": 5
+}

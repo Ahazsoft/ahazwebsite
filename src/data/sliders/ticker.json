@@ -1,0 +1,17 @@
+{
+    "items": [
+        {
+            "label": "- Desktop/Web Applications",
+            "link": "/services/service-1"
+        },
+        {
+            "label": "- Website Design",
+            "link": "/services/service-2"
+        },
+        {
+            "label": "- AI/ML Services",
+            "link": "/services/service-3"
+        }
+
+    ]
+}

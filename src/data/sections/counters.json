@@ -1,0 +1,19 @@
+{
+    "items": [
+        {
+            "value": "8",
+            "label": "Team members",
+            "after": ""
+        },
+        {
+            "value": "20",
+            "label": "Completed projects",
+            "after": "+"
+        },
+        {
+            "value": "52",
+            "label": "Hours of Expertise",
+            "after": "K"
+        }
+    ]
+}
