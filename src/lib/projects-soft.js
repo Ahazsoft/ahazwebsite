@@ -6,6 +6,7 @@ import html from 'remark-html'
 
 const projectsDirectory = path.join(process.cwd(), 'src/data/projects-soft')
 
+
 export function getSortedProjectsData() {
   // Get file names under /posts
   const fileNames = fs.readdirSync(projectsDirectory)
