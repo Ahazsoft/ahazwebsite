@@ -15,11 +15,11 @@ social:
 
 #full details
 info:
-  - label: Age
-    value: 25 Years
+  - label: 
+    value: 
   
-  - label: Location
-    value: Baird House, 15-17 St Cross St London EC1N 8UW
+  - label: 
+    value: 
   
   # - label: Email
   #   value: lina.watson@domain.com
