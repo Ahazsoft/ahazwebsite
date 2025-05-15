@@ -1,6 +1,6 @@
 ---
 #preview details
-image: /images/team/3.jpg
+image: /images/team/3big.jpg
 name: Nathnael T. Woldekidan
 role: Project Lead | Senior Backend Developer
 first_letter: N

@@ -1,6 +1,6 @@
 ---
 #preview details
-image: /images/team/5.jpg
+image: /images/team/5big.jpg
 name: Mehretab Hailegebriel 
 role: Project Lead | Senior Backend Developer
 first_letter: M
