@@ -1,6 +1,6 @@
 ---
 #preview details
-image: /images/team/3.jpg
+image: /images/team/2.jpg
 name: Natty Hadis
 role: Senior Web & Mobile Developer
 first_letter: S
