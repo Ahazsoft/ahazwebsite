@@ -19,11 +19,18 @@ import VideoSection from "@components/sections/Video";
 import CountersSection from "@components/sections/Counters";
 import CallToActionSection from "@components/sections/CallToAction";
 import LatestPostsSection from "@components/sections/LatestPosts";
-import PartnersSection from "@components/sections/Partners"
+import PartnersSection from "@components/sections/Partners";
 
-const HeroSection = dynamic( () => import("@components/sections/Hero"), { ssr: false } );
-const TickerSlider = dynamic( () => import("@components/sliders/Ticker"), { ssr: false } );
-const TestimonialSlider = dynamic( () => import("@components/sliders/Testimonial"), { ssr: false } );
+const HeroSection = dynamic(() => import("@components/sections/Hero"), {
+  ssr: false,
+});
+const TickerSlider = dynamic(() => import("@components/sliders/Ticker"), {
+  ssr: false,
+});
+const TestimonialSlider = dynamic(
+  () => import("@components/sliders/Testimonial"),
+  { ssr: false },
+);
 
 const Home1 = (props) => {
   useEffect(() => {
@@ -60,7 +67,7 @@ export async function getStaticProps() {
     props: {
       posts: allPosts,
       projects: allProjects,
-      team: allTeam
-    }
-  }
+      team: allTeam,
+    },
+  };
 }

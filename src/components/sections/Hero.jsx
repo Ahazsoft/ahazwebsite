@@ -2,83 +2,147 @@ import { useState, useEffect, useRef } from "react";
 
 import Data from "@data/sections/hero.json";
 
-import 'splitting/dist/splitting.css';
-import 'splitting/dist/splitting-cells.css';
-import Splitting from 'splitting';
-import ScrollOut from 'scroll-out';
+import "splitting/dist/splitting.css";
+import "splitting/dist/splitting-cells.css";
+import Splitting from "splitting";
+import ScrollOut from "scroll-out";
+import Link from "next/link";
 
 const HeroSection = () => {
-	const videoRef = useRef(null);
-	const [mute, setMute] = useState(false);
-	const [fading, setFading] = useState(false);
+  const videoRef = useRef(null);
+  const [mute, setMute] = useState(false);
+  const [fading, setFading] = useState(false);
 
+  // Mute toggle
+  const clickedMuteHeroVideo = (e) => {
+    e.preventDefault();
+    setMute(!mute);
+  };
 
-	// Mute toggle
-	const clickedMuteHeroVideo = (e) => {
-		e.preventDefault();
-		setMute(!mute);
-	};
+  useEffect(() => {
+    // Splitting & ScrollOut init
+    Splitting({ by: "lines" });
+    ScrollOut({ targets: "[data-onovo-scroll]", once: true });
 
-	useEffect(() => {
-		// Splitting & ScrollOut init
-		Splitting({ by: 'lines' });
-		ScrollOut({ targets: '[data-onovo-scroll]', once: true });
+    // Wrap .word elements
+    const allWrap = document.querySelectorAll(".word");
+    allWrap.forEach((item) => {
+      if (!item.parentNode.classList.contains("span")) {
+        let wrapper = document.createElement("span");
+        wrapper.classList.add("span");
+        item.parentNode.insertBefore(wrapper, item);
+        wrapper.appendChild(item);
+      }
+    });
 
-		// Wrap .word elements
-		const allWrap = document.querySelectorAll(".word");
-		allWrap.forEach((item) => {
-			if (!item.parentNode.classList.contains('span')) {
-				let wrapper = document.createElement('span');
-				wrapper.classList.add('span');
-				item.parentNode.insertBefore(wrapper, item);
-				wrapper.appendChild(item);
-			}
-		});
+    // Add overlays
+    const allOverlays = document.querySelectorAll("[data-onovo-overlay]");
+    allOverlays.forEach((item) => {
+      let overlay = document.createElement("div");
+      overlay.classList.add("onovo-overlay");
+      item.appendChild(overlay);
+    });
+  }, []);
 
-		// Add overlays
-		const allOverlays = document.querySelectorAll("[data-onovo-overlay]");
-		allOverlays.forEach((item) => {
-			let overlay = document.createElement("div");
-			overlay.classList.add('onovo-overlay');
-			item.appendChild(overlay);
-		});
-	}, []);
+  // Custom loop: play video from 5s to 10s
+  useEffect(() => {
+    const video = videoRef.current;
+    const startTime = 2;
+    const endTime = 12.5;
+    const fadeDuration = 10;
 
-	// Custom loop: play video from 5s to 10s
-	useEffect(() => {
-		const video = videoRef.current;
-		const startTime = 2;
-		const endTime = 12.5;
-		const fadeDuration = 10;
-	  
-		const loopSegment = () => {
-		  if (video.currentTime >= endTime - 0.1) {
-			setFading(true);
-			setTimeout(() => {
-			  video.currentTime = startTime;
-			  video.play();
-			  setFading(false);
-			}, fadeDuration);
-		  }
-		};
-	  
-		if (video) {
-		  video.currentTime = startTime;
-		  video.play();
-		  video.addEventListener('timeupdate', loopSegment);
-		}
-	  
-		return () => {
-		  if (video) {
-			video.removeEventListener('timeupdate', loopSegment);
-		  }
-		};
-	  }, []);
-	  
-	return (
-		<>
-			{/* Onovo Hero */}
-			<section className="onovo-section onovo-hero">
+    const loopSegment = () => {
+      if (video.currentTime >= endTime - 0.1) {
+        setFading(true);
+        setTimeout(() => {
+          video.currentTime = startTime;
+          video.play();
+          setFading(false);
+        }, fadeDuration);
+      }
+    };
+
+    if (video) {
+      video.currentTime = startTime;
+      video.play();
+      video.addEventListener("timeupdate", loopSegment);
+    }
+
+    return () => {
+      if (video) {
+        video.removeEventListener("timeupdate", loopSegment);
+      }
+    };
+  }, []);
+
+  return (
+    <>
+      <div className='sm-lp-container'>
+        <nav className='sm-lp-navbar'>
+          <div className='sm-lp-logo'>
+            <Link href='/'>
+              <img src='/images/AS I Logo Variations-05.png' alt='' />
+            </Link>
+          </div>
+          <ul className='sm-lp-nav-links'>
+            <li>
+              <Link href='/'>Home</Link>
+            </li>
+            <li className='sm-lp-nav-item has-children'>
+              <Link href='#'>About</Link>
+              <ul className='sm-lp-dropdown'>
+                <li>
+                  <Link href='/about'>About Us</Link>
+                </li>
+                <li>
+                  <Link href='/team'>Team</Link>
+                </li>
+              </ul>
+            </li>
+            <li className='sm-lp-nav-item has-children'>
+              <Link href='#'>Projects</Link>
+              <ul className='sm-lp-dropdown'>
+                <li>
+                  <Link href='/projects-2'>Websites</Link>
+                </li>
+                <li>
+                  <Link href='/projects'>Desktop/Web Applications</Link>
+                </li>
+              </ul>
+            </li>
+            <li className='sm-lp-nav-item has-children'>
+              <Link href='/services'>Services</Link>
+              <ul className='sm-lp-dropdown'>
+                <li>
+                  <Link href='/projects-2'>Websites</Link>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <Link href='/contact'>Contact Us</Link>
+            </li>
+          </ul>
+        </nav>
+
+        <main className='sm-lp-hero'>
+          <div className='sm-lp-hero-content'>
+            <hr className='sm-lp-accent-line' />
+            <h1 className='sm-lp-title'>
+              We Build Custom software & websites Built to perform.{" "}
+            </h1>
+            <p className='sm-lp-description'>
+              At Ahaz IO, we create innovative digital solutions that combine
+              cutting-edge technology with seamless user experiences. From
+              responsive websites and desktop applications to AI-driven
+              platforms, we turn ideas into impactful, high-performing products
+              that empower businesses to grow and succeed.
+            </p>
+            <button className='sm-lp-cta-button'>Get Started</button>
+          </div>
+        </main>
+      </div>
+      {/* Onovo Hero */}
+      {/* <section className="onovo-section onovo-hero">
 				<div className="image" onClick={clickedMuteHeroVideo}>
 					<video
 						ref={videoRef}
@@ -119,9 +183,9 @@ const HeroSection = () => {
 						</span>
 					</a>
 				</div>
-			</section>
-        </>
-    );
+			</section> */}
+    </>
+  );
 };
 
 export default HeroSection;
