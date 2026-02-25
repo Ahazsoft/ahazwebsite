@@ -22,9 +22,9 @@ const Footer2 = () => {
 							{/* Heading */}
 							<div className="onovo-heading">
 								<h2 className="onovo-title-2">
-									<span>Let’s Chat! Let’s Build Something <br/>Awesome Together</span>
+									<span>Let’s Turn  <br/>Dreams Into Code.</span>
 								</h2>
-								<p><Link href="/contact" className="onovo-footer-lnk onovo-lnk lnk--revert">Lets Start Project</Link></p>
+								{/* <p><Link href="/contact" className="onovo-footer-lnk onovo-lnk lnk--revert">Lets Start Project</Link></p> */}
 							</div>
 
 						</div>
@@ -45,7 +45,7 @@ const Footer2 = () => {
 
 							{/* Description */}
 							<div className="onovo-text">
-								From the moment our company was founded, we have helped our clients find exceptional solutions <strong>for their businesses</strong>.
+								Since our inception, we've been dedicated to delivering innovative digital solutions <strong>that empower businesses and drive growth</strong>.
 							</div>
 
 						</div>
@@ -56,24 +56,24 @@ const Footer2 = () => {
 								<ul className="onovo-footer-menu">
 									<li>
 										<Link href="/services/service-1">
-											<span className="onovo-lnk">Branding &#038; logo</span>
+											<span className="onovo-lnk">Desktop & Web Applications</span>
 										</Link>
 									</li>
 									<li>
 										<Link href="/services/service-2">
-											<span className="onovo-lnk">Web design</span>
+											<span className="onovo-lnk">Website Development</span>
 										</Link>
 									</li>
 									<li>
 										<Link href="/services/service-3">
-											<span className="onovo-lnk">Development Services</span>
+											<span className="onovo-lnk">AI/ML Services</span>
 										</Link>
 									</li>
-									<li>
+									{/* <li>
 										<Link href="/blog">
 											<span className="onovo-lnk">Publications</span>
 										</Link>
-									</li>
+									</li> */}
 								</ul>
 							</div>
 
@@ -82,13 +82,22 @@ const Footer2 = () => {
 
 							{/* Description */}
 							<div className="onovo-text">
-								Baird House, 15-17 St Cross St <br />London EC1N 8UW
+								Bole Sub-City <br/> Addis Ababa, Ethiopia
 								<p>
-									<a className="onovo-lnk" href="tel:+4402074302973" target="blank">+44 (0) 20 7430 2973</a>
+									<a className="onovo-lnk" href="tel:+(251) 910315980" target="_blank">+(251) 910315980</a>
 									<br />
-									<a className="onovo-lnk" href="mailto:username@domain.com" target="blank">username@domain.com</a>
+									<a className="onovo-lnk" href="mailto:username@domain.com" target="_blank">info@ahaz.io</a>
 								</p>
 							</div>
+
+							{/* <div className="onovo-text">
+                                <h5>Get in Touch</h5>
+                                <p style={{"opacity": "0.6"}}>Noble and Trustworthy Building, Bole Sub-City Addis Ababa, Ethiopia</p>
+                                <p style={{"opacity": "0.6"}}>
+                                    <a href="tel:+910315980" className="onovo-lnk lnk--white" target="_blank">+(251) 910315980</a><br />
+                                    <a href="mailto:username@domain.com" className="onovo-lnk lnk--white" target="_blank">info@ahaz.io</a>
+                                </p>
+                            </div> */}
 
 						</div>
 					</div>
@@ -105,7 +114,7 @@ const Footer2 = () => {
 						<div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 align-right">
 
 							{/* Social*/}
-							<div className="onovo-social-1 onovo-social-active">
+							{/* <div className="onovo-social-1 onovo-social-active">
 								<ul>
 									{appData.social.map((item, key) => (
 									<li key={`fsocial-item-${key}`}>
@@ -115,7 +124,7 @@ const Footer2 = () => {
 									</li>
 									))}
 								</ul>
-							</div>
+							</div> */}
 
 						</div>
 					</div>

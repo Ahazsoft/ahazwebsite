@@ -31,8 +31,8 @@
     },
     "header": {
         "logo": {
-            "image": "/images/AS I Logo Variations-05.png",
-            "image_white": "/images/AS I Logo Variations-05.png",
+            "image": "/images/logo/logo2.png",
+            "image_white": "/images/logo/logo2.png",
             "alt": "logo"
         },
         "menu": [
@@ -81,16 +81,9 @@
             {
                 "label": "Services",
                 "link": "/services",
-                "children": [
-                    {
-                        "label": "Service Detail",
-                        "link": "/services/service-1",
-                        "children": 0
-                    }
-
-
-                    
-                ]
+                "children": 0
+                
+                
             },
             
             {
@@ -110,7 +103,7 @@
     },
     "footer": {
         "logo": {
-            "image": "/images/AS I Logo Variations-05.png",
+            "image": "/images/logo/logo1.png",
             "alt": "logo"
         },
         "gallery": [
@@ -121,7 +114,7 @@
             }
             
         ],
-        "copy": "© 2025 Ahaz Solutions . All rights reserved."
+        "copy": "© 2026 Ahaz Software and Web Solutions . All rights reserved."
     },
     "social": [
         {

@@ -21,7 +21,7 @@ import CallToActionSection from "@components/sections/CallToAction";
 import LatestPostsSection from "@components/sections/LatestPosts";
 import PartnersSection from "@components/sections/Partners";
 
-const HeroSection = dynamic(() => import("@components/sections/Hero"), {
+const HeroSection = dynamic(() => import("@components/sections/HeroNew"), {
   ssr: false,
 });
 const TickerSlider = dynamic(() => import("@components/sliders/Ticker"), {

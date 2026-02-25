@@ -77,72 +77,8 @@ const HeroSection = () => {
 
   return (
     <>
-      <div className='sm-lp-container'>
-        <nav className='sm-lp-navbar'>
-          <div className='sm-lp-logo'>
-            <Link href='/'>
-              <img src='/images/AS I Logo Variations-05.png' alt='' />
-            </Link>
-          </div>
-          <ul className='sm-lp-nav-links'>
-            <li>
-              <Link href='/'>Home</Link>
-            </li>
-            <li className='sm-lp-nav-item has-children'>
-              <Link href='#'>About</Link>
-              <ul className='sm-lp-dropdown'>
-                <li>
-                  <Link href='/about'>About Us</Link>
-                </li>
-                <li>
-                  <Link href='/team'>Team</Link>
-                </li>
-              </ul>
-            </li>
-            <li className='sm-lp-nav-item has-children'>
-              <Link href='#'>Projects</Link>
-              <ul className='sm-lp-dropdown'>
-                <li>
-                  <Link href='/projects-2'>Websites</Link>
-                </li>
-                <li>
-                  <Link href='/projects'>Desktop/Web Applications</Link>
-                </li>
-              </ul>
-            </li>
-            <li className='sm-lp-nav-item has-children'>
-              <Link href='/services'>Services</Link>
-              <ul className='sm-lp-dropdown'>
-                <li>
-                  <Link href='/projects-2'>Websites</Link>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <Link href='/contact'>Contact Us</Link>
-            </li>
-          </ul>
-        </nav>
-
-        <main className='sm-lp-hero'>
-          <div className='sm-lp-hero-content'>
-            <hr className='sm-lp-accent-line' />
-            <h1 className='sm-lp-title'>
-              We Build Custom software & websites Built to perform.{" "}
-            </h1>
-            <p className='sm-lp-description'>
-              At Ahaz IO, we create innovative digital solutions that combine
-              cutting-edge technology with seamless user experiences. From
-              responsive websites and desktop applications to AI-driven
-              platforms, we turn ideas into impactful, high-performing products
-              that empower businesses to grow and succeed.
-            </p>
-            <button className='sm-lp-cta-button'>Get Started</button>
-          </div>
-        </main>
-      </div>
       {/* Onovo Hero */}
-      {/* <section className="onovo-section onovo-hero">
+      <section className="onovo-section onovo-hero">
 				<div className="image" onClick={clickedMuteHeroVideo}>
 					<video
 						ref={videoRef}
@@ -183,7 +119,7 @@ const HeroSection = () => {
 						</span>
 					</a>
 				</div>
-			</section> */}
+			</section>
     </>
   );
 };

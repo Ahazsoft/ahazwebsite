@@ -13,20 +13,53 @@ img.mfp-img {
   right: -24px;
 }
 
+
+/* HeroPage Redo */
+
+
+.sm-lp-centered {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sm-lp-size {
+  width: 50%;
+}
+
+.sm-lp-centered .sm-lp-hero-content {
+  text-align: center;
+  max-width: 800px;
+}
+
+.onovo-btn{
+  background-color: #f0faff !important;
+}
+
 /* Base Styles */
 .sm-lp-container {
   background: radial-gradient(
-    circle at 100% 100%,
+    /* circle at 100% 100%,
     rgb(255, 255, 255) -30%,
     rgba(30, 56, 84, 0.9) 55%,
-    #1e3854 100%
+    #1e3854 100% */
+    #004079
   );
   min-width: 100vw;
   height: 100vb;
   color: #fff;
-  font-family: "Arial", sans-serif;
-  padding: 0 8%;
+  /* font-family: "Arial", sans-serif; */
+  padding: 10% 8%;
+  
 }
+
+.sm-lp-description{
+  text-align: justify;
+  
+}
+
+
 
 /* Navigation */
 .sm-lp-navbar {
@@ -109,8 +142,8 @@ img.mfp-img {
 .sm-lp-description {
   font-size: 0.95rem;
   line-height: 1.6;
-  color: #bdc3c7;
-  margin-bottom: 2rem;
+  color: white;
+  margin-bottom: 3.5rem;
 }
 
 /* CTA Button */
