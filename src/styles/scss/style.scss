@@ -1429,7 +1429,8 @@ a.onovo-btn-circle,
 
 a.onovo-btn.btn--active,
 .onovo-btn.btn--active {
-	color: #000;
+	// color: #000;
+	color: #fff;
 }
 
 .onovo-btn.btn--active::before {
@@ -2047,6 +2048,8 @@ button > span,
 .page-links .current {
 	color: #000;
     background-color: #1d4173;
+	
+
 }
 
 .onovo-prev,
@@ -3035,7 +3038,8 @@ a.onovo-menu-btn,
 }
 
 .onovo-footer.footer--white {
-	background: #FAFAFA;
+	// background: #FAFAFA;
+	background: #f0faff;
 }
 
 .onovo-footer .footer--default {

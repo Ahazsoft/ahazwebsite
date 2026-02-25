@@ -331,6 +331,7 @@ input[type="submit"]:hover,
 .onovo-pricing-item:hover a.onovo-btn.btn--color::after,
 .onovo-pricing-item:hover .onovo-btn.btn--color::after {
     background-color: $btn_hover_color;
+    
 }
 button[type="submit"].onovo-btn:hover {
     background-color: transparent;

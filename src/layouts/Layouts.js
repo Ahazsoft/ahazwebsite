@@ -47,7 +47,7 @@ const Layouts = ({
 
         {!noHeader && (
           <Header
-            header={header}
+            header={2}
             darkHeader={darkHeader}
             cartButton={cartButton}
           />
@@ -58,7 +58,7 @@ const Layouts = ({
           {children}
         </div>
 
-        {!noFooter && <Footer footer={footer} />}
+        {!noFooter && <Footer footer={2} />}
 
         <SplitScrollAnimation />
       </div>

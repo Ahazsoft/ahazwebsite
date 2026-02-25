@@ -2024,6 +2024,8 @@ button > span,
 .page-links .current {
   color: #000;
   background-color: #1d4173;
+
+  
 }
 
 .onovo-prev,
@@ -7818,6 +7820,7 @@ input[type=submit]:hover,
 .onovo-pricing-item:hover a.onovo-btn.btn--color::after,
 .onovo-pricing-item:hover .onovo-btn.btn--color::after {
   background-color: #1d4173;
+  
 }
 
 button[type=submit].onovo-btn:hover {
