@@ -14,9 +14,9 @@ const HeroSectionNew = () => {
     <>
       <div className="sm-lp-container sm-lp-centered">
         <main className="sm-lp-hero sm-lp-size">
-            <div className="sm-lp-hero-content">
+            <div className="sm-lp-hero-content pt-5">
             {/* <hr className="sm-lp-accent-line" /> */}
-            <h1 className="sm-lp-title">
+            <h1 className="sm-lp-title mt-5">
                 We Build Custom Software & Websites Built to Perform.
             </h1>
             <p className="sm-lp-description">
