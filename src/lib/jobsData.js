@@ -2,7 +2,8 @@
 const jobsData = [
   {
     id: "1",
-    timeAgo: "10 min ago",
+    postDate: "2026-02-27",
+    expireDate:"2026-03-07",
     title: "Forward Security Director",
     company: "Ahaz Software",
     type: "Full time",
@@ -40,7 +41,45 @@ const jobsData = [
   },
   {
     id: "2",
-    timeAgo: "12 min ago",
+    postDate: "2026-02-26",
+    expireDate:"2026-03-07",
+    title: "Regional Creative Facilitator",
+    company: "Wisozk - Becker Co",
+    type: "Part time",
+    salary: "$28000 - $32000",
+    location: "Los Angeles, USA",
+    logo: "/images/logo/logo1.png",
+    description: [
+      "Nunc sed a nisl purus. Nibh dis faucibus proin lacus tristique. Sit congue non vitae odio sit erat in.",
+      "Commodo fringilla sed tempor risus laoreet ultricies ipsum. Habitasse morbi faucibus in iaculis lectus."
+    ],
+    responsibilities: [
+      "Facilitate creative workshops and training sessions.",
+      "Coordinate with regional teams to develop creative strategies.",
+      "Lead brainstorming sessions and concept development."
+    ],
+    requirements: [
+      "3+ years in creative facilitation or related role",
+      "Bachelor's degree in Design, Marketing, or Communications",
+      "Excellent presentation and interpersonal skills",
+      "Experience with digital collaboration tools"
+    ],
+    overview: {
+      category: "Media",
+      experience: "3 Years",
+      degree: "Bachelor",
+      offeredSalary: "$28000 - $32000",
+      location: "Los Angeles, USA"
+    },
+    contact: {
+      email: "jobs@wisozkbecker.com",
+      phone: "+1 (987) 654-3210"
+    }
+  },
+  {
+    id: "3",
+    postDate: "2026-02-21",
+    expireDate:"2026-03-07",
     title: "Regional Creative Facilitator",
     company: "Wisozk - Becker Co",
     type: "Part time",

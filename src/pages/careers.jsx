@@ -2,8 +2,7 @@ import Layouts from "@layouts/Layouts";
 import PageBanner from "@components/PageBanner";
 import Link from "next/link";
 import jobsData from "../lib/jobsData";
-
-
+import formatRelativeTime from "@/src/common/calculateTime";
 
 const Careers = () => {
   const hasJobs = jobsData.length > 0;
@@ -34,18 +33,53 @@ const Careers = () => {
             <div className="row">
               {jobsData.map((job) => (
                 <div key={job.id} className="col-12 mb-4">
-                  <div className="card border-0 shadow-sm">
+                  <div className="card border-0 shadow">
                     <div className="card-body">
                       {/* Time (top) */}
                       {/* <div className="text-muted small mb-2">{job.timeAgo}</div> */}
-                      <div
-                        className="badge  text-dark mb-4 px-3 py-2"
-                        style={{
-                          backgroundColor: "#efefef",
-                          padding: "5px",
-                        }}
-                      >
-                        {job.timeAgo}
+                      <div className="d-flex flex-wrap align-items-center justify-content-between col">
+                        {/* Posted At */}
+                        <div
+                          className="badge  text-dark mb-4 px-3 py-2"
+                          style={{
+                            backgroundColor: "#efefef",
+                            padding: "5px",
+                          }}
+                        >
+                          {/* {Date.now()} */}
+                          {formatRelativeTime(job.postDate)}
+                        </div>
+
+                        {/* Expiry */}
+                        <div
+                          className="badge  text-dark mb-4 px-3 py-2 "
+                          style={{
+                            backgroundColor: "#efefef",
+                            padding: "5px",
+                            display: "flex",
+                            flexDirection: "row",
+                            alignItems: "center",
+                            fontSize: "15px",
+                            gap: "4px",
+                          }}
+                        >
+                          <img
+                            src="/images/icons/Calendar.png"
+                            alt="Type"
+                            width="18"
+                            className="me-1"
+                          />
+                          <p
+                            style={{
+                              lineHeight: "20px",
+                              // fontSize:"15px",
+                              margin: "0px",
+                              paddingTop: "3px",
+                            }}
+                          >
+                            {job.expireDate}
+                          </p>
+                        </div>
                       </div>
 
                       {/* Logo + Title/Company row */}
@@ -76,16 +110,25 @@ const Careers = () => {
 
                       {/* Info items + Button row */}
                       <div className="d-flex flex-wrap align-items-center justify-content-between">
-                        <div className="d-flex gap-4 mb-2 mb-sm-0">
-                          <div className="d-flex align-items-center">
+                        <div className="d-flex flex-column flex-sm-row align-items-center align-items-sm-start gap-3 gap-sm-4 mb-2 mb-sm-0">
+                          <div
+                            className="d-flex align-items-center"
+                            id="careers-fulltime-container"
+                            style={
+                              {
+                                // border: "1px solid red",
+                              }
+                            }
+                          >
                             <img
-                              src="/images/icons/Clock.png"
+                              src="/images/icons/Briefcase.png"
                               alt="Type"
                               width="18"
                               className="me-1"
                             />
                             <span className="px-2">{job.type}</span>
                           </div>
+
                           <div className="d-flex align-items-center">
                             <img
                               src="/images/icons/Wallet.png"
@@ -95,6 +138,7 @@ const Careers = () => {
                             />
                             <span className="px-2">{job.salary}</span>
                           </div>
+
                           <div className="d-flex align-items-center">
                             <img
                               src="/images/icons/Location.png"
@@ -107,15 +151,18 @@ const Careers = () => {
                         </div>
 
                         {/* Job Details Button – exactly the same style as before */}
-                        <Link
-                          href={`/careers/${job.id}`}
-                          className="onovo-btn onovo-hover-btn"
-                        >
-                          <i className="arrow">
-                            <span />
-                          </i>
-                          <span>Job Details</span>
-                        </Link>
+                        <div className="career-job-detail-container">
+                          <Link
+                            href={`/careers/${job.id}`}
+                            className="onovo-btn onovo-hover-btn"
+                            id="careers-job-detail-button"
+                          >
+                            <i className="arrow">
+                              <span />
+                            </i>
+                            <span>Job Details</span>
+                          </Link>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -151,6 +198,25 @@ const Careers = () => {
             </div>
           )}
         </div>
+        <style jsx>{`
+          #careers-fulltime-container {
+            width: auto;
+          }
+
+          @media (max-width: 600px) {
+            #careers-fulltime-container {
+              width: 100%;
+            }
+            .career-job-detail-container {
+              width: 100%;
+              padding:20px 0;
+              // border: 1px solid red;
+              display:flex;
+              align-items: center;
+              justify-content: center;
+            }
+          }
+        `}</style>
       </section>
     </Layouts>
   );
