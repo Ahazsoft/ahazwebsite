@@ -35,7 +35,7 @@ const jobsData = [
       location: "New-York, USA"
     },
     contact: {
-      email: "hr@ahazsoftware.com",
+      email: "recruitement@ahaz.io",
       phone: "+1 (123) 456-7890"
     }
   },
@@ -72,7 +72,7 @@ const jobsData = [
       location: "Los Angeles, USA"
     },
     contact: {
-      email: "jobs@wisozkbecker.com",
+      email: "recruitement@ahaz.io",
       phone: "+1 (987) 654-3210"
     }
   },
@@ -109,7 +109,7 @@ const jobsData = [
       location: "Los Angeles, USA"
     },
     contact: {
-      email: "jobs@wisozkbecker.com",
+      email: "recruitement@ahaz.io",
       phone: "+1 (987) 654-3210"
     }
   }

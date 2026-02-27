@@ -115,6 +115,7 @@ const JobDetail = ({ job }) => {
                   />
                   <span className="px-2">{job.location}</span>
                 </div>
+                
               </div>
             </div>
           </div>
@@ -195,6 +196,11 @@ const JobDetail = ({ job }) => {
                   ))}
                 </ul>
               </div>
+
+              <p className="mb-5 mx-3">
+                <strong>Contact Email:</strong>{" "}
+                <a href={`mailto:${job.contact.email}`}>{job.contact.email}</a>
+              </p>
 
               {/* Share options */}
               <div className="onovo-share">
@@ -346,35 +352,21 @@ const JobDetail = ({ job }) => {
                       </tr>
                     </tbody>
                   </table>
-                </div>
-              </div>
-
-              {/* Contact Section */}
-              <div className="card border-0 shadow-sm">
-                <div className="card-body border">
-                  <h5 className="onovo-title-5 mb-3">Contact</h5>
-                  <p className="mb-2">
-                    <strong>Email:</strong>{" "}
-                    <a href={`mailto:${job.contact.email}`}>
-                      {job.contact.email}
-                    </a>
-                  </p>
-                  <p className="mb-2">
-                    <strong>Phone:</strong>{" "}
-                    <a href={`tel:${job.contact.phone}`}>{job.contact.phone}</a>
-                  </p>
+                  <div className="d-flex align-items-center">
                   <Link
-                    href="#"
+                    href={`/careers/${job.id}/apply`}
                     className="onovo-btn onovo-hover-btn"
                     style={{
                       alignSelf: "center",
                     }}
                   >
+                    
                     <i className="arrow">
                       <span />
                     </i>
                     <span>Apply Now</span>
                   </Link>
+                </div>
                 </div>
               </div>
             </div>
