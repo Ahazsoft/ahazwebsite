@@ -247,3 +247,11 @@ img.mfp-img {
 .sm-lp-hero-content h1 {
   color: #fff;
 }
+
+.onovo-btn.onovo-hover-btn.btn--active:hover {
+  color: black;
+}
+
+.onovo-btn.onovo-hover-btn.btn--active:hover span {
+  color: black;
+}
