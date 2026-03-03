@@ -15,7 +15,7 @@ const Careers = () => {
 
       {/* Recent Jobs Section */}
       <section className="onovo-section gap-bottom-140">
-        <div className="container">
+        <div className="container" style={{width:"90%"}}>
           {/* Section Heading */}
           <div className="onovo-heading gap-bottom-40">
             <h2 className="onovo-title-2 mt-4">

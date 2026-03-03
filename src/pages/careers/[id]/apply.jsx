@@ -15,7 +15,12 @@ const ApplyPage = () => {
     lastName: "",
     email: "",
     phone: "",
+    linkedIn: "",
+    gitHub: "",
   });
+
+  const [cvFile, setCvFile] = useState(null);
+  const [fileError, setFileError] = useState("");
 
   const [status, setStatus] = useState({
     submitting: false,
@@ -26,6 +31,37 @@ const ApplyPage = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    setFileError("");
+
+    if (!file) return;
+
+    // Validate file type
+    const allowedTypes = [
+      "application/pdf",
+      "application/msword",
+      "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+    ];
+    if (!allowedTypes.includes(file.type)) {
+      setFileError("Only PDF, DOC, or DOCX files are allowed.");
+      setCvFile(null);
+      e.target.value = ""; // clear input
+      return;
+    }
+
+    // Validate file size (5MB max)
+    const maxSize = 5 * 1024 * 1024; // 5MB
+    if (file.size > maxSize) {
+      setFileError("File size must be less than 5MB.");
+      setCvFile(null);
+      e.target.value = "";
+      return;
+    }
+
+    setCvFile(file);
   };
 
   const validate = () => {
@@ -49,23 +85,48 @@ const ApplyPage = () => {
       setStatus({ submitting: false, error: errorMsg, success: false });
       return;
     }
+    if (!cvFile) {
+      setStatus({
+        submitting: false,
+        error: "Please upload your CV.",
+        success: false,
+      });
+      return;
+    }
 
     setStatus({ submitting: true, error: "", success: false });
 
-    const payload = {
-      firstName: formData.firstName,
-      lastName: formData.lastName,
-      email: formData.email,
-      phone: formData.phone,
-      jobTitle: job.title,
-      company: job.company,
-    };
+    // const formDataPayload = new FormData();
+    // formDataPayload.append("firstName", formData.firstName);
+    // formDataPayload.append("lastName", formData.lastName);
+    // formDataPayload.append("email", formData.email);
+    // formDataPayload.append("phone", formData.phone);
+    // formDataPayload.append("jobTitle", job.title);
+    // formDataPayload.append("company", job.company);
+    // formDataPayload.append("cv", cvFile);
+
+    const formDataPayload = new FormData();
+    formDataPayload.append("firstName", formData.firstName);
+    formDataPayload.append("lastName", formData.lastName);
+    formDataPayload.append("email", formData.email);
+    formDataPayload.append("phone", formData.phone);
+    formDataPayload.append("jobTitle", job.title);
+    formDataPayload.append("company", job.company);
+
+    // Append optional fields only if they have a value
+    if (formData.linkedIn && formData.linkedIn.trim() !== "") {
+      formDataPayload.append("linkedIn", formData.linkedIn);
+    }
+    if (formData.gitHub && formData.gitHub.trim() !== "") {
+      formDataPayload.append("gitHub", formData.gitHub);
+    }
+
+    formDataPayload.append("cv", cvFile);
 
     try {
       const response = await fetch("http://localhost:3001/api/apply", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
+        body: formDataPayload, // no Content-Type header – browser sets it automatically
       });
       const data = await response.json();
       if (response.ok) {
@@ -115,7 +176,12 @@ const ApplyPage = () => {
             <div className="col-lg-5 col-md-7">
               <div className="card border-0">
                 <div className="card-body p-3">
-                  <h4 className="onovo-title-4 mt-3 mb-3" style={{textAlign:"center"}}>Application Form</h4>
+                  <h4
+                    className="onovo-title-4 mt-3 mb-3"
+                    style={{ textAlign: "center" }}
+                  >
+                    Application Form
+                  </h4>
 
                   {status.success ? (
                     <div className="text-center">
@@ -217,7 +283,7 @@ const ApplyPage = () => {
                         />
                       </div>
 
-                      <div className="mb-3">
+                      <div className="mb-2">
                         <label
                           htmlFor="phone"
                           className="form-label small mb-1"
@@ -235,6 +301,68 @@ const ApplyPage = () => {
                           required
                         />
                       </div>
+                      {/* Github */}
+                      <div className="mb-2">
+                        <label
+                          htmlFor="gitHub"
+                          className="form-label small mb-1"
+                        >
+                          GitHub *
+                        </label>
+                        <input
+                          type="text"
+                          className="form-control form-control-sm"
+                          id="gitHub"
+                          name="gitHub"
+                          value={formData.gitHub}
+                          onChange={handleChange}
+                          disabled={status.submitting}
+                        />
+                      </div>
+
+                      {/* linked in */}
+                      <div className="mb-2">
+                        <label
+                          htmlFor="linkedIn"
+                          className="form-label small mb-1"
+                        >
+                          Linked in *
+                        </label>
+                        <input
+                          type="text"
+                          className="form-control form-control-sm"
+                          id="linkedIn"
+                          name="linkedIn"
+                          value={formData.linkedIn}
+                          onChange={handleChange}
+                          disabled={status.submitting}
+                        />
+                      </div>
+
+                      {/* CV File Upload */}
+                      <div className="mb-5">
+                        <label htmlFor="cv" className="form-label small">
+                          CV / Resume * (PDF, DOC, DOCX only, max 5MB)
+                        </label>
+                        <input
+                          type="file"
+                          className="form-control form-control-lg rounded"
+                          style={{
+                            fontSize: "17px",
+                          }}
+                          id="cv"
+                          name="cv"
+                          accept=".pdf,.doc,.docx"
+                          onChange={handleFileChange}
+                          disabled={status.submitting}
+                          required
+                        />
+                        {fileError && (
+                          <div className="text-danger small mt-1">
+                            {fileError}
+                          </div>
+                        )}
+                      </div>
 
                       <button
                         type="submit"
@@ -250,7 +378,7 @@ const ApplyPage = () => {
                             <i className="arrow">
                               <span />
                             </i>
-                            <span>Submit Application</span>
+                            <span>Submit</span>
                           </>
                         )}
                       </button>
@@ -262,12 +390,11 @@ const ApplyPage = () => {
           </div>
         </div>
         <style jsx>
-            {`
+          {`
             input {
-            height: 45px; 
+              height: 45px;
             }
-            
-            `}
+          `}
         </style>
       </section>
     </Layouts>

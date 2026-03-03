@@ -1,13 +1,14 @@
 // lib/jobsData.js
 const jobsData = [
   {
+    status:"Open", // "Closed" 
     id: "1",
     postDate: "2026-02-27",
     expireDate:"2026-03-07",
     title: "Forward Security Director",
     company: "Ahaz Software",
     type: "Full time",
-    salary: "$2000 - $3000",
+    salary: "Monthly",
     location: "New York, USA",
     logo: "/images/logo/logo1.png", // adjust path as needed
     description: [
@@ -31,7 +32,6 @@ const jobsData = [
       category: "Commerce",
       experience: "5 Years",
       degree: "Master",
-      offeredSalary: "$40000-$42000",
       location: "New-York, USA"
     },
     contact: {
@@ -68,12 +68,10 @@ const jobsData = [
       category: "Media",
       experience: "3 Years",
       degree: "Bachelor",
-      offeredSalary: "$28000 - $32000",
       location: "Los Angeles, USA"
     },
     contact: {
       email: "recruitement@ahaz.io",
-      phone: "+1 (987) 654-3210"
     }
   },
   {
@@ -105,7 +103,6 @@ const jobsData = [
       category: "Media",
       experience: "3 Years",
       degree: "Bachelor",
-      offeredSalary: "$28000 - $32000",
       location: "Los Angeles, USA"
     },
     contact: {

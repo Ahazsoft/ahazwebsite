@@ -18,10 +18,26 @@ const JobDetail = ({ job }) => {
   return (
     <Layouts>
       <PageBanner pageTitle={"Job Details"} pageDesc={job.title} />
-
+      <style jsx>{`
+        @media (max-width: 600px) {
+          #career-detail-title {
+            font-size: 20px;
+          }
+          #career-detail-subtitle {
+            font-size: 17px;
+          }
+        }
+      `}</style>
       {/* Job Summary Card (full width) */}
       <section className="onovo-section gap-bottom-60">
-        <div className="container">
+        <div
+          className="container border-bottom "
+          style={{
+            width: "90%",
+            alignSelf: "center",
+            boxShadow: "0 8px 10px -6px rgba(0, 0, 0, 0.15)",
+          }}
+        >
           <div className="card border-0">
             <div className="card-body">
               {/* Time settings */}
@@ -81,8 +97,10 @@ const JobDetail = ({ job }) => {
                   />
                 </div>
                 <div>
-                  <h3 className="onovo-title-3 mb-1">{job.title}</h3>
-                  <h5 className="text-muted">{job.company}</h5>
+                  <h3 className="onovo-title-3 mb-1" id="career-detail-title">
+                    {job.title}
+                  </h3>
+                  <h5 className="text-muted" id="career-detail-subtitle">{job.company}</h5>
                 </div>
               </div>
 
@@ -115,7 +133,6 @@ const JobDetail = ({ job }) => {
                   />
                   <span className="px-2">{job.location}</span>
                 </div>
-                
               </div>
             </div>
           </div>
@@ -124,7 +141,7 @@ const JobDetail = ({ job }) => {
 
       {/* Two-column layout */}
       <section className="onovo-section gap-bottom-140">
-        <div className="container">
+        <div className="container" style={{ width: "90%" }}>
           <div className="row">
             {/* Main content - 60% */}
             <div className="col-lg-8">
@@ -342,10 +359,7 @@ const JobDetail = ({ job }) => {
                         <th>Degree:</th>
                         <td>{job.overview.degree}</td>
                       </tr>
-                      <tr>
-                        <th>Offered Salary:</th>
-                        <td>{job.overview.offeredSalary}</td>
-                      </tr>
+                     
                       <tr>
                         <th>Location:</th>
                         <td>{job.overview.location}</td>
@@ -353,20 +367,19 @@ const JobDetail = ({ job }) => {
                     </tbody>
                   </table>
                   <div className="d-flex align-items-center">
-                  <Link
-                    href={`/careers/${job.id}/apply`}
-                    className="onovo-btn onovo-hover-btn"
-                    style={{
-                      alignSelf: "center",
-                    }}
-                  >
-                    
-                    <i className="arrow">
-                      <span />
-                    </i>
-                    <span>Apply Now</span>
-                  </Link>
-                </div>
+                    <Link
+                      href={`/careers/${job.id}/apply`}
+                      className="onovo-btn onovo-hover-btn"
+                      style={{
+                        alignSelf: "center",
+                      }}
+                    >
+                      <i className="arrow">
+                        <span />
+                      </i>
+                      <span>Apply Now</span>
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
