@@ -2,6 +2,10 @@
 #preview
 title: Teshome Gebre Mariam Bokan - Law Firm
 image: /images/project-logo/signature.png
+images: 
+  - /images/project-logo/signature.png
+  - /images/project-logo/signature.png
+  - /images/project-logo/signature.png
 category: Website
 category_slug: corporate
 type: Website Design, Website Development 

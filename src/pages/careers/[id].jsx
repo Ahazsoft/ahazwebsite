@@ -2,7 +2,7 @@ import Layouts from "@layouts/Layouts";
 import PageBanner from "@components/PageBanner";
 import Link from "next/link";
 import jobsData from "@/src/lib/jobsData"; // adjust path if needed
-
+import formatRelativeTime from "@/src/common/calculateTime";
 const JobDetail = ({ job }) => {
   if (!job) {
     return (
@@ -18,14 +18,73 @@ const JobDetail = ({ job }) => {
   return (
     <Layouts>
       <PageBanner pageTitle={"Job Details"} pageDesc={job.title} />
-
+      <style jsx>{`
+        @media (max-width: 600px) {
+          #career-detail-title {
+            font-size: 20px;
+          }
+          #career-detail-subtitle {
+            font-size: 17px;
+          }
+        }
+      `}</style>
       {/* Job Summary Card (full width) */}
       <section className="onovo-section gap-bottom-60">
-        <div className="container">
+        <div
+          className="container border-bottom "
+          style={{
+            width: "90%",
+            alignSelf: "center",
+            boxShadow: "0 8px 10px -6px rgba(0, 0, 0, 0.15)",
+          }}
+        >
           <div className="card border-0">
             <div className="card-body">
-              {/* Time badge */}
-              <div className="badge bg-light text-dark mb-3">{job.timeAgo}</div>
+              {/* Time settings */}
+              <div className="d-flex flex-wrap align-items-center justify-content-between col">
+                {/* Posted At */}
+                <div
+                  className="badge  text-dark mb-4 px-3 py-2"
+                  style={{
+                    backgroundColor: "#efefef",
+                    padding: "5px",
+                  }}
+                >
+                  {/* {Date.now()} */}
+                  {formatRelativeTime(job.postDate)}
+                </div>
+
+                {/* Expiry */}
+                <div
+                  className="badge  text-dark mb-4 px-3 py-2 "
+                  style={{
+                    backgroundColor: "#efefef",
+                    padding: "5px",
+                    display: "flex",
+                    flexDirection: "row",
+                    alignItems: "center",
+                    fontSize: "15px",
+                    gap: "4px",
+                  }}
+                >
+                  <img
+                    src="/images/icons/Calendar.png"
+                    alt="Type"
+                    width="18"
+                    className="me-1"
+                  />
+                  <p
+                    style={{
+                      lineHeight: "20px",
+                      // fontSize:"15px",
+                      margin: "0px",
+                      paddingTop: "3px",
+                    }}
+                  >
+                    {job.expireDate}
+                  </p>
+                </div>
+              </div>
 
               {/* Logo + Title/Company */}
               <div className="d-flex align-items-center mb-4">
@@ -38,8 +97,10 @@ const JobDetail = ({ job }) => {
                   />
                 </div>
                 <div>
-                  <h3 className="onovo-title-3 mb-1">{job.title}</h3>
-                  <h5 className="text-muted">{job.company}</h5>
+                  <h3 className="onovo-title-3 mb-1" id="career-detail-title">
+                    {job.title}
+                  </h3>
+                  <h5 className="text-muted" id="career-detail-subtitle">{job.company}</h5>
                 </div>
               </div>
 
@@ -47,7 +108,7 @@ const JobDetail = ({ job }) => {
               <div className="d-flex flex-wrap gap-4">
                 <div className="d-flex align-items-center">
                   <img
-                    src="/images/icons/Clock.png"
+                    src="/images/icons/Briefcase.png"
                     alt="Type"
                     width="18"
                     className="me-1"
@@ -80,7 +141,7 @@ const JobDetail = ({ job }) => {
 
       {/* Two-column layout */}
       <section className="onovo-section gap-bottom-140">
-        <div className="container">
+        <div className="container" style={{ width: "90%" }}>
           <div className="row">
             {/* Main content - 60% */}
             <div className="col-lg-8">
@@ -147,21 +208,42 @@ const JobDetail = ({ job }) => {
                           <circle cx="8" cy="8" r="3" fill="currentColor" />
                         </svg>
                       </span>
-                      <span style={{paddingLeft:"10px"}}>{item}</span>
+                      <span style={{ paddingLeft: "10px" }}>{item}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
+              <p className="mb-5 mx-3">
+                <strong>Contact Email:</strong>{" "}
+                <a href={`mailto:${job.contact.email}`}>{job.contact.email}</a>
+              </p>
+
               {/* Share options */}
               <div className="onovo-share">
-                <h5 className="onovo-title-5 mb-3">Share this job</h5>
-                <div className="d-flex gap-3">
-                  <Link href="#" className="onovo-btn onovo-hover-btn">
+                <h5
+                  className="onovo-title-5 mb-3"
+                  style={{ color: "#1d4173", textDecoration: "underline" }}
+                >
+                  Share this job
+                </h5>
+                <div className="d-flex gap-3 mb-5">
+                  <Link
+                    href="#"
+                    className="onovo-btn onovo-hover-btn"
+                    style={{
+                      height: "50px",
+                      width: "30px",
+                      display: "flex",
+                      flexDirection: "row",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
                     <span>
                       <svg
-                        width="26"
-                        height="26"
+                        width="16"
+                        height="16"
                         viewBox="0 0 24 24"
                         fill="currentColor"
                         aria-label="LinkedIn logo"
@@ -171,12 +253,23 @@ const JobDetail = ({ job }) => {
                     </span>
                     {/* <span>LinkedIn</span> */}
                   </Link>
-                  <Link href="#" className="onovo-btn onovo-hover-btn">
+                  <Link
+                    href="#"
+                    className="onovo-btn onovo-hover-btn"
+                    style={{
+                      height: "50px",
+                      width: "30px",
+                      display: "flex",
+                      flexDirection: "row",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
                     <span>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        width="30"
-                        height="30"
+                        width="16"
+                        height="16"
                         viewBox="0 0 16 16"
                         fill="currentColor"
                       >
@@ -185,12 +278,23 @@ const JobDetail = ({ job }) => {
                     </span>
                     {/* <span>Twitter</span> */}
                   </Link>
-                  <Link href="#" className="onovo-btn onovo-hover-btn">
+                  <Link
+                    href="#"
+                    className="onovo-btn onovo-hover-btn"
+                    style={{
+                      height: "50px",
+                      width: "30px",
+                      display: "flex",
+                      flexDirection: "row",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
                     <span>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        width="30"
-                        height="30"
+                        width="16"
+                        height="16"
                         viewBox="0 0 16 16"
                         fill="currentColor"
                       >
@@ -199,14 +303,25 @@ const JobDetail = ({ job }) => {
                     </span>
                     {/* <span>Twitter</span> */}
                   </Link>
-                  <Link href="#" className="onovo-btn onovo-hover-btn">
+                  <Link
+                    href="#"
+                    className="onovo-btn onovo-hover-btn"
+                    style={{
+                      height: "50px",
+                      width: "30px",
+                      display: "flex",
+                      flexDirection: "row",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
                     {/* <i className="arrow">
                       <span />
                     </i> */}
                     <span>
                       <svg
-                        width="40"
-                        height="40"
+                        width="25"
+                        height="25"
                         viewBox="0 0 24 24"
                         fill="currentColor"
                         aria-label="Facebook logo"
@@ -224,7 +339,7 @@ const JobDetail = ({ job }) => {
             <div className="col-lg-4">
               {/* Job Overview Card */}
               <div className="card border-0 shadow-sm mb-4">
-                <div className="card-body">
+                <div className="card-body border">
                   <h5 className="onovo-title-5 mb-3">Job Overview</h5>
                   <table className="table table-borderless">
                     <tbody>
@@ -244,45 +359,27 @@ const JobDetail = ({ job }) => {
                         <th>Degree:</th>
                         <td>{job.overview.degree}</td>
                       </tr>
-                      <tr>
-                        <th>Offered Salary:</th>
-                        <td>{job.overview.offeredSalary}</td>
-                      </tr>
+                     
                       <tr>
                         <th>Location:</th>
                         <td>{job.overview.location}</td>
                       </tr>
                     </tbody>
                   </table>
-                </div>
-              </div>
-
-              {/* Contact Section */}
-              <div className="card border-0 shadow-sm">
-                <div className="card-body">
-                  <h5 className="onovo-title-5 mb-3">Contact</h5>
-                  <p className="mb-2">
-                    <strong>Email:</strong>{" "}
-                    <a href={`mailto:${job.contact.email}`}>
-                      {job.contact.email}
-                    </a>
-                  </p>
-                  <p className="mb-2">
-                    <strong>Phone:</strong>{" "}
-                    <a href={`tel:${job.contact.phone}`}>{job.contact.phone}</a>
-                  </p>
-                  <Link
-                    href="#"
-                    className="onovo-btn onovo-hover-btn"
-                    style={{
-                      alignSelf: "center",
-                    }}
-                  >
-                    <i className="arrow">
-                      <span />
-                    </i>
-                    <span>Apply Now</span>
-                  </Link>
+                  <div className="d-flex align-items-center">
+                    <Link
+                      href={`/careers/${job.id}/apply`}
+                      className="onovo-btn onovo-hover-btn"
+                      style={{
+                        alignSelf: "center",
+                      }}
+                    >
+                      <i className="arrow">
+                        <span />
+                      </i>
+                      <span>Apply Now</span>
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
