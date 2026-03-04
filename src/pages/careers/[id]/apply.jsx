@@ -134,17 +134,24 @@ const ApplyPage = () => {
         body: formDataPayload,
       });
 
-      const text = await response.text();
-      console.log("RAW SERVER RESPONSE:", text);
+      const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(text);
+        throw new Error(data.error || "Submission failed.");
       }
 
-      const data = JSON.parse(text);
-      console.log("Parsed JSON:", data);
-
+      setStatus({ submitting: false, error: "", success: true });
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        linkedIn: "",
+        gitHub: "",
+      });
+      setCvFile(null);
     } catch (error) {
+      setStatus({ submitting: false, error: error.message, success: false });
       console.error("Submission error:", error);
     }
   };
