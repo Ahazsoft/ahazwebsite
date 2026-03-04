@@ -124,7 +124,12 @@ const ApplyPage = () => {
     formDataPayload.append("cv", cvFile);
 
     try {
-      const response = await fetch("http://localhost:3001/api/apply", {
+      // const response = await fetch("http://localhost:3001/api/apply", {
+      //   method: "POST",
+      //   body: formDataPayload,
+      // });
+
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/apply`, {
         method: "POST",
         body: formDataPayload,
       });
