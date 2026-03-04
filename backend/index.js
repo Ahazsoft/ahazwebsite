@@ -34,6 +34,18 @@ const upload = multer({
   },
 });
 
+// Configure Nodemailer transporter (cPanel SMTP)
+
+const transporter = nodemailer.createTransport({
+  host: "localhost",
+  port: 25,
+  secure: false,
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS,
+  },
+});
+
 // POST /api/apply
 app.post("/api/apply", upload.single("cv"), async (req, res) => {
   try {
@@ -61,13 +73,13 @@ app.post("/api/apply", upload.single("cv"), async (req, res) => {
     }
 
     // Configure Nodemailer transporter
-    const transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
-      },
-    });
+    // const transporter = nodemailer.createTransport({
+    //   // service: "gmail",
+    //   auth: {
+    //     user: process.env.EMAIL_USER,
+    //     pass: process.env.EMAIL_PASS,
+    //   },
+    // });
 
     // 1. Confirmation email to applicant
     const applicantMailOptions = {
@@ -86,6 +98,7 @@ app.post("/api/apply", upload.single("cv"), async (req, res) => {
     // 2. Email to company with CV attached
     const companyMailOptions = {
       from: `"${firstName} ${lastName}" <${email}>`,
+      replyTo: email, 
       to: process.env.EMAIL_USER,
       subject: `New Application: ${jobTitle} from ${firstName} ${lastName}`,
       html: `
@@ -146,3 +159,6 @@ app.get("/health", (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
 });
+
+
+

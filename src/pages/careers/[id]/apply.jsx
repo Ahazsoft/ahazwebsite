@@ -126,25 +126,21 @@ const ApplyPage = () => {
     try {
       const response = await fetch("http://localhost:3001/api/apply", {
         method: "POST",
-        body: formDataPayload, // no Content-Type header – browser sets it automatically
+        body: formDataPayload,
       });
-      const data = await response.json();
-      if (response.ok) {
-        setStatus({ submitting: false, error: "", success: true });
-      } else {
-        setStatus({
-          submitting: false,
-          error: data.error || "Something went wrong.",
-          success: false,
-        });
+
+      const text = await response.text();
+      console.log("RAW SERVER RESPONSE:", text);
+
+      if (!response.ok) {
+        throw new Error(text);
       }
+
+      const data = JSON.parse(text);
+      console.log("Parsed JSON:", data);
+
     } catch (error) {
       console.error("Submission error:", error);
-      setStatus({
-        submitting: false,
-        error: "Network error. Please try again.",
-        success: false,
-      });
     }
   };
 
@@ -307,7 +303,7 @@ const ApplyPage = () => {
                           htmlFor="gitHub"
                           className="form-label small mb-1"
                         >
-                          GitHub *
+                          GitHub
                         </label>
                         <input
                           type="text"
@@ -326,7 +322,7 @@ const ApplyPage = () => {
                           htmlFor="linkedIn"
                           className="form-label small mb-1"
                         >
-                          Linked in *
+                          Linkedin
                         </label>
                         <input
                           type="text"
