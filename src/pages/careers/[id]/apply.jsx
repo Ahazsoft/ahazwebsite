@@ -129,7 +129,7 @@ const ApplyPage = () => {
       //   body: formDataPayload,
       // });
 
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/apply`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/apply`, {
         method: "POST",
         body: formDataPayload,
       });
