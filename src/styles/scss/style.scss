@@ -5279,9 +5279,21 @@ ul.onovo-footer-menu li {
   font-size: 36px;
   line-height: 1;
 }
+.onovo-team-item:hover .title {
+  color: white;
+}
+
+.onovo-team-item:hover .desc {
+  color: #eeeeee;
+}
 
 .onovo-team-item .onovo-social-1 {
   margin-top: 30px;
+}
+
+.onovo-team-item:hover .onovo-social-1 > ul > li > a {
+  color: white;
+  border: 1px solid white;
 }
 
 .onovo-team-item .image {

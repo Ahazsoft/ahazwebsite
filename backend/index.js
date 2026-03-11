@@ -2,6 +2,7 @@ const express = require("express");
 const nodemailer = require("nodemailer");
 const cors = require("cors");
 const multer = require("multer");
+const prisma = require('./prisma.js');
 require("dotenv").config();
 
 const app = express();
@@ -45,6 +46,38 @@ const transporter = nodemailer.createTransport({
     pass: process.env.EMAIL_PASS,
   },
 });
+
+// GET /api/jobs
+app.get('/api/jobs', async (req, res) => {
+  try {
+    const jobs = await prisma.jobs.findMany()    
+    res.json(jobs)
+
+  } catch (error) {
+    console.error(` Prisma error: ${error}`)
+
+    res.status(500).json({ error: error.message })
+  }
+})
+
+// GET /api/job/:id  - fetch a single job by its UUID
+app.get('/api/job/:id', async (req, res) => {
+  const { id } = req.params
+
+  try {
+    const job = await prisma.jobs.findUnique({
+      where: { id }
+    })
+
+    if (!job) {
+      return res.status(404).json({ error: 'Job not found' })
+    }
+
+    res.json(job)
+  } catch (error) {
+    res.status(500).json({ error: error.message })
+  }
+})
 
 // POST /api/apply
 // app.post("/api/apply", upload.single("cv"), async (req, res) => {

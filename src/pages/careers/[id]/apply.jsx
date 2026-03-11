@@ -1,14 +1,16 @@
 import Layouts from "@layouts/Layouts";
 import PageBanner from "@components/PageBanner";
 import { useRouter } from "next/router";
-import { useState } from "react";
-import jobsData from "../../../lib/jobsData";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 
 const ApplyPage = () => {
   const router = useRouter();
   const { id } = router.query;
-  const job = jobsData.find((j) => j.id === id);
+
+  const [job, setJob] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [fetchError, setFetchError] = useState("");
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -156,12 +158,59 @@ const ApplyPage = () => {
     }
   };
 
+  useEffect(() => {
+    if (!id) return;
+
+    const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001/api";
+
+    setLoading(true);
+    setFetchError("");
+
+    fetch(`${API_BASE}/job/${id}`)
+      .then((res) => {
+        if (res.status === 404) throw new Error("Job not found");
+        if (!res.ok) throw new Error("Failed to fetch job");
+        return res.json();
+      })
+      .then((data) => setJob(data))
+      .catch((err) => setFetchError(err.message))
+      .finally(() => setLoading(false));
+  }, [id]);
+
+  if (loading) {
+    return (
+      <Layouts>
+        <PageBanner pageTitle="Apply" pageDesc="Loading..." />
+        <div className="text-center py-5">
+          <h4>Loading job details…</h4>
+        </div>
+      </Layouts>
+    );
+  }
+
   if (!job) {
     return (
       <Layouts>
-        <PageBanner pageTitle="Apply" pageDesc="Job not found" />
+        <PageBanner pageTitle="Apply" pageDesc={fetchError || "Job not found"} />
         <div className="text-center py-5">
           <h4>Sorry, the job you're applying for doesn't exist.</h4>
+          <Link href="/careers" className="onovo-btn onovo-hover-btn mt-3">
+            <i className="arrow">
+              <span />
+            </i>
+            <span>Back to Careers</span>
+          </Link>
+        </div>
+      </Layouts>
+    );
+  }
+
+  if (job.status == "closed") {
+    return (
+      <Layouts>
+        <PageBanner pageTitle="Apply" pageDesc={job.title} />
+        <div className="text-center py-5">
+          <h4>Sorry, the job you're applying is closed stay tuned for another job position.</h4>
           <Link href="/careers" className="onovo-btn onovo-hover-btn mt-3">
             <i className="arrow">
               <span />

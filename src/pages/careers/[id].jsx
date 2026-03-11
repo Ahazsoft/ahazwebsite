@@ -1,12 +1,10 @@
 import Layouts from "@layouts/Layouts";
 import PageBanner from "@components/PageBanner";
 import Link from "next/link";
-import jobsData from "@/src/lib/jobsData"; // adjust path if needed
 import formatRelativeTime from "@/src/common/calculateTime";
-import { useRouter } from "next/router";
-
-
-
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import rehypeSanitize from "rehype-sanitize";
 
 const JobDetail = ({ job }) => {
   if (!job) {
@@ -66,7 +64,7 @@ const JobDetail = ({ job }) => {
                   }}
                 >
                   {/* {Date.now()} */}
-                  {formatRelativeTime(job.postDate)}
+                  {formatRelativeTime(job.post_date.split('T')[0])}
                 </div>
 
                 {/* Expiry */}
@@ -96,7 +94,7 @@ const JobDetail = ({ job }) => {
                       paddingTop: "3px",
                     }}
                   >
-                    {job.expireDate}
+                    {job.expiry_date.split('T')[0]}
                   </p>
                 </div>
               </div>
@@ -105,7 +103,7 @@ const JobDetail = ({ job }) => {
               <div className="d-flex align-items-center mb-4">
                 <div className="me-3">
                   <img
-                    src={job.logo}
+                    src="/images/logo/logo1.png"
                     alt={job.company}
                     width="70"
                     height="70"
@@ -128,7 +126,7 @@ const JobDetail = ({ job }) => {
                     width="18"
                     className="me-1"
                   />
-                  <span className="px-2">{job.type}</span>
+                  <span className="px-2">{job.job_type}</span>
                 </div>
                 <div className="d-flex align-items-center">
                   <img
@@ -160,78 +158,24 @@ const JobDetail = ({ job }) => {
           <div className="row">
             {/* Main content - 60% */}
             <div className="col-lg-8">
-              {/* Job Description */}
-              <div className="onovo-text mb-5">
-                <h4 className="onovo-title-4 mb-4">Job Description</h4>
-                {job.description.map((para, idx) => (
-                  <p key={idx} className="mb-3">
-                    {para}
-                  </p>
-                ))}
+        
+
+              {/*Live Preview */}
+              <div className="space-y-2">
+                <div className="markdown-body p-6 bg-white overflow-auto">
+                  <ReactMarkdown
+                    remarkPlugins={[remarkGfm]}
+                    rehypePlugins={[rehypeSanitize]}
+                  >
+                    {job.description}
+                  </ReactMarkdown>
+                </div>
               </div>
 
-              {/* Responsibilities */}
-              <div className="onovo-text mb-5">
-                <h4 className="onovo-title-4 mb-4">Key Responsibilities</h4>
-                <ul className="list-unstyled">
-                  {job.responsibilities.map((item, idx) => (
-                    <li key={idx} className="mb-3 d-flex">
-                      {/* <span className="me-2 text-success">✅</span> */}
-
-                      <span>
-                        <svg
-                          class="icon"
-                          viewBox="0 0 16 16"
-                          aria-label="solid dot"
-                          role="img"
-                          focusable="false"
-                          width="30px"
-                          height="30px"
-                        >
-                          <circle cx="8" cy="8" r="3" fill="currentColor" />
-                        </svg>
-                      </span>
-                      <span
-                        style={{
-                          paddingLeft: "10px",
-                        }}
-                      >
-                        {item}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Requirements */}
-              <div className="onovo-text mb-5">
-                <h4 className="onovo-title-4 mb-4">Requirements</h4>
-                <ul className="list-unstyled">
-                  {job.requirements.map((item, idx) => (
-                    <li key={idx} className="mb-3 d-flex">
-                      {/* <span className="me-2 text-primary">•</span> */}
-                      <span>
-                        <svg
-                          class="icon"
-                          viewBox="0 0 16 16"
-                          aria-label="solid dot"
-                          role="img"
-                          focusable="false"
-                          width="30px"
-                          height="30px"
-                        >
-                          <circle cx="8" cy="8" r="3" fill="currentColor" />
-                        </svg>
-                      </span>
-                      <span style={{ paddingLeft: "10px" }}>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
+              
               <p className="mb-5 mx-3">
                 <strong>Contact Email:</strong>{" "}
-                <a href={`mailto:${job.contact.email}`}>{job.contact.email}</a>
+                <a href={`mailto:${job.email}`}>{job.email}</a>
               </p>
 
               {/* Share options */}
@@ -251,7 +195,14 @@ const JobDetail = ({ job }) => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="onovo-btn onovo-hover-btn"
-                    style={{ height: "50px", width: "50px", display: "flex", alignItems: "center", justifyContent: "center" }}
+                    style={{  
+                      height: "50px",
+                      width: "30px",
+                      display: "flex",
+                      flexDirection: "row",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
                   >
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M4.98 3.5C4.98 4.88 3.87 6 2.49 6S0 4.88 0 3.5 1.11 1 2.49 1 4.98 2.12 4.98 3.5zM0 8.4h5.1V24H0V8.4zm7.5 0h4.9v2.2h.1c.7-1.3 2.5-2.7 5-2.7 5.3 0 6.3 3.5 6.3 8V24h-5.1v-8.3c0-2-.1-4.4-2.7-4.4-2.8 0-3.2 2.2-3.2 4.3V24H7.5V8.4z" />
@@ -315,20 +266,20 @@ const JobDetail = ({ job }) => {
                       </tr>
                       <tr>
                         <th>Category:</th>
-                        <td>{job.overview.category}</td>
+                        <td>Software Development</td>
                       </tr>
                       <tr>
                         <th>Experience:</th>
-                        <td>{job.overview.experience}</td>
+                        <td>{job.job_level}</td>
                       </tr>
                       <tr>
                         <th>Degree:</th>
-                        <td>{job.overview.degree}</td>
+                        <td>{job.education}</td>
                       </tr>
                      
                       <tr>
                         <th>Location:</th>
-                        <td>{job.overview.location}</td>
+                        <td>{job.location}</td>
                       </tr>
                     </tbody>
                   </table>
@@ -360,23 +311,41 @@ export default JobDetail;
 
 // Generate paths for all jobs
 export async function getStaticPaths() {
-  const paths = jobsData.map((job) => ({
-    params: { id: job.id },
-  }));
+  try {
+    const res = await fetch("http://localhost:3001/api/jobs");
+    const jobs = await res.json();
 
-  return {
-    paths,
-    fallback: false, // or 'blocking' if you want to generate on-demand
-  };
+    const paths = jobs.map((job) => ({
+      params: { id: job.id },
+    }));
+
+    return {
+      paths,
+      fallback: 'blocking',
+    };
+  } catch (error) {
+    console.error("Error fetching jobs for paths:", error);
+    return { paths: [], fallback: false };
+  }
 }
 
-// Fetch job data for the given id
+// Fetch job data for the given id from the backend API
 export async function getStaticProps({ params }) {
-  const job = jobsData.find((j) => j.id === params.id);
+  try {
+    const res = await fetch(`http://localhost:3001/api/job/${params.id}`);
 
-  return {
-    props: {
-      job: job || null,
-    },
-  };
+    if (res.status === 404) {
+      return { notFound: true };
+    }
+
+    const job = await res.json();
+
+    return {
+      props: { job: job || null },
+      revalidate: 60,
+    };
+  } catch (error) {
+    console.error("Error fetching job:", error);
+    return { props: { job: null } };
+  }
 }
