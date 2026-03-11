@@ -1,47 +1,42 @@
 ---
 #preview
-title: Axum Aviation
-image: /images/project-logo/AA I Logo JPEG-03.jpg
+title: Bekema Trading & Be Well Spa
+image: /images/project-logo/bekema.png
 category: Website
 category_slug: corporate
 type: Website Design, Website Development 
-team: Bala Media
-date: August 2022
-link: https://axumaviation.com/
+team: Gabi Studio
+date: January 2026
+link: https://bekematrading.com/
 #full details
 details:
     items:
         - label: "Client:"
-          value: Bala Media
+          value: Gabi Studio
 
         - label: "Start:"
-          value: Dec 18, 2022
+          value: January 2026
         
         - label: "Ending:"
-          value: Mar 18, 2023
+          value: February , 2026
         
         - label: "Website:"
-          value: https://axumaviation.com/
+          value: https://bekematrading.com/
 
-gallery: 
-    items:
-        - image: /images/project-2-2-1200x982.jpg
-          alt: "image"
-
-        - image: /images/project-2-1200x988.jpg
-          alt: "image"
-
-        - image: /images/project-4.jpg
-          alt: "image"
-        
-        - image: /images/project-3-1200x750.jpg
-          alt: "image"
-
-        - image: /images/project-1-1080x800.jpg
-          alt: "image"
-        
-        - image: /images/project-8-1080x800.jpg
-          alt: "image"
+gallery:
+  items:
+    - image: /images/project-logo/IMG_20250318_125046_524.png
+      alt: "Bespa"
+      link: https://bespaet.com/
+    - image:  /images/project-logo/bekema.png
+      alt: "Bekema Trading"
+      link: https://bekematrading.com/
+    # - image: /images/project-11-3.jpg
+    #   alt: "MSA Import & Export 3"
+    #   link: https://www.msaethiopia.com/page3
+    # - image: /images/project-11-4.jpg
+    #   alt: "MSA Import & Export 4"
+    #   link: https://www.msaethiopia.com/page4
 
 additional:
     heading: Project Result

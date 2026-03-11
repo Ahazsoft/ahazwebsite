@@ -1,6 +1,6 @@
 ---
 #preview
-title: Teshome Gebre Mariam Bokan - Law Firm
+title: Teshome Gebre Mariam Bokan - Law Firm Websites
 image: /images/project-logo/signature.png
 images: 
   - /images/project-logo/signature.png
@@ -11,7 +11,7 @@ category_slug: corporate
 type: Website Design, Website Development 
 team: Wossen Teshome
 date: April 2020
-link: https://tgmblawoffice.bala.media/
+link: http://tgmblawoffice.com/
 # link: http://localhost:3000/projects/project-16
 #full details
 details:
@@ -28,25 +28,17 @@ details:
         - label: "Website:"
           value: https://tgmblawoffice.bala.media/
 
-gallery: 
-    items:
-        - image: /images/project-2-2-1200x982.jpg
-          alt: "image"
-
-        - image: /images/project-2-1200x988.jpg
-          alt: "image"
-
-        - image: /images/project-4.jpg
-          alt: "image"
-        
-        - image: /images/project-3-1200x750.jpg
-          alt: "image"
-
-        - image: /images/project-1-1080x800.jpg
-          alt: "image"
-        
-        - image: /images/project-8-1080x800.jpg
-          alt: "image"
+gallery:
+  items:
+    - image: /images/project-logo/signature.png
+      alt: "Teshome Gebre Mariam Bokan - Law Firm"
+      link: https://tgmblawoffice.com/
+    - image: /images/project-logo/wbokan.png
+      alt: "Wbokan"
+      link: https://wbokan.com/
+    - image: /images/project-logo/Schiebo.svg
+      alt: "Schiebo"
+      link: https://schiebo.com
 
 additional:
     heading: Project Result

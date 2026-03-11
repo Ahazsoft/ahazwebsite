@@ -47,7 +47,9 @@ const transporter = nodemailer.createTransport({
 });
 
 // POST /api/apply
-app.post("/api/apply", upload.single("cv"), async (req, res) => {
+// app.post("/api/apply", upload.single("cv"), async (req, res) => {
+app.post("/apply", upload.single("cv"), async (req, res) => {
+
   try {
     // Extract all fields from req.body (including optional)
     const {

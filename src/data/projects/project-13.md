@@ -1,13 +1,13 @@
 ---
 #preview
-title: Shebal Occasions 
-image: /images/project-logo/sheba.jpg
+title: Elevate Design
+image: /images/project-logo/elevate.png
 category: Website
-category_slug: stores
+category_slug: realestate
 type: Website Design, Website Development 
-team: Bethlehem Adugna
-date: November 2024
-link: https://shebaloccasions.com/
+team: Abreham Moges 
+date: June 2025
+link: https://elevate.ahaz.io/
 #full details
 details:
     items:
@@ -21,27 +21,27 @@ details:
           value: December 07, 2024
         
         - label: "Website:"
-          value: https://shebaloccasions.com/
+          value: https://elevate.ahaz.io/
 
-gallery: 
-    items:
-        - image: /images/project-2-2-1200x982.jpg
-          alt: "image"
+# gallery: 
+#     items:
+#         - image: /images/project-2-2-1200x982.jpg
+#           alt: "image"
 
-        - image: /images/project-2-1200x988.jpg
-          alt: "image"
+#         - image: /images/project-2-1200x988.jpg
+#           alt: "image"
 
-        - image: /images/project-4.jpg
-          alt: "image"
+#         - image: /images/project-4.jpg
+#           alt: "image"
         
-        - image: /images/project-3-1200x750.jpg
-          alt: "image"
+#         - image: /images/project-3-1200x750.jpg
+#           alt: "image"
 
-        - image: /images/project-1-1080x800.jpg
-          alt: "image"
+#         - image: /images/project-1-1080x800.jpg
+#           alt: "image"
         
-        - image: /images/project-8-1080x800.jpg
-          alt: "image"
+#         - image: /images/project-8-1080x800.jpg
+#           alt: "image"
 
 additional:
     heading: Project Result

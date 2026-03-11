@@ -1,28 +1,32 @@
 ---
 #preview
-title: Qene Films
-image: /images/project-logo/QFLogo.png
+title: LightHouse Healtcare Solutions
+image: /images/project-logo/lhs.png
+images: 
+  - /images/project-logo/signature.png
+  - /images/project-logo/signature.png
+  - /images/project-logo/signature.png
 category: Website
 category_slug: corporate
-type: Website Design, Website Development 
-team: Bala Media
-date: October 2024
-link: https://qenefilms.vercel.app/dist/main/index.html
+type: Website Design, Development & Maintenance
+team: Yabets T. Bifitu, MD 
+date: June 2024
+link: https://lhsethiopia.com/
+# link: http://localhost:3000/projects/project-16
 #full details
 details:
     items:
         - label: "Client:"
-          value: Bala Media
+          value: Kidus Desalegn
 
         - label: "Start:"
-          value: October 18, 2024
+          value: August 2025
         
         - label: "Ending:"
-          value: January 20, 2025
+          value: December 2025
         
         - label: "Website:"
-          value: https://qenefilms.vercel.app/dist/main/index.html
-
+          value: https://lhsethiopia.com/
 # gallery: 
 #     items:
 #         - image: /images/project-2-2-1200x982.jpg

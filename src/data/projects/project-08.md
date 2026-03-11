@@ -1,47 +1,51 @@
 ---
 #preview
-title: Be Well Spa
-image: /images/project-logo/IMG_20250318_125046_524.png
+title: Kuriftu Resorts
+image: /images/project-logo/kuriftu.svg
+images: 
+  - /images/project-logo/signature.png
+  - /images/project-logo/signature.png
+  - /images/project-logo/signature.png
 category: Website
 category_slug: corporate
-type: Website Design, Website Development 
-team: Gabi Studio
-date: September 2024
-link: https://bespaet.com/
+type: Responsive Redesign, UI Enhancements, Design Improvements
+team: Pier 5 Studios
+date: September 2025
+link: https://kurifturesorts.com/
+# link: http://localhost:3000/projects/project-16
 #full details
 details:
     items:
         - label: "Client:"
-          value: Gabi Studio
+          value: Pier 5 Studios
 
         - label: "Start:"
-          value: October 18, 2024
+          value: August 2025
         
         - label: "Ending:"
-          value: December 07, 2024
+          value: October 2025
         
         - label: "Website:"
-          value: https://bespaet.com/
+          value: https://kurifturesorts.com/
+# gallery: 
+#     items:
+#         - image: /images/project-2-2-1200x982.jpg
+#           alt: "image"
 
-gallery: 
-    items:
-        - image: /images/project-2-2-1200x982.jpg
-          alt: "image"
+#         - image: /images/project-2-1200x988.jpg
+#           alt: "image"
 
-        - image: /images/project-2-1200x988.jpg
-          alt: "image"
-
-        - image: /images/project-4.jpg
-          alt: "image"
+#         - image: /images/project-4.jpg
+#           alt: "image"
         
-        - image: /images/project-3-1200x750.jpg
-          alt: "image"
+#         - image: /images/project-3-1200x750.jpg
+#           alt: "image"
 
-        - image: /images/project-1-1080x800.jpg
-          alt: "image"
+#         - image: /images/project-1-1080x800.jpg
+#           alt: "image"
         
-        - image: /images/project-8-1080x800.jpg
-          alt: "image"
+#         - image: /images/project-8-1080x800.jpg
+#           alt: "image"
 
 additional:
     heading: Project Result

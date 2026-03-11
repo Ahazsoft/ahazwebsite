@@ -7,7 +7,7 @@ category_slug: realestate
 type: Website Design, Website Development 
 team: Bala Media
 date: November 2024
-link: https://afrosweden.bala.media/
+link: https://afrosweden.com/
 #full details
 details:
     items:
@@ -21,27 +21,27 @@ details:
           value: January 20, 2025
         
         - label: "Website:"
-          value: https://afrosweden.bala.media/
+          value: https://afrosweden.com/
 
-gallery: 
-    items:
-        - image: /images/project-2-2-1200x982.jpg
-          alt: "image"
+# gallery: 
+#     items:
+#         - image: /images/project-2-2-1200x982.jpg
+#           alt: "image"
 
-        - image: /images/project-2-1200x988.jpg
-          alt: "image"
+#         - image: /images/project-2-1200x988.jpg
+#           alt: "image"
 
-        - image: /images/project-4.jpg
-          alt: "image"
+#         - image: /images/project-4.jpg
+#           alt: "image"
         
-        - image: /images/project-3-1200x750.jpg
-          alt: "image"
+#         - image: /images/project-3-1200x750.jpg
+#           alt: "image"
 
-        - image: /images/project-1-1080x800.jpg
-          alt: "image"
+#         - image: /images/project-1-1080x800.jpg
+#           alt: "image"
         
-        - image: /images/project-8-1080x800.jpg
-          alt: "image"
+#         - image: /images/project-8-1080x800.jpg
+#           alt: "image"
 
 additional:
     heading: Project Result

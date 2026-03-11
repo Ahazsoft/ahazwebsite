@@ -4,10 +4,10 @@ title: MSA Import and Export Businesses
 image: /images/project-logo/Logo PNG-01.png
 category: Website
 category_slug: corporate
-type: Website Design, Website Development 
+type: Website Design, Development & Maintenance
 team: Ehud Creative Studio
 date: May 2023
-link: https://www.msaexportingplc.com/
+link: https://www.msaethiopia.com/
 # link: http://localhost:3000/projects/project-16
 
 #full details
@@ -23,27 +23,22 @@ details:
           value: December 07, 2024
         
         - label: "Website:"
-          value: https://www.msaexportingplc.com/
+          value: https://www.msaethiopia.com/
 
-gallery: 
-    items:
-        - image: /images/project-2-2-1200x982.jpg
-          alt: "image"
-
-        - image: /images/project-2-1200x988.jpg
-          alt: "image"
-
-        - image: /images/project-4.jpg
-          alt: "image"
-        
-        - image: /images/project-3-1200x750.jpg
-          alt: "image"
-
-        - image: /images/project-1-1080x800.jpg
-          alt: "image"
-        
-        - image: /images/project-8-1080x800.jpg
-          alt: "image"
+gallery:
+  items:
+    - image: /images/project-logo/msa.png
+      alt: "MSA Import & Export"
+      link: https://www.msaethiopia.com/
+    - image: /images/project-logo/ammarpp.png
+      alt: "Ammarrpp Animal Farm"
+      link: https://ammarrpp.com/
+    - image: /images/project-logo/mulie.png
+      alt: "Mulie Animal Feed"
+      link: https://mulieanimalfeed.com/
+    - image: /images/project-logo/river.png
+      alt: "RiverValley Edible Oil"
+      link: https://rivervalleyedibleoil.com/
 
 additional:
     heading: Project Result

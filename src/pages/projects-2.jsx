@@ -5,7 +5,7 @@ import { getSortedProjectsData } from "@library/projects";
 
 import PageBanner from "@components/PageBanner";
 
-const ProjectsGrid = dynamic( () => import("@components/ProjectsGrid"), { ssr: false } );
+const ProjectsGrid = dynamic( () => import("@components/ProjectsGrid2"), { ssr: false } );
 
 const Portfolio2 = (props) => {
   return (

@@ -1,7 +1,7 @@
 ---
 #preview
 title: Misker Kassahun
-image: /images/project-logo/Dr M 1 AA.png
+image: /images/project-logo/misker.png
 category: Website
 category_slug: personal
 type: Website Design, Website Development 
@@ -23,25 +23,25 @@ details:
         - label: "Website:"
           value: https://miskerkassahun.com/
 
-gallery: 
-    items:
-        - image: /images/project-2-2-1200x982.jpg
-          alt: "image"
+# gallery: 
+#     items:
+#         - image: /images/project-2-2-1200x982.jpg
+#           alt: "image"
 
-        - image: /images/project-2-1200x988.jpg
-          alt: "image"
+#         - image: /images/project-2-1200x988.jpg
+#           alt: "image"
 
-        - image: /images/project-4.jpg
-          alt: "image"
+#         - image: /images/project-4.jpg
+#           alt: "image"
         
-        - image: /images/project-3-1200x750.jpg
-          alt: "image"
+#         - image: /images/project-3-1200x750.jpg
+#           alt: "image"
 
-        - image: /images/project-1-1080x800.jpg
-          alt: "image"
+#         - image: /images/project-1-1080x800.jpg
+#           alt: "image"
         
-        - image: /images/project-8-1080x800.jpg
-          alt: "image"
+#         - image: /images/project-8-1080x800.jpg
+#           alt: "image"
 
 additional:
     heading: Project Result
