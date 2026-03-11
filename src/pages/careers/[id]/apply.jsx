@@ -173,6 +173,23 @@ const ApplyPage = () => {
     );
   }
 
+  if (job.status == "closed") {
+    return (
+      <Layouts>
+        <PageBanner pageTitle="Apply" pageDesc={job.title} />
+        <div className="text-center py-5">
+          <h4>Sorry, the job you're applying is closed stay tuned for another job position.</h4>
+          <Link href="/careers" className="onovo-btn onovo-hover-btn mt-3">
+            <i className="arrow">
+              <span />
+            </i>
+            <span>Back to Careers</span>
+          </Link>
+        </div>
+      </Layouts>
+    );
+  }
+
   return (
     <Layouts>
       <PageBanner pageTitle={`Apply for ${job.title}`} pageDesc={job.company} />

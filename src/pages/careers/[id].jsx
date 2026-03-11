@@ -3,6 +3,10 @@ import PageBanner from "@components/PageBanner";
 import Link from "next/link";
 import jobsData from "@/src/lib/jobsData"; // adjust path if needed
 import formatRelativeTime from "@/src/common/calculateTime";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import rehypeSanitize from "rehype-sanitize";
+
 const JobDetail = ({ job }) => {
   if (!job) {
     return (
@@ -145,24 +149,34 @@ const JobDetail = ({ job }) => {
           <div className="row">
             {/* Main content - 60% */}
             <div className="col-lg-8">
-              {/* Job Description */}
-              <div className="onovo-text mb-5">
+               {/* Job Description */}
+             {/* <div className="onovo-text mb-5">
                 <h4 className="onovo-title-4 mb-4">Job Description</h4>
                 {job.description.map((para, idx) => (
                   <p key={idx} className="mb-3">
                     {para}
                   </p>
                 ))}
+              </div> */}
+
+              {/* Live Preview */}
+              <div className="space-y-2">
+                <div className="markdown-body p-6 bg-white overflow-auto">
+                  <ReactMarkdown
+                    remarkPlugins={[remarkGfm]}
+                    rehypePlugins={[rehypeSanitize]}
+                  >
+                    {job.livepreview}
+                  </ReactMarkdown>
+                </div>
               </div>
 
               {/* Responsibilities */}
-              <div className="onovo-text mb-5">
+              {/* <div className="onovo-text mb-5">
                 <h4 className="onovo-title-4 mb-4">Key Responsibilities</h4>
                 <ul className="list-unstyled">
                   {job.responsibilities.map((item, idx) => (
                     <li key={idx} className="mb-3 d-flex">
-                      {/* <span className="me-2 text-success">✅</span> */}
-
                       <span>
                         <svg
                           class="icon"
@@ -186,15 +200,15 @@ const JobDetail = ({ job }) => {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </div> */}
 
               {/* Requirements */}
-              <div className="onovo-text mb-5">
+              {/* <div className="onovo-text mb-5">
                 <h4 className="onovo-title-4 mb-4">Requirements</h4>
                 <ul className="list-unstyled">
                   {job.requirements.map((item, idx) => (
                     <li key={idx} className="mb-3 d-flex">
-                      {/* <span className="me-2 text-primary">•</span> */}
+
                       <span>
                         <svg
                           class="icon"
@@ -212,11 +226,11 @@ const JobDetail = ({ job }) => {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </div> */}
 
               <p className="mb-5 mx-3">
                 <strong>Contact Email:</strong>{" "}
-                <a href={`mailto:${job.contact.email}`}>{job.contact.email}</a>
+                <a href={`mailto:${job.email}`}>{job.email}</a>
               </p>
 
               {/* Share options */}
@@ -362,7 +376,7 @@ const JobDetail = ({ job }) => {
                      
                       <tr>
                         <th>Location:</th>
-                        <td>{job.overview.location}</td>
+                        <td>{job.location}</td>
                       </tr>
                     </tbody>
                   </table>

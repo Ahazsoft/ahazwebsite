@@ -1,11 +1,43 @@
 import Layouts from "@layouts/Layouts";
 import PageBanner from "@components/PageBanner";
 import Link from "next/link";
-import jobsData from "../lib/jobsData";
 import formatRelativeTime from "@/src/common/calculateTime";
+import { useEffect, useState } from "react";
 
 const Careers = () => {
-  const hasJobs = jobsData.length > 0;
+
+ 
+
+  const [jobs, setJobs] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    let mounted = true;
+    const controller = new AbortController();
+
+    async function fetchJobs() {
+      try {
+        const res = await fetch("http://localhost:3001/api/jobs", { signal: controller.signal });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+        if (mounted) setJobs(data || []);
+      } catch (err) {
+        if (mounted) setError(err.message || "Failed to fetch jobs");
+      } finally {
+        if (mounted) setLoading(false);
+      }
+    }
+
+    fetchJobs();
+
+    return () => {
+      mounted = false;
+      controller.abort();
+    };
+  }, []);
+
+  const hasJobs = jobs.length > 0;
   return (
     <Layouts>
       <PageBanner
@@ -29,9 +61,13 @@ const Careers = () => {
           </div>
 
           {/* Jobs List as Bootstrap Cards */}
-          {hasJobs ? (
+          {loading ? (
+            <div className="text-center py-5">Loading jobs...</div>
+          ) : error ? (
+            <div className="text-center py-5 text-danger">Error: {error}</div>
+          ) : hasJobs ? (
             <div className="row">
-              {jobsData.map((job) => (
+              {jobs.map((job) => (
                 <div key={job.id} className="col-12 mb-4">
                   <div className="card border-0 shadow">
                     <div className="card-body">
