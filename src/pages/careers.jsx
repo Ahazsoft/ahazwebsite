@@ -83,7 +83,7 @@ const Careers = () => {
                           }}
                         >
                           {/* {Date.now()} */}
-                          {formatRelativeTime(job.postDate)}
+                          {formatRelativeTime(job.post_date)}
                         </div>
 
                         {/* Expiry */}
@@ -113,7 +113,7 @@ const Careers = () => {
                               paddingTop: "3px",
                             }}
                           >
-                            {job.expireDate}
+                            {job.expiry_date.split('T')[0]}
                           </p>
                         </div>
                       </div>
@@ -122,7 +122,7 @@ const Careers = () => {
                       <div className="d-flex align-items-center mb-3">
                         <div className="me-3">
                           <img
-                            src={job.logo}
+                            src="/images/logo/logo1.png"
                             alt={job.company}
                             width="50"
                             height="50"
@@ -162,7 +162,7 @@ const Careers = () => {
                               width="18"
                               className="me-1"
                             />
-                            <span className="px-2">{job.type}</span>
+                            <span className="px-2">{job.job_type}</span>
                           </div>
 
                           <div className="d-flex align-items-center">

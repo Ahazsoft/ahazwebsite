@@ -54,7 +54,7 @@ app.get('/api/jobs', async (req, res) => {
     res.json(jobs)
 
   } catch (error) {
-    console.error(error)
+    console.error(` Prisma error: ${error}`)
 
     res.status(500).json({ error: error.message })
   }
