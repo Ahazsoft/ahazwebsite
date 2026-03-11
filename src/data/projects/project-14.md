@@ -1,47 +1,47 @@
 ---
 #preview
-title: Mesmer Pot Design
-image: /images/project-logo/mesmer.png
+title: Tomoca Coffee 
+image: /images/project-logo/tomoca.png
 category: Website
 category_slug: stores
 type: Website Design, Website Development 
-team: Eyerusalem Dejene
-date: November 2021
-link: https://mesmerproducts.com/
+team: Bala Media
+date: August 2025
+link: https://tomoca.vercel.app/home
 #full details
 details:
     items:
         - label: "Client:"
-          value: MSA
+          value: Bala Media
 
         - label: "Start:"
-          value: October 18, 2024
+          value: August 2025
         
         - label: "Ending:"
-          value: December 07, 2024
+          value: October, 2025
         
         - label: "Website:"
-          value: https://mesmerproducts.com/
+          value: https://tomoca.vercel.app/home
 
-gallery: 
-    items:
-        - image: /images/project-2-2-1200x982.jpg
-          alt: "image"
+# gallery: 
+#     items:
+#         - image: /images/project-2-2-1200x982.jpg
+#           alt: "image"
 
-        - image: /images/project-2-1200x988.jpg
-          alt: "image"
+#         - image: /images/project-2-1200x988.jpg
+#           alt: "image"
 
-        - image: /images/project-4.jpg
-          alt: "image"
+#         - image: /images/project-4.jpg
+#           alt: "image"
         
-        - image: /images/project-3-1200x750.jpg
-          alt: "image"
+#         - image: /images/project-3-1200x750.jpg
+#           alt: "image"
 
-        - image: /images/project-1-1080x800.jpg
-          alt: "image"
+#         - image: /images/project-1-1080x800.jpg
+#           alt: "image"
         
-        - image: /images/project-8-1080x800.jpg
-          alt: "image"
+#         - image: /images/project-8-1080x800.jpg
+#           alt: "image"
 
 additional:
     heading: Project Result

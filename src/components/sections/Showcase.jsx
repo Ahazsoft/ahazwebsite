@@ -66,7 +66,7 @@ const ShowcaseSection = ( { projects } ) => {
 							<h3 className="title">
 							{/* <a href={`/projects/${projects[0].id}`}> */}
 							{/* <a href={'projects-2'}> */}
-							<a href="https://www.yohanasahle.com/" target="_blank" rel="noopener noreferrer">
+							<a href="https://melangeroasters.com/" target="_blank" rel="noopener noreferrer">
 
 							
 								<span className="onovo-lnk" data-splitting data-onovo-scroll>
@@ -142,7 +142,7 @@ const ShowcaseSection = ( { projects } ) => {
 							</a>
 							</div>
 							<h3 className="title">
-							<a href="https://melangeroasters.com/" target="_blank" rel="noopener noreferrer">
+							<a href="https://travelwithyuyana.com/" target="_blank" rel="noopener noreferrer">
 								<span className="onovo-lnk" data-splitting data-onovo-scroll>
 								{projects[4].title}
 								</span>
@@ -192,7 +192,9 @@ const ShowcaseSection = ( { projects } ) => {
 							</a>
 							</div>
 							<h3 className="title">
-							<a href="https://qenefilms.bala.media/dist/main/index.html" target="_blank" rel="noopener noreferrer">
+							{/* <a href="https://qenefilms.vercel.app/dist/main/index.html" target="_blank" rel="noopener noreferrer"> */}
+							<a href="#" target="_blank" rel="noopener noreferrer">
+
 								<span className="onovo-lnk" data-splitting data-onovo-scroll>
 								{projects[2].title}
 								</span>

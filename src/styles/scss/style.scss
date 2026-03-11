@@ -1151,6 +1151,7 @@ hr {
   height: calc(100% - 6px);
 }
 
+
 .onovo-hover-3::before {
   margin: -400px 0 0 -400px;
   left: 50%;
@@ -1158,6 +1159,75 @@ hr {
   width: 800px;
   height: 800px;
 }
+
+.project-gallery-hover::before{
+  width:100%;
+  height:100%;
+  margin:0;
+  left:0;
+  top:0;
+}
+
+.custom-gallery-grid{
+  display:grid !important;
+  grid-template-columns:1fr 1fr;
+  gap:6px;
+}
+.custom-3-items {
+  grid-template-columns: repeat(3, 1fr) !important;
+}
+
+
+.custom-gallery-grid img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+.custom-gallery-item{
+  position:relative;
+  display:block;
+  overflow:hidden;
+}
+
+.custom-gallery-item img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  // transition:transform .45s cubic-bezier(.3,0,.3,1);
+}
+
+.custom-gallery-item:hover img{
+  transform:scale(1.06);
+  
+}
+
+
+
+
+.custom-hover-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: #1d4173;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 600;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none; /* allows click on link */
+  text-transform: uppercase;
+}
+
+.custom-gallery-item:hover .custom-hover-overlay {
+  opacity: 1;
+}
+
+
 
 .onovo-hover-1:hover::before,
 .onovo-hover-2:hover::before,
@@ -1256,6 +1326,7 @@ hr {
   -webkit-transform: translateY(6px) scale(0.8);
   transition: all 0.4s cubic-bezier(0.3, 0, 0.3, 1);
   -webkit-transition: all 0.4s cubic-bezier(0.3, 0, 0.3, 1);
+  color: white;
 }
 
 .onovo-hover-label:hover .label {
@@ -7631,6 +7702,10 @@ h6,
   display: block;
   content: "";
 }
+
+
+
+
 
 @media (max-width: 1024px) {
   .content-sidebar {

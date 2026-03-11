@@ -1,13 +1,18 @@
 ---
 #preview
-title: Qene Films
-image: /images/project-logo/QFLogo.png
+title: Istat Data Consult
+image: /images/project-logo/istat.png
+images: 
+  - /images/project-logo/signature.png
+  - /images/project-logo/signature.png
+  - /images/project-logo/signature.png
 category: Website
 category_slug: corporate
 type: Website Design, Website Development 
 team: Bala Media
-date: October 2024
-link: https://qenefilms.vercel.app/dist/main/index.html
+date: August 2025
+link: https://istat-eight.vercel.app/
+# link: http://localhost:3000/projects/project-16
 #full details
 details:
     items:
@@ -15,13 +20,13 @@ details:
           value: Bala Media
 
         - label: "Start:"
-          value: October 18, 2024
+          value: August 2025
         
         - label: "Ending:"
-          value: January 20, 2025
+          value: December 2025
         
         - label: "Website:"
-          value: https://qenefilms.vercel.app/dist/main/index.html
+          value: https://istat-eight.vercel.app/
 
 # gallery: 
 #     items:

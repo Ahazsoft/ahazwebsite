@@ -1,48 +1,48 @@
 ---
 #preview
-title: Yohana Sahle - Musician
-image: /images/project-logo/cropped-favicon2.png
+title: Yuyana - Tour and Travel
+image: /images/project-logo/yuyanalogo.png
 category: Website
-category_slug: portfolios
-type: Website Design, Website Development 
-team: Bala Media
-date: December 2023
-link: https://www.yohanasahle.com/
+category_slug: corporate
+type: Website Design, Development & Maintenance 
+team: Muna Seifu
+date: April 2025
+link: https://travelwithyuyana.com/
 
 #full details
 details:
     items:
         - label: "Client:"
-          value: Bala Media
+          value: 
 
         - label: "Start:"
-          value: Dec 18, 2022
+          value: April 2025
         
         - label: "Ending:"
-          value: Mar 18, 2023
+          value: May 2025
         
         - label: "Website:"
-          value: https://www.yohanasahle.com/
+          value: https://travelwithyuyana.com/
 
-gallery: 
-    items:
-        - image: /images/project-2-2-1200x982.jpg
-          alt: "image"
+# gallery: 
+#     items:
+#         - image: /images/project-2-2-1200x982.jpg
+#           alt: "image"
 
-        - image: /images/project-2-1200x988.jpg
-          alt: "image"
+#         - image: /images/project-2-1200x988.jpg
+#           alt: "image"
 
-        - image: /images/project-4.jpg
-          alt: "image"
+#         - image: /images/project-4.jpg
+#           alt: "image"
         
-        - image: /images/project-3-1200x750.jpg
-          alt: "image"
+#         - image: /images/project-3-1200x750.jpg
+#           alt: "image"
 
-        - image: /images/project-1-1080x800.jpg
-          alt: "image"
+#         - image: /images/project-1-1080x800.jpg
+#           alt: "image"
         
-        - image: /images/project-8-1080x800.jpg
-          alt: "image"
+#         - image: /images/project-8-1080x800.jpg
+#           alt: "image"
 
 additional:
     heading: Project Result
