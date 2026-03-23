@@ -15,7 +15,7 @@ const Careers = () => {
 
     async function fetchJobs() {
       try {
-        const res = await fetch("http://backend.ahaz.io/api/jobs", {
+        const res = await fetch("https://backend.ahaz.io/api/jobs", {
           signal: controller.signal,
         });
         if (!res.ok) throw new Error(`HTTP ${res.status}`);

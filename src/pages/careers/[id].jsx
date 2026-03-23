@@ -310,7 +310,7 @@ export default JobDetail;
 // Generate paths for all jobs
 export async function getStaticPaths() {
   try {
-    const res = await fetch("http://backend.ahaz.io/api/jobs");
+    const res = await fetch("https://backend.ahaz.io/api/jobs");
     const jobs = await res.json();
 
     const paths = jobs.map((job) => ({
@@ -330,7 +330,7 @@ export async function getStaticPaths() {
 // Fetch job data for the given id from the backend API
 export async function getStaticProps({ params }) {
   try {
-    const res = await fetch(`http://backend.ahaz.io/api/job/${params.id}`);
+    const res = await fetch(`https://backend.ahaz.io/api/job/${params.id}`);
 
     if (res.status === 404) {
       return { notFound: true };
