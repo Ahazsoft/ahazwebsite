@@ -5,9 +5,6 @@ import formatRelativeTime from "@/src/common/calculateTime";
 import { useEffect, useState } from "react";
 
 const Careers = () => {
-
- 
-
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -18,7 +15,9 @@ const Careers = () => {
 
     async function fetchJobs() {
       try {
-        const res = await fetch("http://localhost:3001/api/jobs", { signal: controller.signal });
+        const res = await fetch("http://backend.ahaz.io/api/jobs", {
+          signal: controller.signal,
+        });
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const data = await res.json();
         if (mounted) setJobs(data || []);
@@ -47,7 +46,7 @@ const Careers = () => {
 
       {/* Recent Jobs Section */}
       <section className="onovo-section gap-bottom-140">
-        <div className="container" style={{width:"90%"}}>
+        <div className="container" style={{ width: "90%" }}>
           {/* Section Heading */}
           <div className="onovo-heading gap-bottom-40">
             <h2 className="onovo-title-2 mt-4">
@@ -67,7 +66,8 @@ const Careers = () => {
             <div className="text-center py-5 text-danger">Error: {error}</div>
           ) : hasJobs ? (
             <div className="row">
-              {jobs.map((job) => (
+              {jobs.filter((job) => job.status === "open").map((job) => (
+                
                 <div key={job.id} className="col-12 mb-4">
                   <div className="card border-0 shadow">
                     <div className="card-body">
@@ -113,7 +113,7 @@ const Careers = () => {
                               paddingTop: "3px",
                             }}
                           >
-                            {job.expiry_date.split('T')[0]}
+                            {job.expiry_date.split("T")[0]}
                           </p>
                         </div>
                       </div>
@@ -245,9 +245,9 @@ const Careers = () => {
             }
             .career-job-detail-container {
               width: 100%;
-              padding:20px 0;
+              padding: 20px 0;
               // border: 1px solid red;
-              display:flex;
+              display: flex;
               align-items: center;
               justify-content: center;
             }

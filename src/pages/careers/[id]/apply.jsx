@@ -131,7 +131,7 @@ const ApplyPage = () => {
       //   body: formDataPayload,
       // });
 
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/apply`, {
+      const response = await fetch(`http://backend.ahaz.io/api/apply`, {
         method: "POST",
         body: formDataPayload,
       });
@@ -161,12 +161,12 @@ const ApplyPage = () => {
   useEffect(() => {
     if (!id) return;
 
-    const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001/api";
+    const API_BASE = "http://backend.ahaz.io/api";
 
     setLoading(true);
     setFetchError("");
 
-    fetch(`${API_BASE}/job/${id}`)
+    fetch(`http://backend.ahaz.io/api/job/${id}`)
       .then((res) => {
         if (res.status === 404) throw new Error("Job not found");
         if (!res.ok) throw new Error("Failed to fetch job");
