@@ -114,6 +114,7 @@ const ApplyPage = () => {
     formDataPayload.append("phone", formData.phone);
     formDataPayload.append("jobTitle", job.title);
     formDataPayload.append("company", job.company);
+    formDataPayload.append("jobId", job.id);
 
     // Append optional fields only if they have a value
     if (formData.linkedIn && formData.linkedIn.trim() !== "") {
