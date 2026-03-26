@@ -1,4 +1,3 @@
-<meta name="google-site-verification" content="mQtPkpMiAnKuqrNChyKdO61x5ELXG-MmKKYTGoEnR08" />
 import React from "react";
 import { useEffect } from "react";
 import Layouts from "@layouts/Layouts";

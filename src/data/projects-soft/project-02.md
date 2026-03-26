@@ -24,10 +24,10 @@ details:
 gallery: 
     items:
         - image: /images/AI-Soft/Cloud/aws.png
-          alt: "image"
+          alt: "Ahaz Solutions - AI-ML Services"
 
         - image: /images/AI-Soft/Cloud/codescreenshot.png
-          alt: "image"
+          alt: "Ahaz Solutions - AI-ML Services"
 
 
 additional:

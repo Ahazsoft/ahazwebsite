@@ -35,16 +35,20 @@ const HeroSectionNew = () => {
           <div className="sm-lp-hero-content pt-5">
             {/* <hr className="sm-lp-accent-line" /> */}
             <h1 className="sm-lp-title mt-5">
-              We Build Custom Software & Websites Built to Perform.
-            </h1>
-            <p className="sm-lp-description">
-              At Ahaz, we create innovative digital solutions that seamlessly
-              combine cutting-edge technology with exceptional user experiences.
-              Our team brings ideas to life through responsive websites, robust
-              desktop applications, and AI-driven platforms tailored to your
-              unique business goals.
-            </p>
+              {/* We Build Custom Software & Websites Built to Perform. */}
 
+              Custom Software & Web Development in Ethiopia
+            </h1>
+
+            <p className="sm-lp-description">
+              Ahaz is a custom software development company in Ethiopia helping businesses 
+              build scalable digital solutions that include high-performance websites, 
+              robust desktop applications, CRMs, and AI-driven platforms, and we combine 
+              cutting-edge technology with exceptional user experience to deliver reliable, 
+              efficient, and growth-focused software tailored to your business goals while 
+              ensuring that every project is designed to maximize performance, usability, 
+              and long-term value for our clients.
+            </p>
             <div className="sm-lp-socials">
               {socials.map((item, key) => (
                 <Link className="sm-lp-socials-icon" href={item.link}>

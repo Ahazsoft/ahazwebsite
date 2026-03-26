@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import Head from "next/head";
 import appData from "@data/app.json";
 import Footer from "./footers/Index";
 import Header from "./headers/Index";
@@ -42,6 +43,14 @@ const Layouts = ({
 
   return (
     <>
+      <Head>
+        <title>Custom Software & Web Development in Ethiopia | Ahaz</title>
+        <meta
+          name="description"
+          content="Ahaz builds custom software, websites, and digital solutions for businesses in Ethiopia. We create scalable, high-performance systems tailored to your goals."
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
       <div className={noFooter ? "onovo-page" : `onovo-page footer--fixed`}>
         <Preloader />
 
