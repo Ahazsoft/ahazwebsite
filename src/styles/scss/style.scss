@@ -9,6 +9,25 @@ Version: 1.0
 
 /* MAIN */
 
+
+@font-face {
+  font-family: "Titillium";
+  src: url("/fonts/titillium/TitilliumWeb-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "TitilliumLight";
+  src: url("/fonts/titillium/TitilliumWeb-Light.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+
 /* ---
 	1. Global
 ---*/
@@ -43,7 +62,8 @@ body {
   height: auto !important;
   font-size: 18px;
   color: #1b252e;
-  font-family: "Epilogue", sans-serif;
+  // font-family: "Epilogue", sans-serif;
+  font-family: "Titillium", sans-serif;
   font-weight: 400;
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
@@ -86,7 +106,8 @@ img {
 input,
 textarea,
 button {
-  font-family: "Epilogue";
+  // font-family: "Epilogue";
+  font-family: "Titillium", sans-serif;
 }
 
 label {
@@ -377,7 +398,8 @@ h4,
 h5,
 h6 {
   font-weight: 600;
-  font-family: "Epilogue";
+  // font-family: "Epilogue";
+  font-family: "Titillium", sans-serif;
   margin: 0;
   margin-bottom: 15px;
   color: #000;
@@ -685,7 +707,8 @@ label,
 legend {
   display: block;
   padding-bottom: 20px;
-  font-family: "Epilogue";
+  // font-family: "Epilogue";
+  font-family: "Titillium", sans-serif;
 }
 
 fieldset {
