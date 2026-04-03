@@ -5,7 +5,7 @@ import formatRelativeTime from "@/src/common/calculateTime";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeSanitize from "rehype-sanitize";
-import { usePathname, useSearchParams } from 'next/navigation';
+import { usePathname, useSearchParams } from "next/navigation";
 
 const JobDetail = ({ job }) => {
   if (!job) {
@@ -19,13 +19,13 @@ const JobDetail = ({ job }) => {
     );
   }
 
-// const pathname = usePathname();
-// const searchParams = useSearchParams();
-// const shareUrl = typeof window !== 'undefined'
-//   ? `${window.location.origin}${pathname}${searchParams ? '?' + searchParams : ''}`
-//   : '';
+  // const pathname = usePathname();
+  // const searchParams = useSearchParams();
+  // const shareUrl = typeof window !== 'undefined'
+  //   ? `${window.location.origin}${pathname}${searchParams ? '?' + searchParams : ''}`
+  //   : '';
 
-//   const shareText = `Apply for ${job.title} at ${job.company}`;
+  //   const shareText = `Apply for ${job.title} at ${job.company}`;
 
   return (
     <Layouts>
@@ -63,7 +63,7 @@ const JobDetail = ({ job }) => {
                   }}
                 >
                   {/* {Date.now()} */}
-                  {formatRelativeTime(job.post_date.split('T')[0])}
+                  {formatRelativeTime(job.post_date.split("T")[0])}
                 </div>
 
                 {/* Expiry */}
@@ -93,7 +93,7 @@ const JobDetail = ({ job }) => {
                       paddingTop: "3px",
                     }}
                   >
-                    {job.expiry_date.split('T')[0]}
+                    {job.expiry_date.split("T")[0]}
                   </p>
                 </div>
               </div>
@@ -102,7 +102,11 @@ const JobDetail = ({ job }) => {
               <div className="d-flex align-items-center mb-4">
                 <div className="me-3">
                   <img
-                    src="/images/logo/logo1.png"
+                    src={
+                      job.company == "Ahaz Solutions"
+                        ? "/images/logo/logo1.png"
+                        : "/images/logo/Bala.png"
+                    } 
                     alt={job.company}
                     width="70"
                     height="70"
@@ -112,7 +116,9 @@ const JobDetail = ({ job }) => {
                   <h3 className="onovo-title-3 mb-1" id="career-detail-title">
                     {job.title}
                   </h3>
-                  <h5 className="text-muted" id="career-detail-subtitle">{job.company}</h5>
+                  <h5 className="text-muted" id="career-detail-subtitle">
+                    {job.company}
+                  </h5>
                 </div>
               </div>
 
@@ -157,8 +163,6 @@ const JobDetail = ({ job }) => {
           <div className="row">
             {/* Main content - 60% */}
             <div className="col-lg-8">
-        
-
               {/*Live Preview */}
               <div className="space-y-2">
                 <div className="markdown-body p-6 bg-white overflow-auto">
@@ -171,7 +175,6 @@ const JobDetail = ({ job }) => {
                 </div>
               </div>
 
-              
               <p className="mb-5 mx-3">
                 <strong>Contact Email:</strong>{" "}
                 <a href={`mailto:${job.email}`}>{job.email}</a>
@@ -187,7 +190,6 @@ const JobDetail = ({ job }) => {
                 </h5> */}
 
                 <div className="d-flex gap-3 mb-5">
-
                   {/* LinkedIn */}
                   {/* <a
                     href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`}
@@ -245,7 +247,6 @@ const JobDetail = ({ job }) => {
                       <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629.093.06.183.125.27.187.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.426 1.426 0 0 0-.013-.315.337.337 0 0 0-.114-.217.526.526 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09z" />
                     </svg>
                   </a> */}
-
                 </div>
               </div>
             </div>
@@ -262,19 +263,26 @@ const JobDetail = ({ job }) => {
                         <th>Job Title:</th>
                         <td>{job.title}</td>
                       </tr>
-                      {/* <tr>
-                        <th>Category:</th>
-                        <td>Software Development</td>
-                      </tr> */}
-                      {/* <tr>
+
+                      {job.company == "Ahaz Solutions" && (
+                        <tr>
+                          <th>Category:</th>
+                          <td>Software Development</td>
+                        </tr>
+                      )}
+
+                      <tr>
                         <th>Experience:</th>
                         <td>{job.job_level}</td>
-                      </tr> */}
-                      <tr>
-                        <th>Degree:</th>
-                        <td>{job.education}</td>
                       </tr>
-                     
+
+                      {job.company == "Ahaz Solutions" && (
+                        <tr>
+                          <th>Degree:</th>
+                          <td>{job.education}</td>
+                        </tr>
+                      )}
+
                       <tr>
                         <th>Location:</th>
                         <td>{job.location}</td>
@@ -320,7 +328,7 @@ export async function getStaticPaths() {
 
     return {
       paths,
-      fallback: 'blocking',
+      fallback: "blocking",
     };
   } catch (error) {
     console.error("Error fetching jobs for paths:", error);
