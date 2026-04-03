@@ -127,15 +127,15 @@ const ApplyPage = () => {
     formDataPayload.append("cv", cvFile);
 
     try {
-      // const response = await fetch("http://localhost:3001/api/apply", {
-      //   method: "POST",
-      //   body: formDataPayload,
-      // });
-
-      const response = await fetch(`https://backend.ahaz.io/api/apply`, {
+      const response = await fetch("http://localhost:3001/api/apply", {
         method: "POST",
         body: formDataPayload,
       });
+
+      // const response = await fetch(`https://backend.ahaz.io/api/apply`, {
+      //   method: "POST",
+      //   body: formDataPayload,
+      // });
 
       const data = await response.json();
 
@@ -167,7 +167,8 @@ const ApplyPage = () => {
     setLoading(true);
     setFetchError("");
 
-    fetch(`https://backend.ahaz.io/api/job/${id}`)
+    fetch(`http://localhost:3001/api/job/${id}`)
+    // fetch(`https://backend.ahaz.io/api/job/${id}`)
       .then((res) => {
         if (res.status === 404) throw new Error("Job not found");
         if (!res.ok) throw new Error("Failed to fetch job");
@@ -365,7 +366,8 @@ const ApplyPage = () => {
                           htmlFor="gitHub"
                           className="form-label small mb-1"
                         >
-                          GitHub
+                          {/* GitHub */}
+                          Portfolio link
                         </label>
                         <input
                           type="text"
