@@ -24,10 +24,10 @@ details:
 gallery: 
     items:
         - image: /images/AI-Soft/Scrapping/web scraping.png
-          alt: "image"
+          alt: "Ahaz Solutions - AI-ML Services"
 
         - image: /images/AI-Soft/Scrapping/mergedwell.png
-          alt: "image"
+          alt: "Ahaz Solutions - AI-ML Services"
 
 
 additional:

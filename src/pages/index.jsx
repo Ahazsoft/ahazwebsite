@@ -32,6 +32,8 @@ const TestimonialSlider = dynamic(
   { ssr: false },
 );
 
+
+
 const Home1 = (props) => {
   useEffect(() => {
     circleText();

@@ -28,16 +28,16 @@ details:
 gallery:
   items:
     - image: /images/project-logo/msa.png
-      alt: "MSA Import & Export"
+      alt: "MSA Import & Export developed by Ahaz Solutions"
       link: https://www.msaethiopia.com/
     - image: /images/project-logo/ammarpp.png
-      alt: "Ammarrpp Animal Farm"
+      alt: "Ammarrpp Animal Farm developed by Ahaz Solutions"
       link: https://ammarrpp.com/
     - image: /images/project-logo/mulie.png
-      alt: "Mulie Animal Feed"
+      alt: "Mulie Animal Feed developed by Ahaz Solutions"
       link: https://mulieanimalfeed.com/
     - image: /images/project-logo/river.png
-      alt: "RiverValley Edible Oil"
+      alt: "RiverValley Edible Oil developed by Ahaz Solutions"
       link: https://rivervalleyedibleoil.com/
 
 additional:

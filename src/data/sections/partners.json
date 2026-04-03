@@ -5,42 +5,51 @@
         {
             "link": "https://bgiethiopia.com/",
             "label": "Visit Website",
-            "image": "/images/clients/C3C.png"
+            "image": "/images/clients/C3C.png",
+            "alt": "BGI Ethiopia , Ahaz Client"
         },
         {
             "link": "https://www.ubethiopia.com/",
             "label": "Visit Website",
-            "image": "/images/clients/UB.png"
+            "image": "/images/clients/UB.png",
+            "alt": "United Beverage ,Ahaz Client"
         },
         {
             "link": "https://www.prologueethiopia.com",
             "label": "Visit Website",
-            "image": "/images/clients/prologue.png"
+            "image": "/images/clients/prologue.png",
+            "alt": "Prologue Ethiopia ,Ahaz Client"
         },
         {
             "link": "https://zeleman.com/",
             "label": "Visit Website",
-            "image": "/images/clients/zeleman_new_logo.png"
+            "image": "/images/clients/zeleman_new_logo.png",
+            "alt": "Zeleman ,Ahaz Client"
         },
         {
             "link": "https://nthds.com/",
             "label": "Visit Website",
-            "image": "/images/clients/nthds_logo.png"
+            "image": "/images/clients/nthds_logo.png",
+            "alt": "NthDS ,Ahaz Client"
         },
         {
             "link": "https://bala.media/",
             "label": "Visit Website",
-            "image": "/images/clients/bala_media.png"
+            "image": "/images/clients/bala_media.png",
+            "alt": "Bala Media , Ahaz Client"
         },
         {
             "link": "https://msaethiopia.com/",
             "label": "Visit Website",
-            "image": "/images/clients/msa.png"
+            "image": "/images/clients/msa.png",
+            "alt": "MSA ,Ahaz Client"
+            
         },
         {
             "link": "",
             "label": "Visit Website",
-            "image": "/images/clients/gabi.png"
+            "image": "/images/clients/gabi.png",
+            "alt": "Gabi ,Ahaz Client"
         }
     ]
 }

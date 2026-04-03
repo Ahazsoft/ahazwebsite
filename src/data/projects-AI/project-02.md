@@ -24,10 +24,10 @@ details:
 gallery: 
     items:
         - image: /images/AI-Soft/Cloud/aws.png
-          alt: "image"
+          alt: "Ahaz Solutions Cloud and AI Pipeline - AWS "
 
         - image: /images/AI-Soft/Cloud/codescreenshot.png
-          alt: "image"
+          alt: "Ahaz Solutions Services - Tag Detection"
 
 
 additional:
