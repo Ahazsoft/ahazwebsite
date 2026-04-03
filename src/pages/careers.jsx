@@ -127,7 +127,7 @@ const Careers = () => {
                               src={
                                 job.company == "Ahaz Solutions"
                                   ? "/images/logo/logo1.png"
-                                  : "/images/logo/Bala.png"
+                                  : "/images/logo/Bala4.jpg"
                               }
                               alt={job.company}
                               width="50"
