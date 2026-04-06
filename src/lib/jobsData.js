@@ -47,7 +47,7 @@ const jobsData = [
     },
 
     contact: {
-      email: "recruitement@ahaz.io",
+      email: "recruitment@ahaz.io",
     },
   },
   {
@@ -61,7 +61,7 @@ const jobsData = [
   salary: "Negotiable",
   location: "On Site",
   logo: "/images/logo/logo1.png",
-  email: "recruitement@ahaz.io",
+  email: "recruitment@ahaz.io",
 
   overview: {
     category: "Software Development",
