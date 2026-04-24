@@ -170,7 +170,7 @@ const Contact = () => {
                                 <div className="form-status alert-success" id="contactFormStatus" />
                             </form>
                             )}
-                            </Formik>
+                        </Formik>
                         </div>
 
                     </div>
@@ -181,10 +181,10 @@ const Contact = () => {
                             <ul>
                                 <li>
                                     <h5>Contact Info</h5>
-                                    <a href="tel:+10204302973" className="onovo-lnk lnk--white" target="_blank">+ 251 (910) 31-59-80 </a><br/>
-                                    <a href="mailto:username@domain.com" className="onovo-lnk lnk--white" target="_blank">info@ahaz.io</a>
+                                    <a href="tel:+251910315980 " className="onovo-lnk lnk--white" target="_blank">+ 251 (910) 31-59-80 </a><br/>
+                                    <a href="mailto:info@ahaz.io" className="onovo-lnk lnk--white" target="_blank">info@ahaz.io</a>
                                     
-                                    <div className="onovo-social-1 onovo-social-active" style={{"marginTop": "10px"}}>
+                                    {/* <div className="onovo-social-1 onovo-social-active" style={{"marginTop": "10px"}}>
                                         <ul>
                                             {appData.social.map((item, key) => (
                                             <li key={`contact-social-item-${key}`}>
@@ -194,11 +194,11 @@ const Contact = () => {
                                             </li>
                                             ))}
                                         </ul>
-                                    </div>
+                                    </div> */}
                                 </li>
                                 <li>
                                     <h5>Addis Ababa</h5>
-                                    <div>DH Geda Building,<br/>Bole Sub-City</div>
+                                    <div>Noble and Trustworthy Building,<br/>Bole Sub-City</div>
                                 </li>
                                 {/* <li>
                                     <h5>Los Angeles</h5>

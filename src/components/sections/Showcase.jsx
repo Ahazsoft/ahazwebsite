@@ -212,14 +212,14 @@ const ShowcaseSection = ( { projects } ) => {
 					</div>
 
 					{/* Button */}
-					<Link className="onovo-btn onovo-hover-btn" href={'projects-2'}>
+					<Link className="onovo-btn onovo-hover-btn" href={'websites'}>
 						{/* <i className="arrow">
 							<span />
 						</i> */}
 						<span>{"Website Projects"}</span>
 					</Link>
 					{/* Button */}
-					<Link className="onovo-btn onovo-hover-btn" href={Data.button.link}>
+					<Link className="onovo-btn onovo-hover-btn" href={'softwares'}>
 						{/* <i className="arrow">
 							<span />
 						</i> */}

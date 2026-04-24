@@ -53,9 +53,9 @@ const TeamSection = ( { team } ) => {
 										</Link> */}
 										<img decoding="async" src={item.image} width="350" height="530" alt={item.name} />
 									</div>
-									<div className="num onovo-text-white">
+									{/* <div className="num onovo-text-white">
 										<span>{item.first_letter}</span>
-									</div>
+									</div> */}
 								</div>
 							</div>
 						</div>

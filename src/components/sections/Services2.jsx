@@ -47,10 +47,11 @@ const Services2Section = ( { introHidden, noPaddingBottom } ) => {
                                         <span data-splitting data-onovo-scroll>{item.title}</span>
                                     </Link>
                                 </h5>
-                                <div className="list">
+                                <div className="list ">
                                     <ul>
                                         {item.list.map((elem, key2) => (
                                         <li key={`services2-item-${key}-list-element-${key2}`}>
+                                            
                                             {/* <Link className="onovo-lnk" href={item.link}>
                                                 <span data-splitting data-onovo-scroll>{elem}</span>
                                             </Link> */}

@@ -55,17 +55,17 @@ const Footer2 = () => {
 							<div className="onovo-text">
 								<ul className="onovo-footer-menu">
 									<li>
-										<Link href="/services/service-1">
+										<Link href="/services/software-services">
 											<span className="onovo-lnk">Desktop & Web Applications</span>
 										</Link>
 									</li>
 									<li>
-										<Link href="/services/service-2">
+										<Link href="/services/website-services">
 											<span className="onovo-lnk">Website Development</span>
 										</Link>
 									</li>
 									<li>
-										<Link href="/services/service-3">
+										<Link href="/services/AI-ML-services">
 											<span className="onovo-lnk">AI/ML Services</span>
 										</Link>
 									</li>

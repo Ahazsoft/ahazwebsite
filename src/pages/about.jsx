@@ -50,7 +50,7 @@ const About = (props) => {
 								<span> We are a tech-driven company, <br/> passionate about crafting innovative solutions <br/>and shaping the future of digital experiences.</span>
 							</h2>
 							<div className="onovo-text">
-								<p>At Ahaz, we specialize in delivering innovative digital solutions that transform businesses and drive success. With a focus on Desktop/Web Applications, Website Development, and AI/ML services, we provide cutting-edge technologies <strong>that enhance user experiences and foster growth.</strong></p>
+								<p>At Ahaz, we specialize in delivering innovative digital solutions that transform businesses and drive success. With a focus on Software Applications, Website Development, and AI/ML services, we provide cutting-edge technologies <strong>that enhance user experiences and foster growth.</strong></p>
 							</div>
 						</div>
 
