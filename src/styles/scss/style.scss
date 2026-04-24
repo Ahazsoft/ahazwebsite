@@ -2611,13 +2611,13 @@ a.onovo-head-btn,
 }
 
 .onovo-menu-horizontal ul ul {
-  margin-left: -120px;
+  margin-left: -60px;
   padding: 20px;
   position: absolute;
   left: 50%;
   top: 0;
-  width: 240px;
-  background: #fff;
+  width: 200px;
+  background: #F0FAFF;
   transform: translate(0, 30px);
   -webkit-transform: translate(0, 30px);
   opacity: 0;
@@ -2652,7 +2652,7 @@ a.onovo-head-btn,
   right: 10px;
   top: 10px;
   bottom: 10px;
-  border: 1px solid #000;
+  // border: 1px solid #000;
 }
 
 .onovo-menu-horizontal ul ul ul:before {

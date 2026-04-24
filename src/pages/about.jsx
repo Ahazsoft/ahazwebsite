@@ -58,7 +58,7 @@ const About = (props) => {
 					<div className="col-xs-12 col-sm-12 col-md-12 col-lg-3 offset-lg-1 hide-on-mobile">
 
 						{/* Image */}
-						<img src="/images/AS I Logo Variations-05.png" alt="" />
+						<img src="/images/AS_AboutUS.jpg" alt="" />
 
 					</div>
 				</div>

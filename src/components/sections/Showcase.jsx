@@ -119,7 +119,7 @@ const ShowcaseSection = ( { projects } ) => {
 							</a>
 							</div>
 							<h3 className="title">
-							<a href="https://bespaet.com/" target="_blank" rel="noopener noreferrer">
+							<a href="https://kurifturesorts.com/" target="_blank" rel="noopener noreferrer">
 								<span className="onovo-lnk" data-splitting data-onovo-scroll>
 								{projects[7].title}
 								</span>
@@ -182,28 +182,28 @@ const ShowcaseSection = ( { projects } ) => {
 							/>
 							</div>
 						</div>
-						{/* Qene */}
+						{/* Inframe */}
 						<div className="onovo-showcase-item">
 							<div className="category">
 							<a href={'projects-2'}>
 								<span data-splitting data-onovo-scroll>
-								<span>{projects[2].category}</span>
+								<span>{projects[18].category}</span>
 								</span>
 							</a>
 							</div>
 							<h3 className="title">
-							{/* <a href="https://qenefilms.vercel.app/dist/main/index.html" target="_blank" rel="noopener noreferrer"> */}
-							<a href="#" target="_blank" rel="noopener noreferrer">
+							<a href="https://inframeadvertising.com/" target="_blank" rel="noopener noreferrer">
+							{/* <a href="#" target="_blank" rel="noopener noreferrer"> */}
 
 								<span className="onovo-lnk" data-splitting data-onovo-scroll>
-								{projects[2].title}
+								{projects[18].title}
 								</span>
 							</a>
 							</h3>
 							<div className="image" data-onovo-overlay data-onovo-scroll>
 							<span
 								className="img"
-								style={{ backgroundImage: `url(${projects[2].image})` }}
+								style={{ backgroundImage: `url(${projects[18].image})` }}
 							/>
 							</div>
 						</div>

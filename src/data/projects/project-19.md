@@ -1,28 +1,32 @@
 ---
 #preview
-title: Elevate Design
-image: /images/project-logo/elevate.png
+title: Inframe Production and Promotion
+image: /images/project-logo/inframedark.png
+images: 
+  - /images/project-logo/signature.png
+  - /images/project-logo/signature.png
+  - /images/project-logo/signature.png
 category: Website
-category_slug: realestate
-type: Website Design, Website Development 
-team: Abreham Moges 
-date: June 2025
-link: http://elevate-design.ahaz.io/
+category_slug: corporate
+type: Website Design & Development
+team: Elyase Takele
+date: January 2026
+link: https://inframeadvertising.com/
+# link: http://localhost:3000/projects/project-16
 #full details
 details:
     items:
         - label: "Client:"
-          value: Abreham Moges
+          value: Elyase Takele
 
         - label: "Start:"
-          value: June 2025
+          value: January 2026
         
         - label: "Ending:"
-          value: August 2025
+          value: March 2026
         
         - label: "Website:"
-          value: http://elevate-design.ahaz.io/
-
+          value: https://inframeadvertising.com/
 # gallery: 
 #     items:
 #         - image: /images/project-2-2-1200x982.jpg
