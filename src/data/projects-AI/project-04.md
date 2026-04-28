@@ -13,7 +13,7 @@ date: 2019 - 2020
 details:
     items:
         - label: "Client:"
-          value: 
+          value: Concept Development
 
         - label: "Start:"
           value: December 2022

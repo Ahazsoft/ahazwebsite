@@ -8,7 +8,7 @@ import { getSortedServicesData } from "@library/services";
 
 import Services2Section from "@components/sections/Services2";
 import CountersSection from "@components/sections/Counters";
-import VideoSection from "@components/sections/Video";
+// import VideoSection from "@components/sections/Video";
 import CallToActionSection from "@components/sections/CallToAction";
 import PartnersSection from "@components/sections/Partners";
 

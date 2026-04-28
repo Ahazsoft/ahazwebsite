@@ -14,7 +14,7 @@ date: 2019 - 2020
 details:
     items:
         - label: "Client:"
-          value: NthDS
+          value: Akille Painting and Finishing
 
         - label: "Start:"
           value: March 2021
@@ -22,8 +22,8 @@ details:
         - label: "Ending:"
           value: November 2021
         
-        - label: "Website:"
-          value: https://www.yohanasahle.com/
+        # - label: "Website:"
+        #   value: https://www.yohanasahle.com/
 
 
 

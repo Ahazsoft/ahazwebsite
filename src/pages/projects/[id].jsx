@@ -218,7 +218,7 @@ const ProjectDetail = ( props ) => {
 								</span>
 							</Link>
               }
-							<Link href="/projects" className="page-navigation__posts">
+							<Link href="/softwares" className="page-navigation__posts">
 								<i className="fas fa-th" />
 							</Link>
               {next_id != 0 && next_id != undefined &&

@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import Layouts from "@layouts/Layouts";
 import dynamic from "next/dynamic";
 
-import { getSortedPostsData } from "@library/posts";
+// import { getSortedPostsData } from "@library/posts";
 import { getSortedProjectsData } from "@library/projects";
 // import { getSortedProjectsDataAI } from "@library/projects-AI";
 import { getSortedTeamData } from "@library/team";
@@ -15,10 +15,10 @@ import ServicesSection from "@components/sections/Services";
 import AboutSection from "@components/sections/About";
 import ShowcaseSection from "@components/sections/Showcase";
 import TeamSection from "@components/sections/Team";
-import VideoSection from "@components/sections/Video";
+// import VideoSection from "@components/sections/Video";
 import CountersSection from "@components/sections/Counters";
 import CallToActionSection from "@components/sections/CallToAction";
-import LatestPostsSection from "@components/sections/LatestPosts";
+// import LatestPostsSection from "@components/sections/LatestPosts";
 import PartnersSection from "@components/sections/Partners";
 
 const HeroSection = dynamic(() => import("@components/sections/HeroNew"), {
@@ -61,13 +61,13 @@ const Home1 = (props) => {
 export default Home1;
 
 export async function getStaticProps() {
-  const allPosts = getSortedPostsData();
+  // const allPosts = getSortedPostsData();
   const allProjects = getSortedProjectsData();
   const allTeam = getSortedTeamData();
 
   return {
     props: {
-      posts: allPosts,
+      // posts: allPosts,
       projects: allProjects,
       team: allTeam,
     },

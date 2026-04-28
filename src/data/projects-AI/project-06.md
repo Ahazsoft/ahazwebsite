@@ -14,7 +14,7 @@ date: 2019 - 2020
 details:
     items:
         - label: "Client:"
-          value: NthDS
+          value: Zeleman Communications
 
         - label: "Start:"
           value: December 2018
@@ -22,8 +22,8 @@ details:
         - label: "Ending:"
           value: April 2019
         
-        - label: "Website:"
-          value: https://www.yohanasahle.com/
+        # - label: "Website:"
+        #   value: https://www.yohanasahle.com/
 
 
 

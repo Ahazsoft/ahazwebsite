@@ -11,7 +11,7 @@ import { circleText } from "@common/utilits";
 import PageBanner from "@components/PageBanner";
 import Team2Section from "@components/sections/Team2"
 import PartnersSection from "@components/sections/Partners"
-import AwardsSection from "@components/sections/Awards"
+// import AwardsSection from "@components/sections/Awards"
 import Services4Section from "@components/sections/Services4"
 
 const HistorySlider = dynamic( () => import("@components/sliders/History"), { ssr: false } );
@@ -33,7 +33,7 @@ const About = (props) => {
 
   return (
     <Layouts>
-    	<PageBanner pageTitle={"About Us"} pageDesc={"Creative studio at the intersection of art, designand technology."} />
+    	<PageBanner pageTitle={"About Us"} pageDesc={"Creative intersection of art, design and technology."} />
       
       	{/* Onovo About */}
 	  	<section className="onovo-section gap-top-140 gap-bottom-140">
@@ -44,7 +44,7 @@ const About = (props) => {
 						{/* Heading */}
 						<div className="onovo-heading gap-bottom-60">
 							<div className="onovo-subtitle-1">
-								<span> Welcome to Ahaz IO </span>
+								<span> Welcome to Ahaz </span>
 							</div>
 							<h2 className="onovo-title-2">
 								<span> We are a tech-driven company, <br/> passionate about crafting innovative solutions <br/>and shaping the future of digital experiences.</span>

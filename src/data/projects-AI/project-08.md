@@ -14,7 +14,7 @@ date: 2019 - 2020
 details:
     items:
         - label: "Client:"
-          value: NthDS
+          value: Bantu ICT Solutions
 
         - label: "Start:"
           value: August 2021
@@ -22,8 +22,8 @@ details:
         - label: "Ending:"
           value: February 2022
         
-        - label: "Website:"
-          value: https://www.yohanasahle.com/
+        # - label: "Website:"
+        #   value: https://www.yohanasahle.com/
 
 
 
