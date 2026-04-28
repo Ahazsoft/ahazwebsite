@@ -2,7 +2,7 @@
 export const headerSticky = () => {
   let new_scroll_position = 0;
   let last_scroll_position;
-  const header = document.querySelector(".onovo-header");
+  const header = document.querySelector(".ahaz-header");
 
   window.addEventListener('scroll', function(e) {
     last_scroll_position = window.scrollY;
@@ -29,7 +29,7 @@ export const headerSticky = () => {
 
 // Footer Sticky
 export const footerSticky = () => {
-  const footerFixed = document.querySelector(".footer--fixed .onovo-footer");
+  const footerFixed = document.querySelector(".footer--fixed .ahaz-footer");
   const wrapper = document.querySelector(".wrapper");
   let footerHeight = footerFixed.offsetHeight;
   
@@ -38,8 +38,8 @@ export const footerSticky = () => {
 
 // Services Hover
 export const servicesHover = () => {
-  const items = document.querySelectorAll('.onovo-service-grid-item');
-  const itemActive = document.querySelector(".onovo-service-grid-item.active--default");
+  const items = document.querySelectorAll('.ahaz-service-grid-item');
+  const itemActive = document.querySelector(".ahaz-service-grid-item.active--default");
 
   items.forEach((item) => {
     item.addEventListener("mouseover", (e) => {
@@ -59,7 +59,7 @@ export const servicesHover = () => {
 
 // Circle Text
 export const circleText = () => {
-  const labels = document.querySelectorAll('.onovo-circle-text .label');
+  const labels = document.querySelectorAll('.ahaz-circle-text .label');
 
   labels.forEach((item) => {
     
@@ -73,9 +73,9 @@ export const circleText = () => {
 
 // Portfolio Showcase Hover
 export const showcaseHover = () => {
-  let firstItem = document.querySelector('.onovo-showcase-item:first-child')
+  let firstItem = document.querySelector('.ahaz-showcase-item:first-child')
   firstItem.classList.add('hover');
-  let items = document.querySelectorAll('.onovo-showcase-item');
+  let items = document.querySelectorAll('.ahaz-showcase-item');
 
   items.forEach((item) => {
     item.addEventListener("mouseenter", (e) => {
@@ -89,9 +89,9 @@ export const showcaseHover = () => {
 
 // Services Showcase Hover
 export const servShowcaseHover = () => {
-  let firstItem = document.querySelector('.onovo-services-showcase .items ul li:first-child')
+  let firstItem = document.querySelector('.ahaz-services-showcase .items ul li:first-child')
   firstItem.classList.add('hover');
-  let items = document.querySelectorAll('.onovo-services-showcase .items ul li');
+  let items = document.querySelectorAll('.ahaz-services-showcase .items ul li');
 
   items.forEach((item) => {
     item.addEventListener("mouseenter", (e) => {
@@ -118,10 +118,10 @@ export const wordsWrap = () => {
 
 // Overlay Animation
 export const overlayAnim = () => {
-  const allOverlays = document.querySelectorAll("[data-onovo-overlay]");
+  const allOverlays = document.querySelectorAll("[data-ahaz-overlay]");
   allOverlays.forEach((item) => {
       let overlay = document.createElement("div");
-      overlay.classList.add('onovo-overlay');
+      overlay.classList.add('ahaz-overlay');
       item.appendChild(overlay);
   });
 }

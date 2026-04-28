@@ -12,32 +12,32 @@ const TeamDetail = ( { postData, projects, services } ) => {
       <PageBanner pageTitle={postData.name} pageDesc={"Meet our creativity company family."} />
 
       	{/* Onovo Team Detail */}
-		<section className="onovo-section gap-top-140 gap-bottom-140">
+		<section className="ahaz-section gap-top-140 gap-bottom-140">
 			<div className="container">
 
 				{/* Team Card */}
-				<div className="onovo-team-detail">
+				<div className="ahaz-team-detail">
 					<div className="row gap-140 gap-top-60 gap-bottom-0">
 						<div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
 							<img loading="lazy" src={postData.image} className="team-detail-img" alt={postData.name} />
 						</div>
 						<div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 align-self-center">
 							<h2>
-								<span data-splitting data-onovo-scroll>{postData.name}</span>
+								<span data-splitting data-ahaz-scroll>{postData.name}</span>
 							</h2>
 							<h5>
-								<span data-splitting data-onovo-scroll>{postData.role}</span>
+								<span data-splitting data-ahaz-scroll>{postData.role}</span>
 							</h5>
 							{typeof postData.info != "undefined" &&
-							<div className="onovo-team-info">
+							<div className="ahaz-team-info">
 								<ul>
 									{postData.info.map((item, key) => (
 									<li key={`info-item-${key}`}>
 										<div className="title">
-											<span data-splitting data-onovo-scroll>{item.label}</span>
+											<span data-splitting data-ahaz-scroll>{item.label}</span>
 										</div>
-										<div className="onovo-text">
-											<div data-splitting data-onovo-scroll>
+										<div className="ahaz-text">
+											<div data-splitting data-ahaz-scroll>
 												<p>{item.value}</p>
 											</div>
 										</div>
@@ -47,11 +47,11 @@ const TeamDetail = ( { postData, projects, services } ) => {
 							</div>
 							}
 							{typeof postData.social != "undefined" &&
-							<div className="onovo-social-1 mb-5">
+							<div className="ahaz-social-1 mb-5">
 								<ul>
 									{postData.social.map((item, key) => (
 									<li key={`teamsocial-item-${key}`}>
-										<a className="onovo-social-link onovo-hover-2" href={item.link} title={item.title} target="_blank">
+										<a className="ahaz-social-link ahaz-hover-2" href={item.link} title={item.title} target="_blank">
 											<i aria-hidden="true" className={item.icon} />
 										</a>
 									</li>
@@ -64,7 +64,7 @@ const TeamDetail = ( { postData, projects, services } ) => {
 				</div>
 		
 				{/* {postData.contentHtml != "" &&
-				<div className="onovo-text gap-top-140">
+				<div className="ahaz-text gap-top-140">
 					<div dangerouslySetInnerHTML={{__html : postData.contentHtml}} />
 				</div>
 				} */}
@@ -74,23 +74,23 @@ const TeamDetail = ( { postData, projects, services } ) => {
 		</section>
 	
 		{/* {typeof postData.services != "undefined" &&
-		<section className="onovo-section gap-bottom-140">
+		<section className="ahaz-section gap-bottom-140">
 			<div className="container"> */}
 
 				{/* Heading */}
-				{/* <div className="onovo-heading gap-bottom-40">
-					<h5 className="onovo-subtitle-1">
+				{/* <div className="ahaz-heading gap-bottom-40">
+					<h5 className="ahaz-subtitle-1">
 						<span> What we do </span>
 					</h5>
 				</div> */}
 
 				{/* Services items */}
-				{/* <div className="onovo-services-list">
+				{/* <div className="ahaz-services-list">
 
 					{services.map((item, key) => (
-					<div key={`services-item-${key}`} className="onovo-service-item-list">
-						<div className="onovo-service-item-list-inner">
-							<div className="image onovo-hover-1">
+					<div key={`services-item-${key}`} className="ahaz-service-item-list">
+						<div className="ahaz-service-item-list-inner">
+							<div className="image ahaz-hover-1">
 								<Link href={`/services/${item.id}`}>
 									<img src={item.icon} alt={item.title} />
 								</Link>
@@ -103,7 +103,7 @@ const TeamDetail = ( { postData, projects, services } ) => {
 									<span>{item.title}</span>
 								</a>
 							</h5>
-							<div className="onovo-text">
+							<div className="ahaz-text">
 								<div>
 									<p>{item.short}</p>
 								</div>
@@ -119,12 +119,12 @@ const TeamDetail = ( { postData, projects, services } ) => {
 		} */}
 
 		{/* {typeof postData.awards != "undefined" &&
-		<section className="onovo-section gap-bottom-140">
+		<section className="ahaz-section gap-bottom-140">
 			<div className="container"> */}
 
 				{/* Heading */}
-				{/* <div className="onovo-heading">
-					<h5 className="onovo-subtitle-1">
+				{/* <div className="ahaz-heading">
+					<h5 className="ahaz-subtitle-1">
 						<span> Awards </span>
 					</h5>
 				</div> */}
@@ -135,7 +135,7 @@ const TeamDetail = ( { postData, projects, services } ) => {
 					{postData.awards.map((item, key) => (
 					<div key={`awards-item-${key}`} className="col-xs-12 col-sm-12 col-md-4 col-lg-4">
 						<p><img src={item.image} alt="image" /></p>
-						<h5 className="onovo-title-1">{item.value}</h5>
+						<h5 className="ahaz-title-1">{item.value}</h5>
 						<span dangerouslySetInnerHTML={{__html : item.label}} />
 					</div>
 					))}
@@ -148,36 +148,36 @@ const TeamDetail = ( { postData, projects, services } ) => {
 		} */}
 
       	{/* {typeof postData.projects != "undefined" &&
-		<section className="onovo-section">
+		<section className="ahaz-section">
 			<div className="container"> */}
 
 				{/* Heading */}
-				{/* <div className="onovo-heading gap-bottom-40">
-					<h5 className="onovo-subtitle-1">
+				{/* <div className="ahaz-heading gap-bottom-40">
+					<h5 className="ahaz-subtitle-1">
 						<span> Work Showcase </span>
 					</h5>
 				</div> */}
 
 				{/* Projects items */}
-				{/* <div className="onovo-portfolio">
-					<div className="row gap-row onovo-portfolio-items">
+				{/* <div className="ahaz-portfolio">
+					<div className="row gap-row ahaz-portfolio-items">
 
 						{projects.map((item, key) => (
-						<div key={`projects-item-${key}`} className="col-xs-12 col-sm-12 col-md-6 col-lg-6 onovo-portfolio-col">
-							<div className="onovo-portfolio-item">
-								<div className="image" data-onovo-overlay data-onovo-scroll>
-									<Link href={`/projects/${item.id}`} className="onovo-hover-3">
+						<div key={`projects-item-${key}`} className="col-xs-12 col-sm-12 col-md-6 col-lg-6 ahaz-portfolio-col">
+							<div className="ahaz-portfolio-item">
+								<div className="image" data-ahaz-overlay data-ahaz-scroll>
+									<Link href={`/projects/${item.id}`} className="ahaz-hover-3">
 										<img src={item.image} alt={item.title} />
 									</Link>
 								</div>
 								<div className="desc">
 									<h5 className="title">
-										<Link className="onovo-lnk" href={`/projects/${item.id}`}>
-											<span data-splitting data-onovo-scroll>{item.title}</span>
+										<Link className="ahaz-lnk" href={`/projects/${item.id}`}>
+											<span data-splitting data-ahaz-scroll>{item.title}</span>
 										</Link>
 									</h5>
 									<div className="text">
-										<div data-splitting data-onovo-scroll>
+										<div data-splitting data-ahaz-scroll>
 											<span>{item.category}</span>
 										</div>
 									</div>

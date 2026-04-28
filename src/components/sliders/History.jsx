@@ -7,17 +7,17 @@ const HistorySlider = () => {
   return (
     <>
         {/* Onovo History */}
-        <section className="onovo-section onovo-section-bg gap-top-140 gap-bottom-140">
+        <section className="ahaz-section ahaz-section-bg gap-top-140 gap-bottom-140">
             <div className="container">
                 <div className="row">
                     <div className="col-xs-12 col-sm-12 col-md-12 col-lg-9">
 
                         {/* Heading */}
-                        <div className="onovo-heading gap-bottom-80">
-                            <div className="onovo-subtitle-1">
+                        <div className="ahaz-heading gap-bottom-80">
+                            <div className="ahaz-subtitle-1">
                                 <span dangerouslySetInnerHTML={{__html: Data.subtitle}} />
                             </div>
-                            <h2 className="onovo-title-2">
+                            <h2 className="ahaz-title-2">
                                 <span dangerouslySetInnerHTML={{__html: Data.title}} />
                             </h2>
                         </div>
@@ -26,7 +26,7 @@ const HistorySlider = () => {
                     <div className="col-xs-12 col-sm-12 col-md-12 col-lg-3 align-right hide-on-mobile">
 
                         {/* Button */}
-                        <Link className="onovo-btn onovo-hover-btn" href={Data.button.link}>
+                        <Link className="ahaz-btn ahaz-hover-btn" href={Data.button.link}>
                             <i className="arrow">
                                 <span />
                             </i>
@@ -37,7 +37,7 @@ const HistorySlider = () => {
                 </div>
 
                 {/* History swiper */}
-                <div className="onovo-history-slider">
+                <div className="ahaz-history-slider">
                     <Swiper
                         {...sliderProps.historySlider}
                         className="swiper-container js-history-slider"
@@ -46,10 +46,10 @@ const HistorySlider = () => {
                             
                             {Data.items.map((item, key) => (
                             <SwiperSlide key={`history-slide-${key}`} className="swiper-slide">
-                                <div className="onovo-history-item">
-                                    <div className="image" style={{"backgroundImage": "url("+item.image+")"}} data-onovo-overlay />
+                                <div className="ahaz-history-item">
+                                    <div className="image" style={{"backgroundImage": "url("+item.image+")"}} data-ahaz-overlay />
                                     <div className="desc">
-                                        <div className="subtitle onovo-text-white">
+                                        <div className="subtitle ahaz-text-white">
                                             <div data-splitting>{item.subtitle}</div>
                                         </div>
                                         <h5 className="title">
@@ -68,15 +68,15 @@ const HistorySlider = () => {
                         </div>
 
                         {/* navs */}
-                        <div className="onovo-navs js-history-navs">
-                            <div className="onovo-prev js-history-prev onovo-hover-2">
+                        <div className="ahaz-navs js-history-navs">
+                            <div className="ahaz-prev js-history-prev ahaz-hover-2">
                                 <i />
                             </div>
-                            <div className="onovo-paginations-container">
-                                <div className="onovo-paginations js-history-pagination" />
+                            <div className="ahaz-paginations-container">
+                                <div className="ahaz-paginations js-history-pagination" />
                                 <div className="swiper-nav-active" />
                             </div>
-                            <div className="onovo-next js-history-next onovo-hover-2">
+                            <div className="ahaz-next js-history-next ahaz-hover-2">
                                 <i />
                             </div>
                         </div>
@@ -86,7 +86,7 @@ const HistorySlider = () => {
 
                 {/* Button */}
                 <div className="hide-on-desktop align-center">
-                    <Link className="onovo-btn onovo-hover-btn" href={Data.button.link}>
+                    <Link className="ahaz-btn ahaz-hover-btn" href={Data.button.link}>
                         <i className="arrow">
                             <span />
                         </i>

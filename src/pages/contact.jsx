@@ -33,19 +33,19 @@ const Contact = () => {
         <PageBanner pageTitle={"Contact Us"} pageDesc={"Have ideas for your business? Let’s build something awesome together."} />
 
         {/* Onovo Contact Info */}
-        <section className="onovo-section gap-top-140">
+        <section className="ahaz-section gap-top-140">
             <div className="container">
                 <div className="row">
                     <div className="col-xs-12 col-sm-12 col-md-12 col-lg-7">
 
                         {/* Heading */}
-                        <div className="onovo-text gap-bottom-40">
+                        <div className="ahaz-text gap-bottom-40">
                             <h4>Send Us A Message</h4>
                             Then let us know about it and we can see what we can do to help
                         </div>
 
                         {/* Form */}
-                        <div className="onovo-form">
+                        <div className="ahaz-form">
                         <Formik
                             initialValues = {{ email: '', name: '', tel: '', message: '' }}
                             validate = { values => {
@@ -160,7 +160,7 @@ const Contact = () => {
                                     </div>
                                     <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                         <p>
-                                            <button type="submit" className="onovo-btn onovo-hover-btn">
+                                            <button type="submit" className="ahaz-btn ahaz-hover-btn">
                                                 <span>Send Message</span>
                                             </button>
                                         </p>
@@ -170,35 +170,35 @@ const Contact = () => {
                                 <div className="form-status alert-success" id="contactFormStatus" />
                             </form>
                             )}
-                            </Formik>
+                        </Formik>
                         </div>
 
                     </div>
                     <div className="col-xs-12 col-sm-12 col-md-12 col-lg-5">
 
                         {/* Contact Info */}
-                        <div className="onovo-contact-info onovo-text-white">
+                        <div className="ahaz-contact-info ahaz-text-white">
                             <ul>
                                 <li>
                                     <h5>Contact Info</h5>
-                                    <a href="tel:+10204302973" className="onovo-lnk lnk--white" target="_blank">+ 251 (910) 31-59-80 </a><br/>
-                                    <a href="mailto:username@domain.com" className="onovo-lnk lnk--white" target="_blank">info@ahaz.io</a>
+                                    <a href="tel:+251910315980 " className="ahaz-lnk lnk--white" target="_blank">+ 251 (910) 31-59-80 </a><br/>
+                                    <a href="mailto:info@ahaz.io" className="ahaz-lnk lnk--white" target="_blank">info@ahaz.io</a>
                                     
-                                    <div className="onovo-social-1 onovo-social-active" style={{"marginTop": "10px"}}>
+                                    {/* <div className="ahaz-social-1 ahaz-social-active" style={{"marginTop": "10px"}}>
                                         <ul>
                                             {appData.social.map((item, key) => (
                                             <li key={`contact-social-item-${key}`}>
-                                                <a href={item.link} target="_blank" className="onovo-social-link onovo-hover-2" title={item.title}>
+                                                <a href={item.link} target="_blank" className="ahaz-social-link ahaz-hover-2" title={item.title}>
                                                     <i className={`icon ${item.icon}`} />
                                                 </a>
                                             </li>
                                             ))}
                                         </ul>
-                                    </div>
+                                    </div> */}
                                 </li>
                                 <li>
                                     <h5>Addis Ababa</h5>
-                                    <div>DH Geda Building,<br/>Bole Sub-City</div>
+                                    <div>Noble and Trustworthy Building,<br/>Bole Sub-City</div>
                                 </li>
                                 {/* <li>
                                     <h5>Los Angeles</h5>

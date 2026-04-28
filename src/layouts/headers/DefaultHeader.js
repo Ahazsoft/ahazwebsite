@@ -22,34 +22,34 @@ const DefaultHeader = ({ darkHeader, cartButton }) => {
     e.preventDefault();
     desktopMenuToggle(!desktopMenu);
     
-    const menuPopup = document.querySelector('.onovo-menu-popup');
-    const menuContainer = document.querySelector('.onovo-menu-container');
+    const menuPopup = document.querySelector('.ahaz-menu-popup');
+    const menuContainer = document.querySelector('.ahaz-menu-container');
     const menuBody = document.querySelector('body');
-    const menuHeader = document.querySelector('.onovo-header');
-    const menuButton = document.querySelector('.onovo-menu-btn');
+    const menuHeader = document.querySelector('.ahaz-header');
+    const menuButton = document.querySelector('.ahaz-menu-btn');
 
     if ( desktopMenu ) {
-			menuBody.classList.remove('onovo--noscroll');
+			menuBody.classList.remove('ahaz--noscroll');
 			menuHeader.classList.remove('header--active');
 			menuPopup.classList.remove('menu--ready');
-			menuContainer.classList.add('onovo--noscroll');
-      menuButton.parentNode.classList.add('onovo--notouch');
+			menuContainer.classList.add('ahaz--noscroll');
+      menuButton.parentNode.classList.add('ahaz--notouch');
 			let timer1 = setTimeout(function(){
 				menuPopup.classList.remove('menu--open');
 			}, 300);
 			let timer2 = setTimeout(function(){
-				menuButton.parentNode.classList.remove('onovo--notouch');
+				menuButton.parentNode.classList.remove('ahaz--notouch');
 				menuPopup.classList.remove('menu--visible');
 			}, 1600);
 		} else {
-			menuBody.classList.add('onovo--noscroll');
+			menuBody.classList.add('ahaz--noscroll');
 			menuHeader.classList.add('header--active');
 			menuPopup.classList.add('menu--visible');
 			menuPopup.classList.add('menu--open');
-      menuButton.parentNode.classList.add('onovo--notouch');
+      menuButton.parentNode.classList.add('ahaz--notouch');
 			let timer3 = setTimeout(function(){
-				menuButton.parentNode.classList.remove('onovo--notouch');
-				menuContainer.classList.remove('onovo--noscroll');
+				menuButton.parentNode.classList.remove('ahaz--notouch');
+				menuContainer.classList.remove('ahaz--noscroll');
 				menuPopup.classList.add('menu--ready');
 			}, 600);
 		}
@@ -67,14 +67,14 @@ const DefaultHeader = ({ darkHeader, cartButton }) => {
   return (
     <>
       {/* Header */}
-      <header className={darkHeader ? "onovo-header" : "onovo-header header--white"}>
+      <header className={darkHeader ? "ahaz-header" : "ahaz-header header--white"}>
         <div className="header--builder">
           <div className="container">
             <div className="row">
               <div className="col-4 col-xs-4 col-sm-4 col-md-4 col-lg-3 align-self-center">
 
                 {/* Logo */}
-                <div className="onovo-logo-image" style={{"maxWidth": "70px"}}>
+                <div className="ahaz-logo-image" style={{"maxWidth": "70px"}}>
                   <Link href="/">
                     <img src={appData.header.logo.image} alt={appData.header.logo.alt} />
                     <img className="logo--white" src={appData.header.logo.image_white} alt={appData.header.logo.alt} />
@@ -85,19 +85,19 @@ const DefaultHeader = ({ darkHeader, cartButton }) => {
               <div className="col-4 col-xs-4 col-sm-4 col-md-4 col-lg-6 align-self-center align-center">
 
                 {/* Menu Hamburger */}
-                <a href="#" className={desktopMenu ? "onovo-menu-btn btn--active" : "onovo-menu-btn"} onClick={ (e) => clickedDesktopMenu(e) }><span /></a>
+                <a href="#" className={desktopMenu ? "ahaz-menu-btn btn--active" : "ahaz-menu-btn"} onClick={ (e) => clickedDesktopMenu(e) }><span /></a>
 
-                <div className="onovo-menu-popup align-left">
-                  <div className="onovo-menu-overlay" />
-                  <div className="onovo-menu-overlay-after" />
+                <div className="ahaz-menu-popup align-left">
+                  <div className="ahaz-menu-overlay" />
+                  <div className="ahaz-menu-overlay-after" />
 
-                  <div className="onovo-menu-container onovo--noscroll">
+                  <div className="ahaz-menu-container ahaz--noscroll">
                     <div className="container">
-                      <div className="onovo-menu">
-                        <ul className="onovo-menu-nav">
+                      <div className="ahaz-menu">
+                        <ul className="ahaz-menu-nav">
                           {navItems.map((item, key) => (
                           <li key={`header-nav-item-${key}`} className={item.classes}>
-                            <Link className={item.children ? "onovo-lnk lnk--active onovo-dropdown-toggle" : "onovo-lnk lnk--active"} onClick={item.children != 0 ? (e) => clickedMobileMenuItemParent(e) : ""} href={item.link}>{item.label}</Link>
+                            <Link className={item.children ? "ahaz-lnk lnk--active ahaz-dropdown-toggle" : "ahaz-lnk lnk--active"} onClick={item.children != 0 ? (e) => clickedMobileMenuItemParent(e) : ""} href={item.link}>{item.label}</Link>
                             {item.children != 0 &&
                             <i className="icon fas fa-chevron-down" />
                             }
@@ -105,7 +105,7 @@ const DefaultHeader = ({ darkHeader, cartButton }) => {
                             <ul className="sub-menu">
                               {item.children.map((subitem, key) => (
                               <li key={`header-nav-sub-item-${key}`}>
-                                <Link className="onovo-lnk lnk--active" href={subitem.link}>{subitem.label}</Link>
+                                <Link className="ahaz-lnk lnk--active" href={subitem.link}>{subitem.label}</Link>
                               </li>
                               ))}
                             </ul>
@@ -122,9 +122,9 @@ const DefaultHeader = ({ darkHeader, cartButton }) => {
               <div className="col-4 col-xs-4 col-sm-4 col-md-4 col-lg-3 align-self-center align-right">
 
                 {/* Button */}
-                <Link className="onovo-head-btn onovo-hover-btn" href={appData.header.button.link}>
+                <Link className="ahaz-head-btn ahaz-hover-btn" href={appData.header.button.link}>
                   <span>
-                    <span className="onovo-lnk lnk--active">{appData.header.button.label}</span>
+                    <span className="ahaz-lnk lnk--active">{appData.header.button.label}</span>
                   </span>
                   <i className="arrow">
                     <span />

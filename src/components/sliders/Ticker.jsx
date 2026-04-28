@@ -8,17 +8,17 @@ const TickerSlider = () => {
   return (
     <>
         {/* Onovo Ticker */}
-        <section className="onovo-section gap-bottom-140">
+        <section className="ahaz-section gap-bottom-140">
 
             {/* Ticker swiper */}
-            <div className="onovo-ticker-slider gap-top-90 gap-bottom-100">
+            <div className="ahaz-ticker-slider gap-top-90 gap-bottom-100">
                 <Swiper
                     {...sliderProps.tickerSlider}
                     className="swiper-container js-ticker-slider"
                 >
                     {Data.items.map((item, key) => (
                     <SwiperSlide key={`ticker-slide-${key}`} className="swiper-slide">
-                        <h5 className="title onovo-text-white">
+                        <h5 className="title ahaz-text-white">
                             <Link href={item.link}>
                                 <span>{item.label}</span>
                             </Link>

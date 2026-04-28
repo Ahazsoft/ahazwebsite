@@ -5,7 +5,7 @@ const Team2Section = ( { team } ) => {
     return (
         <>
             {/* Onovo Team */}
-			<section className="onovo-section gap-top-140 gap-bottom-140">
+			<section className="ahaz-section gap-top-140 gap-bottom-140">
 				<div className="container">
 
 					{/* Team items */}
@@ -13,11 +13,11 @@ const Team2Section = ( { team } ) => {
 
 						{/* Heading */}
 						<div className="col-xs-12 col-sm-12 col-md-11 col-lg-5">
-							<div className="onovo-heading align-left">
-								<div className="onovo-subtitle-1">
+							<div className="ahaz-heading align-left">
+								<div className="ahaz-subtitle-1">
 									<span>{Data.subtitle}</span>
 								</div>
-								<h2 className="onovo-title-2">
+								<h2 className="ahaz-title-2">
                                     <span dangerouslySetInnerHTML={{__html: Data.title}} />
 								</h2>
 							</div>
@@ -29,17 +29,17 @@ const Team2Section = ( { team } ) => {
 						{team.slice(0, Data.numOfItems).map((item, key) => (
 
 						<div key={`team2-item-${key}`} className="col-xs-12 col-sm-12 col-md-6 col-lg-3">
-							<div className="onovo-team-two">
-								<div className="onovo-team-two-item">
-									<div className="image onovo-hover-3 onovo-hover-black-30" data-onovo-overlay data-onovo-scroll>
+							<div className="ahaz-team-two">
+								<div className="ahaz-team-two-item">
+									<div className="image ahaz-hover-3 ahaz-hover-black-30" data-ahaz-overlay data-ahaz-scroll>
 										<a href={`/team/${item.id}`}>
 											<img src={item.image} alt={item.name} />
 										</a>
-										<div className="onovo-social-2">
+										<div className="ahaz-social-2">
 											<ul>
                                                 {item.social.map((social, social_key) => (
 												<li key={`team2-item-${key}-social-${social_key}`}>
-													<a className="onovo-social-link onovo-hover-2" href={social.link} title={social.title} target="_blank">
+													<a className="ahaz-social-link ahaz-hover-2" href={social.link} title={social.title} target="_blank">
 														<i aria-hidden="true" className={social.icon} />
 													</a>
 												</li>
@@ -49,12 +49,12 @@ const Team2Section = ( { team } ) => {
 									</div>
 									<div className="desc">
 										<h5 className="title">
-											<a href={`/team/${item.id}`} className="onovo-lnk">
-												<span data-splitting data-onovo-scroll>{item.name}</span>
+											<a href={`/team/${item.id}`} className="ahaz-lnk">
+												<span data-splitting data-ahaz-scroll>{item.name}</span>
 											</a>
 										</h5>
-										<div className="onovo-subtitle-1">
-											<span data-splitting data-onovo-scroll>{item.role}</span>
+										<div className="ahaz-subtitle-1">
+											<span data-splitting data-ahaz-scroll>{item.role}</span>
 										</div>
 									</div>
 								</div>
@@ -65,7 +65,7 @@ const Team2Section = ( { team } ) => {
 
 						{/* Button */}
 						{/* <div className="col-xs-12 col-sm-12 col-md-6 col-lg-3 align-center align-self-center">
-							<Link className="onovo-btn-circle onovo-hover-2" href={Data.button.link}>
+							<Link className="ahaz-btn-circle ahaz-hover-2" href={Data.button.link}>
 								<i className="arrow">
 									<span />
 								</i>
@@ -74,7 +74,7 @@ const Team2Section = ( { team } ) => {
 
 						<br></br>
 						<div style={{ display: 'flex', justifyContent: 'center' }}>
-							<Link className="onovo-btn onovo-hover-btn" href={'team'}>
+							<Link className="ahaz-btn ahaz-hover-btn" href={'team'}>
 								<span>{"Meet Everyone"}</span>
 							</Link>
 						</div>

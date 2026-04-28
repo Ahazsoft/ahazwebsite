@@ -33,7 +33,7 @@ img.mfp-img {
   max-width: 800px;
 }
 
-.onovo-btn{
+.ahaz-btn{
   background-color: #f0faff !important;
 }
 
@@ -288,10 +288,10 @@ height: 50px;
   color: #fff;
 }
 
-.onovo-btn.onovo-hover-btn.btn--active:hover {
+.ahaz-btn.ahaz-hover-btn.btn--active:hover {
   color: black;
 }
 
-.onovo-btn.onovo-hover-btn.btn--active:hover span {
+.ahaz-btn.ahaz-hover-btn.btn--active:hover span {
   color: black;
 }

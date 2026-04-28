@@ -18,11 +18,11 @@ const ProjectsGrid = ({
 
   useEffect(() => {
     setTimeout(() => {
-      isotope.current = new Isotope(".onovo-portfolio-items", {
-        itemSelector: ".onovo-portfolio-col",
+      isotope.current = new Isotope(".ahaz-portfolio-items", {
+        itemSelector: ".ahaz-portfolio-col",
         percentPosition: true,
         masonry: {
-          columnWidth: ".onovo-portfolio-col",
+          columnWidth: ".ahaz-portfolio-col",
         },
         animationOptions: {
           duration: 750,
@@ -32,7 +32,7 @@ const ProjectsGrid = ({
       });
     }, 1000);
 
-    let filterNavActive = document.querySelectorAll(".onovo-filter-nav-active");
+    let filterNavActive = document.querySelectorAll(".ahaz-filter-nav-active");
 
     filterNavActive.forEach((item) => {
       item.style.width =
@@ -52,7 +52,7 @@ const ProjectsGrid = ({
 
   const handleFilterKeyChange = (key) => () => {
     setFilterKey(key);
-    const filterLinks = document.querySelectorAll(".js-onovo-filter li");
+    const filterLinks = document.querySelectorAll(".js-ahaz-filter li");
 
     filterLinks.forEach((filter) => {
       const filterValue = filter
@@ -66,10 +66,10 @@ const ProjectsGrid = ({
     });
 
     const activeItem = document.querySelector(
-      ".onovo-filter.filter--default .item--active",
+      ".ahaz-filter.filter--default .item--active",
     );
     const activeFilterNav = document.querySelector(
-      ".onovo-filter.filter--default .onovo-filter-nav-active",
+      ".ahaz-filter.filter--default .ahaz-filter-nav-active",
     );
 
     if (activeFilterNav != undefined) {
@@ -104,12 +104,12 @@ const ProjectsGrid = ({
   return (
     <>
       {/* Onovo Projects */}
-      <section className='onovo-section gap-top-140'>
+      <section className='ahaz-section gap-top-140'>
         <div className='container'>
           {/* Projects Grid */}
           <div
             className={
-              sideFilter ? "onovo-portfolio portfolio--side" : "onovo-portfolio"
+              sideFilter ? "ahaz-portfolio portfolio--side" : "ahaz-portfolio"
             }>
             <div className='row'>
               <div
@@ -119,19 +119,19 @@ const ProjectsGrid = ({
                     : "col-xs-12 col-sm-12 col-md-12 col-lg-3"
                 }>
                 {/* Filter projects */}
-                <div className='onovo-filter-container'>
+                <div className='ahaz-filter-container'>
                   <div
                     className={
                       !sideFilter
-                        ? "onovo-filter js-onovo-filter filter--default"
-                        : "onovo-filter js-onovo-filter"
+                        ? "ahaz-filter js-ahaz-filter filter--default"
+                        : "ahaz-filter js-ahaz-filter"
                     }>
-                    {!sideFilter && <div className='onovo-filter-nav-active' />}
+                    {!sideFilter && <div className='ahaz-filter-nav-active' />}
                     <ul>
                       <li key={`categories-item-first`}>
                         <button
                           onClick={handleFilterKeyChange("*")}
-                          className='onovo-filter-item item--active'
+                          className='ahaz-filter-item item--active'
                           type='button'
                           data-filter='*'>
                           <span>All Projects</span>
@@ -142,7 +142,7 @@ const ProjectsGrid = ({
                           <li key={`categories-item-${key}`}>
                             <button
                               onClick={handleFilterKeyChange(item.slug)}
-                              className='onovo-filter-item'
+                              className='ahaz-filter-item'
                               type='button'
                               data-filter={item.slug}>
                               <span>{item.label}</span>
@@ -161,39 +161,39 @@ const ProjectsGrid = ({
                     : "col-xs-12 col-sm-12 col-md-12 col-lg-9"
                 }>
                 {/* Projects items */}
-                <div className='row onovo-portfolio-items'>
+                <div className='row ahaz-portfolio-items'>
                   {projects.map((item, key) => (
                     <div
                       key={`projects-item-${key}`}
-                      className={`${columns} onovo-portfolio-col ${item.category_slug}`}>
+                      className={`${columns} ahaz-portfolio-col ${item.category_slug}`}>
                       {layout == "grid" && (
-                        <div className='onovo-portfolio-item'>
+                        <div className='ahaz-portfolio-item'>
                           <div
                             className={masonry ? "image" : "image image-square"}
-                            data-onovo-overlay
-                            data-onovo-scroll>
-                            {/* <Link href={galleryMode ? item.image : `/projects/${item.id}`} className="onovo-hover-3"> */}
+                            data-ahaz-overlay
+                            data-ahaz-scroll>
+                            {/* <Link href={galleryMode ? item.image : `/projects/${item.id}`} className="ahaz-hover-3"> */}
                             <Link
                               href={galleryMode ? item.image : `${item.link}`}
-                              className='onovo-hover-3'>
+                              className='ahaz-hover-3'>
                               <img src={item.image} alt={item.title} />
                             </Link>
                           </div>
                           <div className='desc'>
                             {/* <h5 className="title">
-                                            <Link className="onovo-lnk" href={galleryMode ? item.image : `/projects/${item.id}`}>
-                                                <span data-splitting data-onovo-scroll>{item.title}</span>
+                                            <Link className="ahaz-lnk" href={galleryMode ? item.image : `/projects/${item.id}`}>
+                                                <span data-splitting data-ahaz-scroll>{item.title}</span>
                                             </Link>
                                         </h5> */}
                             <h5 className='title'>
-                              <a className='onovo-lnk' href={item.link}>
-                                <span data-splitting data-onovo-scroll>
+                              <a className='ahaz-lnk' href={item.link}>
+                                <span data-splitting data-ahaz-scroll>
                                   {item.title}
                                 </span>
                               </a>
                             </h5>
                             <div className='text'>
-                              <div data-splitting data-onovo-scroll>
+                              <div data-splitting data-ahaz-scroll>
                                 <span>{item.category}</span>
                               </div>
                             </div>
@@ -201,49 +201,49 @@ const ProjectsGrid = ({
                         </div>
                       )}
                       {layout == "list" && (
-                        <div className='onovo-portfolio-item onovo-portfolio-item-list'>
+                        <div className='ahaz-portfolio-item ahaz-portfolio-item-list'>
                           <div
-                            className='image onovo-hover-3 onovo-hover-label'
-                            data-onovo-overlay
-                            data-onovo-scroll>
-                            {/* <Link href={`/projects/${item.id}`} className="onovo-hover-3"> */}
+                            className='image ahaz-hover-3 ahaz-hover-label'
+                            data-ahaz-overlay
+                            data-ahaz-scroll>
+                            {/* <Link href={`/projects/${item.id}`} className="ahaz-hover-3"> */}
                             <Link
                               href={`${item.link}`}
-                              className='onovo-hover-3'>
+                              className='ahaz-hover-3'>
                               <img src={item.image} alt={item.title} />
                               <div class='square'></div>
 
-                              {/* <span className='label onovo-white-black'>
+                              {/* <span className='label ahaz-white-black'>
                                 Visit Website
                               </span> */}
                             </Link>
 
-                            {/* <div className="onovo-brands onovo-hover-3 onovo-hover-label" data-onovo-overlay data-onovo-scroll>
+                            {/* <div className="ahaz-brands ahaz-hover-3 ahaz-hover-label" data-ahaz-overlay data-ahaz-scroll>
                                             <a target="_blank" href={item.link}>
                                                 <span className="image">
                                                     <img decoding="async" src={item.image} width="285" height="200" alt={item.alt} />
                                                     
                                                 </span>
-                                                <span className="label onovo-white-black">Visit Website</span>
+                                                <span className="label ahaz-white-black">Visit Website</span>
                                             </a>
                                         </div> */}
                           </div>
                           <div className='desc'>
                             <div className='text'>
-                              <div data-splitting data-onovo-scroll>
+                              <div data-splitting data-ahaz-scroll>
                                 <span>{item.category}</span>
                               </div>
                             </div>
                             <h5 className='title'>
-                              <Link className='onovo-lnk' href={`${item.link}`}>
-                                <span data-splitting data-onovo-scroll>
+                              <Link className='ahaz-lnk' href={`${item.link}`}>
+                                <span data-splitting data-ahaz-scroll>
                                   {item.title}
                                 </span>
                               </Link>
                             </h5>
-                            <div className='onovo-text'>
+                            <div className='ahaz-text'>
                               <div>
-                                <ul data-splitting='' data-onovo-scroll=''>
+                                <ul data-splitting='' data-ahaz-scroll=''>
                                   <li key={`projects-list-item-${key}-attr-1`}>
                                     <strong>Project Type</strong>
                                     <br /> {item.type}

@@ -2,7 +2,7 @@
     "settings": {
         "siteName": "Ahaz Solutions",
         "preloader": true,
-        "formspreeURL": "https://formspree.io/f/your_api_key",
+        "formspreeURL": "https://formspree.io/f/xaqavywa",
         "portfolio": {
             "categories": [
                 {
@@ -61,16 +61,16 @@
             },
             {
                 "label": "Projects",
-                "link": "/projects",
+                "link": "/",
                 "children": [
                     {
                         "label": "Websites",
-                        "link": "/projects-2",
+                        "link": "/websites",
                         "children": 0
                     },
                     {
                         "label": "Software Applications",
-                        "link": "/projects",
+                        "link": "/softwares",
                         "children": 0
                     }
 

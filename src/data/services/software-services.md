@@ -2,7 +2,7 @@
 #preview details
 image: "/images/web.svg"
 icon: "/images/web.svg"
-title: "Desktop/Web Applications"
+title: "Software Applications"
 short: "Building robust desktop and web applications that offer seamless user experiences and intuitive design, bridging functionality with creativity."
 
 #full details

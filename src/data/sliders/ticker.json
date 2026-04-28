@@ -2,15 +2,15 @@
     "items": [
         {
             "label": "- Software Applications",
-            "link": "/services/service-1"
+            "link": "/services/software-services"
         },
         {
             "label": "- Website Design",
-            "link": "/services/service-2"
+            "link": "/services/website-services"
         },
         {
             "label": "- AI/ML Services",
-            "link": "/services/service-3"
+            "link": "/services/AI-ML-services"
         }
 
     ]
