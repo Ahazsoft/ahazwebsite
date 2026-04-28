@@ -22,34 +22,34 @@ const Header2 = ({ darkHeader, cartButton }) => {
     e.preventDefault();
     desktopMenuToggle(!desktopMenu);
 
-    const menuPopup = document.querySelector(".onovo-menu-popup");
-    const menuContainer = document.querySelector(".onovo-menu-container");
+    const menuPopup = document.querySelector(".ahaz-menu-popup");
+    const menuContainer = document.querySelector(".ahaz-menu-container");
     const menuBody = document.querySelector("body");
-    const menuHeader = document.querySelector(".onovo-header");
-    const menuButton = document.querySelector(".onovo-menu-btn");
+    const menuHeader = document.querySelector(".ahaz-header");
+    const menuButton = document.querySelector(".ahaz-menu-btn");
 
     if (desktopMenu) {
-      menuBody.classList.remove("onovo--noscroll");
+      menuBody.classList.remove("ahaz--noscroll");
       menuHeader.classList.remove("header--active");
       menuPopup.classList.remove("menu--ready");
-      menuContainer.classList.add("onovo--noscroll");
-      menuButton.parentNode.classList.add("onovo--notouch");
+      menuContainer.classList.add("ahaz--noscroll");
+      menuButton.parentNode.classList.add("ahaz--notouch");
       let timer1 = setTimeout(function () {
         menuPopup.classList.remove("menu--open");
       }, 300);
       let timer2 = setTimeout(function () {
-        menuButton.parentNode.classList.remove("onovo--notouch");
+        menuButton.parentNode.classList.remove("ahaz--notouch");
         menuPopup.classList.remove("menu--visible");
       }, 1600);
     } else {
-      menuBody.classList.add("onovo--noscroll");
+      menuBody.classList.add("ahaz--noscroll");
       menuHeader.classList.add("header--active");
       menuPopup.classList.add("menu--visible");
       menuPopup.classList.add("menu--open");
-      menuButton.parentNode.classList.add("onovo--notouch");
+      menuButton.parentNode.classList.add("ahaz--notouch");
       let timer3 = setTimeout(function () {
-        menuButton.parentNode.classList.remove("onovo--notouch");
-        menuContainer.classList.remove("onovo--noscroll");
+        menuButton.parentNode.classList.remove("ahaz--notouch");
+        menuContainer.classList.remove("ahaz--noscroll");
         menuPopup.classList.add("menu--ready");
       }, 600);
     }
@@ -66,7 +66,7 @@ const Header2 = ({ darkHeader, cartButton }) => {
   return (
     <>
       {/* Header */}
-      <header className="onovo-header header--white">
+      <header className="ahaz-header header--white">
         <div className="header--builder">
           <div className="container">
             <div className="row">
@@ -78,7 +78,7 @@ const Header2 = ({ darkHeader, cartButton }) => {
                 }}
               >
                 {/* Logo */}
-                <div className="onovo-logo-image" style={{ maxWidth: "70px" }}>
+                <div className="ahaz-logo-image" style={{ maxWidth: "70px" }}>
                   <Link href="/">
                     <img
                       src={appData.header.logo.image}
@@ -101,8 +101,8 @@ const Header2 = ({ darkHeader, cartButton }) => {
                 }}
               >
                 {/* Menu Horizontal */}
-                <div className="onovo-menu-horizontal">
-                  <ul className="onovo-menu-nav">
+                <div className="ahaz-menu-horizontal">
+                  <ul className="ahaz-menu-nav">
                     {navItems.map((item, key) => (
                       <li
                         key={`header-nav-item-${key}`}
@@ -111,8 +111,8 @@ const Header2 = ({ darkHeader, cartButton }) => {
                         <Link
                           className={
                             item.children
-                              ? "onovo-lnk lnk--active onovo-dropdown-toggle"
-                              : "onovo-lnk lnk--active"
+                              ? "ahaz-lnk lnk--active ahaz-dropdown-toggle"
+                              : "ahaz-lnk lnk--active"
                           }
                           onClick={
                             item.children != 0
@@ -131,7 +131,7 @@ const Header2 = ({ darkHeader, cartButton }) => {
                             {item.children.map((subitem, key) => (
                               <li key={`header-nav-sub-item-${key}`}>
                                 <Link
-                                  className="onovo-lnk lnk--active"
+                                  className="ahaz-lnk lnk--active"
                                   href={subitem.link}
                                 >
                                   {subitem.label}
@@ -150,8 +150,8 @@ const Header2 = ({ darkHeader, cartButton }) => {
                   href="#"
                   className={
                     desktopMenu
-                      ? "onovo-menu-btn btn--active"
-                      : "onovo-menu-btn"
+                      ? "ahaz-menu-btn btn--active"
+                      : "ahaz-menu-btn"
                   }
                   style={{ display: "none" }}
                   onClick={(e) => clickedDesktopMenu(e)}
@@ -159,13 +159,13 @@ const Header2 = ({ darkHeader, cartButton }) => {
                   <span />
                 </a>
 
-                <div className="onovo-menu-popup align-left">
-                  <div className="onovo-menu-overlay"></div>
-                  <div className="onovo-menu-overlay-after"></div>
-                  <div className="onovo-menu-container onovo--noscroll">
+                <div className="ahaz-menu-popup align-left">
+                  <div className="ahaz-menu-overlay"></div>
+                  <div className="ahaz-menu-overlay-after"></div>
+                  <div className="ahaz-menu-container ahaz--noscroll">
                     <div className="container">
-                      <div className="onovo-menu">
-                        <ul className="onovo-menu-nav">
+                      <div className="ahaz-menu">
+                        <ul className="ahaz-menu-nav">
                           {navItems.map((item, key) => (
                             <li
                               key={`header-nav-item-${key}`}
@@ -174,8 +174,8 @@ const Header2 = ({ darkHeader, cartButton }) => {
                               <Link
                                 className={
                                   item.children
-                                    ? "onovo-lnk lnk--active onovo-dropdown-toggle"
-                                    : "onovo-lnk lnk--active"
+                                    ? "ahaz-lnk lnk--active ahaz-dropdown-toggle"
+                                    : "ahaz-lnk lnk--active"
                                 }
                                 onClick={
                                   item.children != 0
@@ -194,7 +194,7 @@ const Header2 = ({ darkHeader, cartButton }) => {
                                   {item.children.map((subitem, key) => (
                                     <li key={`header-nav-sub-item-${key}`}>
                                       <Link
-                                        className="onovo-lnk lnk--active"
+                                        className="ahaz-lnk lnk--active"
                                         href={subitem.link}
                                       >
                                         {subitem.label}
@@ -215,7 +215,7 @@ const Header2 = ({ darkHeader, cartButton }) => {
               <div className="col-4 col-xs-4 col-sm-4 col-md-4 col-lg-3 align-self-center align-right hide-on-mobile-extra">
                 {/* Button */}
                 <Link
-                  className="onovo-btn onovo-hover-btn btn--active"
+                  className="ahaz-btn ahaz-hover-btn btn--active"
                   href={appData.header.button2.link}
                 >
                   <span>{appData.header.button2.label}</span>

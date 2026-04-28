@@ -4,9 +4,9 @@ const CallToActionSection = () => {
   return (
     <>
         {/* Onovo CTA */}
-        {/* <section className="onovo-section gap-top-140 gap-bottom-140" style={{"backgroundImage": "url("+Data.bg_image+")", "backgroundPosition": "center center", "backgroundRepeat": "no-repeat", "backgroundSize": "cover"}}> */}
+        {/* <section className="ahaz-section gap-top-140 gap-bottom-140" style={{"backgroundImage": "url("+Data.bg_image+")", "backgroundPosition": "center center", "backgroundRepeat": "no-repeat", "backgroundSize": "cover"}}> */}
         <section 
-        className="onovo-section gap-top-140 gap-bottom-140" 
+        className="ahaz-section gap-top-140 gap-bottom-140" 
         style={{
             backgroundColor: "#04447c",  // Replace with the color you want
             backgroundPosition: "center center", 
@@ -18,23 +18,23 @@ const CallToActionSection = () => {
                     <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6">
 
                         {/* Heading */}
-                        <div className="onovo-heading gap-bottom-40 onovo-text-white">
-                            <div className="onovo-subtitle-1">
+                        <div className="ahaz-heading gap-bottom-40 ahaz-text-white">
+                            <div className="ahaz-subtitle-1">
                                 <span>{Data.subtitle}</span>
                             </div>
-                            <h2 className="onovo-title-2">
+                            <h2 className="ahaz-title-2">
                                 <span dangerouslySetInnerHTML={{__html: Data.title}} />
                             </h2>
                         </div>
 
                         {/* Text */}
-                        <div className="onovo-cta-text" dangerouslySetInnerHTML={{__html: Data.text}} />
+                        <div className="ahaz-cta-text" dangerouslySetInnerHTML={{__html: Data.text}} />
                             
                     </div>
                     <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6">
 
                         {/* Social */}
-                        <div className="onovo-cta-social">
+                        <div className="ahaz-cta-social">
                             <div className="image" style={{"backgroundImage": "url("+ Data.bg_image2 +")"}}>
                                 <div className="cta-img-circle img-circle--1" />
                                 <div className="cta-img-circle img-circle--2" />
@@ -47,7 +47,7 @@ const CallToActionSection = () => {
                                         
                                         <li key={`cta-social-item-${key}`}>
                                             <a
-                                                className="onovo-btn btn--white btn--large btn--icon onovo-hover-btn"
+                                                className="ahaz-btn btn--white btn--large btn--icon ahaz-hover-btn"
                                                 href={item.link}
                                                 target="_blank"
                                                 rel="noopener noreferrer"

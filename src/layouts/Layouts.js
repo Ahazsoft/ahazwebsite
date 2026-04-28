@@ -20,7 +20,7 @@ const Layouts = ({
   useEffect(() => {
     // preloader
     if (typeof window !== 'undefined') {
-      document.querySelector('body').classList.remove('onovo--noscroll');
+      document.querySelector('body').classList.remove('ahaz--noscroll');
       const loader = document.getElementsByClassName('preloader');
 
       if (loader[0] && appData.settings.preloader){
@@ -51,7 +51,7 @@ const Layouts = ({
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <div className={noFooter ? "onovo-page" : `onovo-page footer--fixed`}>
+      <div className={noFooter ? "ahaz-page" : `ahaz-page footer--fixed`}>
         <Preloader />
 
         {!noHeader && (

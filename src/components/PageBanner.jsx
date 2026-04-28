@@ -13,20 +13,20 @@ const PageBanner = ({ pageTitle, pageDesc }) => {
         <title>{headTitle}</title>
       </Head>
       {/* Onovo Intro */}
-			<section className="onovo-section onovo-intro intro--black">
+			<section className="ahaz-section ahaz-intro intro--black">
 				<div className="container">
-					<h1 className="onovo-title-1  onovo-text-white">
+					<h1 className="ahaz-title-1  ahaz-text-white">
 						<span>{pageTitle}</span>
-						<span className="onovo-sep word">
+						<span className="ahaz-sep word">
 							<i className="sep-img" style={{"backgroundImage": "url(/images/title_icon.svg)"}} />
 						</span>
 					</h1>
 					{pageDesc != "" &&
-					<div className="onovo-subtitle-2  onovo-text-white">
+					<div className="ahaz-subtitle-2  ahaz-text-white">
 						<span>{pageDesc}</span>
 					</div>
 					}
-					<div className="onovo-breadcrums">
+					<div className="ahaz-breadcrums">
 						<ul>
 							<li>
 								<Link href="/">Home</Link>

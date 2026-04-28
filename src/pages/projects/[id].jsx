@@ -51,7 +51,7 @@ const ProjectDetail = ( props ) => {
       <PageBanner pageTitle={postData.title} pageDesc={postData.type} />
       
       {/* Onovo Project Detail */}
-			<section className="onovo-section gap-top-140">
+			<section className="ahaz-section gap-top-140">
 				<div className="container">
 
 					{/* Image */}
@@ -67,14 +67,14 @@ const ProjectDetail = ( props ) => {
               {postData.contentHtml != "" &&
               <>
                 {/* Description */}
-                <div className="onovo-text">
+                <div className="ahaz-text">
                   <div dangerouslySetInnerHTML={{__html : postData.contentHtml}} />
                 </div>
               </>
               }
               <div >
                 <a
-                  className="onovo-btn onovo-hover-btn"
+                  className="ahaz-btn ahaz-hover-btn"
                   onClick={() => (window.location.href = '/contact')}
                   style={{ justifyContent: 'center', alignItems: 'center' }}
                 >
@@ -86,7 +86,7 @@ const ProjectDetail = ( props ) => {
 						<div className="col-xs-12 col-sm-12 col-md-12 col-lg-4 offset-lg-1">
 
 							{/* Project Info */}
-							<div className="onovo-project-info onovo-text-white text-uppercase">
+							<div className="ahaz-project-info ahaz-text-white text-uppercase">
 								<ul>
                   {typeof postData.details != "undefined" &&
                   <>
@@ -101,12 +101,12 @@ const ProjectDetail = ( props ) => {
 									
 									<li>
 										{/* <div><strong>Share:</strong></div> */}
-										{/* <div className="onovo-share">
-											<div className="social-share onovo-post-socials onovo-social-2">
+										{/* <div className="ahaz-share">
+											<div className="social-share ahaz-post-socials ahaz-social-2">
 												<ul>
 													<li>
                             <FacebookShareButton 
-                              className="onovo-social-link onovo-hover-2"
+                              className="ahaz-social-link ahaz-hover-2"
                               url={shareUrl}
                               quote={postData.title}
                               hashtag={'#'+postData.category}
@@ -116,7 +116,7 @@ const ProjectDetail = ( props ) => {
 													</li>
 													<li>
 														<TwitterShareButton 
-                              className="onovo-social-link onovo-hover-2"
+                              className="ahaz-social-link ahaz-hover-2"
                               url={shareUrl}
                               title={postData.title}
                               hashtag={'#'+postData.category}
@@ -126,7 +126,7 @@ const ProjectDetail = ( props ) => {
 													</li>
 													<li>
 														<LinkedinShareButton 
-                              className="onovo-social-link onovo-hover-2"
+                              className="ahaz-social-link ahaz-hover-2"
                               url={shareUrl}
                               title={postData.title}
                               summary={postData.type}
@@ -137,7 +137,7 @@ const ProjectDetail = ( props ) => {
 													</li>
 													<li>
 														<RedditShareButton 
-                              className="onovo-social-link onovo-hover-2"
+                              className="ahaz-social-link ahaz-hover-2"
                               url={shareUrl}
                               title={postData.title}
                             >
@@ -146,7 +146,7 @@ const ProjectDetail = ( props ) => {
 													</li>
 													<li>
 														<PinterestShareButton 
-                              className="onovo-social-link onovo-hover-2"
+                              className="ahaz-social-link ahaz-hover-2"
                               url={shareUrl}
                               media={postData.image}
                               description={postData.title}
@@ -173,7 +173,7 @@ const ProjectDetail = ( props ) => {
           {typeof postData.gallery != "undefined" &&
           <>
 					{/* Gallery items */}
-					<div className="row gap-row gallery-items onovo-custom-gallery">
+					<div className="row gap-row gallery-items ahaz-custom-gallery">
 
             {postData.gallery.items.map((item, key) => (
 						<div key={`gallery-item-${key}`} className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
@@ -192,7 +192,7 @@ const ProjectDetail = ( props ) => {
           {typeof postData.additional != "undefined" &&
           <>
 					{/* Description */}
-					<div className="onovo-text gap-top-80">
+					<div className="ahaz-text gap-top-80">
 						<h6 className="text-uppercase">{postData.additional.heading}</h6>
 						<div dangerouslySetInnerHTML={{__html : postData.additional.content}} />
 					</div>
@@ -205,15 +205,15 @@ const ProjectDetail = ( props ) => {
 
 
 			{/* Onovo Navs */}
-			<section className="onovo-section">
+			<section className="ahaz-section">
 				<div className="container">
 
 					{/* Navigation */}
-					<div className="onovo-page-navigation">
-						<div className="onovo-page-navigation-content">
+					<div className="ahaz-page-navigation">
+						<div className="ahaz-page-navigation-content">
               {prev_id != 0 && prev_id != undefined &&
 							<Link href={`/projects/${prev_id}`} className="page-navigation__prev">
-								<span className="onovo-prev onovo-hover-2">
+								<span className="ahaz-prev ahaz-hover-2">
 									<i />
 								</span>
 							</Link>
@@ -223,7 +223,7 @@ const ProjectDetail = ( props ) => {
 							</Link>
               {next_id != 0 && next_id != undefined &&
 							<Link href={`/projects/${next_id}`} className="page-navigation__next">
-								<span className="onovo-next onovo-hover-2">
+								<span className="ahaz-next ahaz-hover-2">
 									<i />
 								</span>
 							</Link>

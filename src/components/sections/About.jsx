@@ -5,7 +5,7 @@ const AboutSection = () => {
     return (
       <>
         {/* Onovo About */}
-        <section className="onovo-section gap-bottom-140">
+        <section className="ahaz-section gap-bottom-140">
           <div className="container">
             <div className="row">
               <div className="col-xs-12 col-sm-12 col-md-12 col-lg-8">
@@ -14,11 +14,11 @@ const AboutSection = () => {
                   <div className="col-xs-12 col-sm-12 col-md-8 col-lg-12">
 
                     {/* Heading */}
-                    <div className="onovo-heading gap-bottom-40">
-                      <div className="onovo-subtitle-1">
+                    <div className="ahaz-heading gap-bottom-40">
+                      <div className="ahaz-subtitle-1">
                         <span>{Data.subtitle}</span>
                       </div>
-                      <h2 className="onovo-title-2">
+                      <h2 className="ahaz-title-2">
                         <span dangerouslySetInnerHTML={{__html: Data.title}} />
                       </h2>
                     </div>
@@ -27,11 +27,11 @@ const AboutSection = () => {
                   <div className="col-xs-12 col-sm-12 col-md-4 col-lg-12 hide-on-desktop gap-bottom-60">
 
                     {/* Number */}
-                    <div className="onovo-number onovo-circle-text mrg-left">
-                      <div className="num onovo-text-white">
+                    <div className="ahaz-number ahaz-circle-text mrg-left">
+                      <div className="num ahaz-text-white">
                         <span>{Data.number.value}</span>
                       </div>
-                      <div className="label onovo-text-black onovo-circle-text-label" >
+                      <div className="label ahaz-text-black ahaz-circle-text-label" >
                         {Data.number.label}
                       </div>
                     </div>
@@ -46,7 +46,7 @@ const AboutSection = () => {
                     <h5 className="text-uppercase">{item.title}</h5>
                     <p style={{ textAlign: "justify" }} dangerouslySetInnerHTML={{ __html: item.text }} />
                     {item.button != undefined &&
-                    <Link className="onovo-btn onovo-hover-btn" href={item.button.link}>
+                    <Link className="ahaz-btn ahaz-hover-btn" href={item.button.link}>
                       <i className="arrow"><span /></i>
                       <span>{item.button.label}</span>
                     </Link>
@@ -59,11 +59,11 @@ const AboutSection = () => {
               <div className="col-xs-12 col-sm-12 col-md-12 col-lg-4 hide-on-mobile">
 
                 {/* Number */}
-                <div className="onovo-number onovo-circle-text mrg-right">
-                  <div className="num onovo-text-white">
+                <div className="ahaz-number ahaz-circle-text mrg-right">
+                  <div className="num ahaz-text-white">
                     <span>{Data.number.value}</span>
                   </div>
-                  <div className="label onovo-text-black onovo-circle-text-label">
+                  <div className="label ahaz-text-black ahaz-circle-text-label">
                     {Data.number.label}
                   </div>
                 </div>

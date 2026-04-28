@@ -41,7 +41,7 @@ const JobDetail = ({ job }) => {
         }
       `}</style>
       {/* Job Summary Card (full width) */}
-      <section className="onovo-section gap-bottom-60">
+      <section className="ahaz-section gap-bottom-60">
         <div
           className="container border-bottom "
           style={{
@@ -113,7 +113,7 @@ const JobDetail = ({ job }) => {
                   />
                 </div>
                 <div>
-                  <h3 className="onovo-title-3 mb-1" id="career-detail-title">
+                  <h3 className="ahaz-title-3 mb-1" id="career-detail-title">
                     {job.title}
                   </h3>
                   <h5 className="text-muted" id="career-detail-subtitle">
@@ -158,7 +158,7 @@ const JobDetail = ({ job }) => {
       </section>
 
       {/* Two-column layout */}
-      <section className="onovo-section gap-bottom-140">
+      <section className="ahaz-section gap-bottom-140">
         <div className="container" style={{ width: "90%" }}>
           <div className="row">
             {/* Main content - 60% */}
@@ -181,9 +181,9 @@ const JobDetail = ({ job }) => {
               </p>
 
               {/* Share options */}
-              <div className="onovo-share">
+              <div className="ahaz-share">
                 {/* <h5
-                  className="onovo-title-5 mb-3"
+                  className="ahaz-title-5 mb-3"
                   style={{ color: "#1d4173", textDecoration: "underline" }}
                 >
                   Share this job
@@ -195,7 +195,7 @@ const JobDetail = ({ job }) => {
                     href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="onovo-btn onovo-hover-btn"
+                    className="ahaz-btn ahaz-hover-btn"
                     style={{  
                       height: "50px",
                       width: "30px",
@@ -214,7 +214,7 @@ const JobDetail = ({ job }) => {
                     href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(shareText)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="onovo-btn onovo-hover-btn"
+                    className="ahaz-btn ahaz-hover-btn"
                     style={{ height: "50px", width: "50px", display: "flex", alignItems: "center", justifyContent: "center" }}
                   >
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" style={{color:'white'}}>
@@ -227,7 +227,7 @@ const JobDetail = ({ job }) => {
                     href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="onovo-btn onovo-hover-btn"
+                    className="ahaz-btn ahaz-hover-btn"
                     style={{ height: "50px", width: "50px", display: "flex", alignItems: "center", justifyContent: "center" }}
                   >
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -240,7 +240,7 @@ const JobDetail = ({ job }) => {
                     href={`https://t.me/share/url?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(shareText)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="onovo-btn onovo-hover-btn"
+                    className="ahaz-btn ahaz-hover-btn"
                     style={{ height: "50px", width: "50px", display: "flex", alignItems: "center", justifyContent: "center" }}
                   >
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
@@ -256,7 +256,7 @@ const JobDetail = ({ job }) => {
               {/* Job Overview Card */}
               <div className="card border-0 shadow-sm mb-4">
                 <div className="card-body border">
-                  <h5 className="onovo-title-5 mb-3">Job Overview</h5>
+                  <h5 className="ahaz-title-5 mb-3">Job Overview</h5>
                   <table className="table table-borderless">
                     <tbody>
                       <tr>
@@ -292,7 +292,7 @@ const JobDetail = ({ job }) => {
                   <div className="d-flex align-items-center">
                     <Link
                       href={`/careers/${job.id}/apply`}
-                      className="onovo-btn onovo-hover-btn"
+                      className="ahaz-btn ahaz-hover-btn"
                       style={{
                         alignSelf: "center",
                       }}

@@ -36,20 +36,20 @@ const About = (props) => {
     	<PageBanner pageTitle={"About Us"} pageDesc={"Creative intersection of art, design and technology."} />
       
       	{/* Onovo About */}
-	  	<section className="onovo-section gap-top-140 gap-bottom-140">
+	  	<section className="ahaz-section gap-top-140 gap-bottom-140">
 			<div className="container">
 				<div className="row">
 					<div className="col-xs-12 col-sm-12 col-md-12 col-lg-8">
 
 						{/* Heading */}
-						<div className="onovo-heading gap-bottom-60">
-							<div className="onovo-subtitle-1">
+						<div className="ahaz-heading gap-bottom-60">
+							<div className="ahaz-subtitle-1">
 								<span> Welcome to Ahaz </span>
 							</div>
-							<h2 className="onovo-title-2">
+							<h2 className="ahaz-title-2">
 								<span> We are a tech-driven company, <br/> passionate about crafting innovative solutions <br/>and shaping the future of digital experiences.</span>
 							</h2>
-							<div className="onovo-text">
+							<div className="ahaz-text">
 								<p>At Ahaz, we specialize in delivering innovative digital solutions that transform businesses and drive success. With a focus on Software Applications, Website Development, and AI/ML services, we provide cutting-edge technologies <strong>that enhance user experiences and foster growth.</strong></p>
 							</div>
 						</div>
@@ -68,33 +68,33 @@ const About = (props) => {
 
 					{/*number-item*/}
 					<div className="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-						<div className="onovo-counter">
-							<div className="num onovo-text-white js-counter" data-end-value="23">
+						<div className="ahaz-counter">
+							<div className="num ahaz-text-white js-counter" data-end-value="23">
 								<CountUp end="8" duration={7} enableScrollSpy={true} scrollSpyOnce={true} />
 							</div>
-							<div className="num-after onovo-text-white"> + </div>
+							<div className="num-after ahaz-text-white"> + </div>
 							<div className="label"> Team members </div>
 						</div>
 					</div>
 
 					{/*number-item*/}
 					<div className="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-						<div className="onovo-counter">
-							<div className="num onovo-text-white js-counter" data-end-value="99">
+						<div className="ahaz-counter">
+							<div className="num ahaz-text-white js-counter" data-end-value="99">
 								<CountUp end="20" duration={7} enableScrollSpy={true} scrollSpyOnce={true} />
 							</div>
-							<div className="num-after onovo-text-white"> + </div>
+							<div className="num-after ahaz-text-white"> + </div>
 							<div className="label"> Completed projects </div>
 						</div>
 					</div>
 
 					{/*number-item*/}
 					<div className="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-						<div className="onovo-counter">
-							<div className="num onovo-text-white js-counter" data-end-value="12">
+						<div className="ahaz-counter">
+							<div className="num ahaz-text-white js-counter" data-end-value="12">
 								<CountUp end="52" duration={7} enableScrollSpy={true} scrollSpyOnce={true} />
 							</div>
-							<div className="num-after onovo-text-white"> K </div>
+							<div className="num-after ahaz-text-white"> K </div>
 							<div className="label"> Hours of Expertise </div>
 						</div>
 					</div>
@@ -102,12 +102,12 @@ const About = (props) => {
 				</div>
 
 				{/* Video */}
-				{/* <div className="onovo-video" data-onovo-overlay data-onovo-scroll>
+				{/* <div className="ahaz-video" data-ahaz-overlay data-ahaz-scroll>
 					<div className="image" onClick={ (e) => clickedVideoButton(e) } style={{"backgroundImage": "url(/images/hero-digital-1.jpg)"}} />
 					<iframe className="js-video-iframe" data-src="https://www.youtube.com/embed/Gu6z6kIukgg?showinfo=0&rel=0&autoplay=1"></iframe>
-					<div className="play onovo-circle-text" onClick={ (e) => clickedVideoButton(e) }>
+					<div className="play ahaz-circle-text" onClick={ (e) => clickedVideoButton(e) }>
 						<div className="arrow" />
-						<div className="label onovo-text-black onovo-circle-text-label"> Play Video - Play Video - Play Video - </div>
+						<div className="label ahaz-text-black ahaz-circle-text-label"> Play Video - Play Video - Play Video - </div>
 					</div>
 				</div> */}
 

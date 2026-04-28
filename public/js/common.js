@@ -36,19 +36,19 @@
 		Splitting
 	**/
 	Splitting({ by: 'lines' });
-	ScrollOut({targets: '[data-onovo-scroll]', once: true});
+	ScrollOut({targets: '[data-ahaz-scroll]', once: true});
 
 	$('.word').wrap('<span></span>');
-	$('[data-onovo-overlay]').append('<div class="onovo-overlay"></div>');
+	$('[data-ahaz-overlay]').append('<div class="ahaz-overlay"></div>');
 
 	/**
 		Header Sticky
 	**/
-	if($('.onovo-header').length) {
+	if($('.ahaz-header').length) {
 	var new_scroll_position = 0;
 	var last_scroll_position;
 	$(window).on('scroll', function() {
-		var header = $('.onovo-header');
+		var header = $('.ahaz-header');
 		last_scroll_position = window.scrollY;
 
 		// Scrolling down
@@ -76,34 +76,34 @@
 	/**
 		Header Menu Button
 	**/
-	$('.onovo-menu-btn').on('click', function(){
+	$('.ahaz-menu-btn').on('click', function(){
 		var obj = $(this);
 		if(obj.hasClass('btn--active')) {
-			$('body').removeClass('onovo--noscroll');
-			$('.onovo-header').removeClass('header--active');
+			$('body').removeClass('ahaz--noscroll');
+			$('.ahaz-header').removeClass('header--active');
 			obj.removeClass('btn--active');
-			obj.addClass('onovo--notouch');
-			obj.parent().find('.onovo-menu-popup').removeClass('menu--ready');
-			obj.parent().find('.onovo-menu-container').addClass('onovo--noscroll');
+			obj.addClass('ahaz--notouch');
+			obj.parent().find('.ahaz-menu-popup').removeClass('menu--ready');
+			obj.parent().find('.ahaz-menu-container').addClass('ahaz--noscroll');
 			setTimeout(function(){
-				obj.parent().find('.onovo-menu-popup').removeClass('menu--open');
+				obj.parent().find('.ahaz-menu-popup').removeClass('menu--open');
 			}, 300);
 			setTimeout(function(){
-				obj.removeClass('onovo--notouch');
-				obj.parent().find('.onovo-menu-popup').removeClass('menu--visible');
+				obj.removeClass('ahaz--notouch');
+				obj.parent().find('.ahaz-menu-popup').removeClass('menu--visible');
 			}, 1600);
 		}
 		else {
-			$('body').addClass('onovo--noscroll');
-			$('.onovo-header').addClass('header--active');
+			$('body').addClass('ahaz--noscroll');
+			$('.ahaz-header').addClass('header--active');
 			obj.addClass('btn--active');
-			obj.addClass('onovo--notouch');
-			obj.parent().find('.onovo-menu-popup').addClass('menu--visible');
-			obj.parent().find('.onovo-menu-popup').addClass('menu--open');
+			obj.addClass('ahaz--notouch');
+			obj.parent().find('.ahaz-menu-popup').addClass('menu--visible');
+			obj.parent().find('.ahaz-menu-popup').addClass('menu--open');
 			setTimeout(function(){
-				obj.removeClass('onovo--notouch');
-				obj.parent().find('.onovo-menu-container').removeClass('onovo--noscroll');
-				obj.parent().find('.onovo-menu-popup').addClass('menu--ready');
+				obj.removeClass('ahaz--notouch');
+				obj.parent().find('.ahaz-menu-container').removeClass('ahaz--noscroll');
+				obj.parent().find('.ahaz-menu-popup').addClass('menu--ready');
 			}, 600);
 		}
 		return false;
@@ -112,16 +112,16 @@
 	/*
 		Top Menu Close
 	*/
-	$('.onovo-menu').on('click', 'a', function(){
+	$('.ahaz-menu').on('click', 'a', function(){
 		if (!$(this).parent().hasClass('menu-item-has-children')){
-			$('.onovo-header .onovo-menu-btn.btn--active').trigger('click');
+			$('.ahaz-header .ahaz-menu-btn.btn--active').trigger('click');
 		}
 	});
 
 	/*
 		Header Menu Dropdown
 	*/
-	$('.onovo-menu').on('click', '.menu-item-has-children > .icon, .dropdown-link > a', function(){
+	$('.ahaz-menu').on('click', '.menu-item-has-children > .icon, .dropdown-link > a', function(){
 		if($(this).closest('li').hasClass('opened')) {
 			$(this).closest('li').removeClass('opened');
 		} else {
@@ -135,15 +135,15 @@
 		Footer Sticky
 	*/
 	if($('.footer--fixed').length) {
-		var footer_fixed = $('.footer--fixed .onovo-footer').height();
+		var footer_fixed = $('.footer--fixed .ahaz-footer').height();
 		$('.wrapper').css({'margin-bottom':footer_fixed+'px'});
 	}
 
 	/*
 		Intro Style
 	*/
-	if($('.onovo-intro.intro--black').length) {
-		$('.onovo-header').addClass('header--white');
+	if($('.ahaz-intro.intro--black').length) {
+		$('.ahaz-header').addClass('header--white');
 	}
 
 	/*
@@ -161,9 +161,9 @@
 			css3: true,
 			loopTop: heroParallax_loop,
 			loopBottom: heroParallax_loop,
-			sectionSelector: '.onovo-hero-parallax-section',
+			sectionSelector: '.ahaz-hero-parallax-section',
 			afterRender: function() {
-				if (heroParallax.find('.onovo-hero-parallax-section.active').hasClass('section--dark')) {
+				if (heroParallax.find('.ahaz-hero-parallax-section.active').hasClass('section--dark')) {
 					setDark();
 				}
 				$('#pp-nav').append('<div class="pp-nav-active"></div>');
@@ -176,7 +176,7 @@
 				});
 			},
 			afterLoad: function (anchorLink, index) {
-				var current = heroParallax.find('.onovo-hero-parallax-section.active');
+				var current = heroParallax.find('.ahaz-hero-parallax-section.active');
 				var current_pos = $('#pp-nav ul li a.active').position().top;
 				$('.pp-nav-active').css({'top':current_pos+'px'});
 				if (current.hasClass('section--dark')) {
@@ -204,16 +204,16 @@
 		});
 	});
 	function setDark() {
-		$('.onovo-page').addClass('parallax--dark');
-		$('.onovo-header').removeClass('header--white');
-		$('.onovo-hero-parallax .onovo-prev').removeClass('nav--white');
-		$('.onovo-hero-parallax .onovo-next').removeClass('nav--white');
+		$('.ahaz-page').addClass('parallax--dark');
+		$('.ahaz-header').removeClass('header--white');
+		$('.ahaz-hero-parallax .ahaz-prev').removeClass('nav--white');
+		$('.ahaz-hero-parallax .ahaz-next').removeClass('nav--white');
 	}
 	function removeDark() {
-		$('.onovo-page').removeClass('parallax--dark');
-		$('.onovo-header').addClass('header--white');
-		$('.onovo-hero-parallax .onovo-prev').addClass('nav--white');
-		$('.onovo-hero-parallax .onovo-next').addClass('nav--white');
+		$('.ahaz-page').removeClass('parallax--dark');
+		$('.ahaz-header').addClass('header--white');
+		$('.ahaz-hero-parallax .ahaz-prev').addClass('nav--white');
+		$('.ahaz-hero-parallax .ahaz-next').addClass('nav--white');
 	}
 
 	/*
@@ -234,7 +234,7 @@
 		} else {
 			heroMainSwiper_loop = false;
 		}
-		heroMainSwiper.find('.onovo-paginations-container').append('<div class="swiper-nav-active"></div>');
+		heroMainSwiper.find('.ahaz-paginations-container').append('<div class="swiper-nav-active"></div>');
 		var mainSliderSelector = new Swiper(heroMainSwiper, {
 			slidesPerView: 1,
 			spaceBetween: 0,
@@ -352,7 +352,7 @@
 		} else {
 			blogSwiper_loop = false;
 		}
-		blogSwiper.parent().find('.onovo-paginations-container').append('<div class="swiper-nav-active"></div>');
+		blogSwiper.parent().find('.ahaz-paginations-container').append('<div class="swiper-nav-active"></div>');
 		var blogCarousel = new Swiper(blogSwiper, {
 			slidesPerView: '2',
 			noSwipingSelector: 'a',
@@ -448,7 +448,7 @@
 		} else {
 			var hisSwiper_auto = false;
 		}
-		hisSwiper.find('.onovo-paginations-container').append('<div class="swiper-nav-active"></div>');
+		hisSwiper.find('.ahaz-paginations-container').append('<div class="swiper-nav-active"></div>');
 		var hisCarousel = new Swiper(hisSwiper, {
 			slidesPerView: 1,
 			noSwipingSelector: 'a',
@@ -483,7 +483,7 @@
 	/*
 		- Hero Video Mute/Unmute
 	*/
-	$('.onovo-play-btn').on( 'click', function (){
+	$('.ahaz-play-btn').on( 'click', function (){
 		if( $(this).parent().parent().find('video').prop('muted') ) {
 			$(this).parent().parent().find('video').prop('muted', false);
 			$(this).addClass('active');
@@ -498,14 +498,14 @@
 	/*
 		- Services Hover
 	*/
-	$('.onovo-service-grid-item.active--default').each(function() {
-		$(this).closest('.onovo-services-grid-fw').hover(function(){
-			if ($(this).find('.onovo-service-grid-item').hasClass('active--default')) {
-				$(this).find('.onovo-service-grid-item').removeClass('active');
+	$('.ahaz-service-grid-item.active--default').each(function() {
+		$(this).closest('.ahaz-services-grid-fw').hover(function(){
+			if ($(this).find('.ahaz-service-grid-item').hasClass('active--default')) {
+				$(this).find('.ahaz-service-grid-item').removeClass('active');
 			}
 	  },function(){
-			if ($(this).find('.onovo-service-grid-item').hasClass('active--default')) {
-				$(this).find('.onovo-service-grid-item.active--default').addClass('active');
+			if ($(this).find('.ahaz-service-grid-item').hasClass('active--default')) {
+				$(this).find('.ahaz-service-grid-item.active--default').addClass('active');
 			}
 	  });
 	});
@@ -513,19 +513,19 @@
 	/*
 		- Number Text
 	*/
-	$('.onovo-circle-text .label').each(function() {
+	$('.ahaz-circle-text .label').each(function() {
 		$(this).html($(this).text().split('').map((char, i) => `<span style="transform:rotate(${i * 8.5}deg)">${char}</span>`).join(''));
 	});
 
 	/*
 		- Portfolio Showcase Hover
 	*/
-	if ($('.onovo-showcase-items').length) {
-		$('.onovo-showcase-items').find('.onovo-showcase-item:first-child').addClass('hover');
+	if ($('.ahaz-showcase-items').length) {
+		$('.ahaz-showcase-items').find('.ahaz-showcase-item:first-child').addClass('hover');
 	}
-	$('.onovo-showcase-item').mouseenter(function(){
+	$('.ahaz-showcase-item').mouseenter(function(){
 		var obj = $(this);
-		obj.closest('.onovo-showcase-items').find('.onovo-showcase-item').removeClass('hover');
+		obj.closest('.ahaz-showcase-items').find('.ahaz-showcase-item').removeClass('hover');
 		obj.addClass('hover');
 	});
 
@@ -533,10 +533,10 @@
 		- Services Showcase Hover
 	*/
 	if ($(window).width() > 767) {
-		if ($('.onovo-services-showcase').length) {
-			$('.onovo-services-showcase').find('.items ul li:first-child').addClass('hover');
+		if ($('.ahaz-services-showcase').length) {
+			$('.ahaz-services-showcase').find('.items ul li:first-child').addClass('hover');
 		}
-		$('.onovo-services-showcase .items ul li .title').mouseenter(function(){
+		$('.ahaz-services-showcase .items ul li .title').mouseenter(function(){
 			var obj = $(this).closest('li');
 			obj.closest('ul').find('li').removeClass('hover');
 			obj.addClass('hover');
@@ -546,9 +546,9 @@
 	/**
 		- Video
 	**/
-	$('.onovo-video').on('click', '.play, .image', function(){
-		$(this).closest('.onovo-video').addClass('active');
-		var iframe = $(this).closest('.onovo-video').find('.js-video-iframe');
+	$('.ahaz-video').on('click', '.play, .image', function(){
+		$(this).closest('.ahaz-video').addClass('active');
+		var iframe = $(this).closest('.ahaz-video').find('.js-video-iframe');
 		largeVideoPlay(iframe);
 		return false;
 	});
@@ -560,7 +560,7 @@
 	/**
 		- Counter
 	**/
-	$('.onovo-counter').each(function() {
+	$('.ahaz-counter').each(function() {
 		var numbers = $(this).find('.js-counter');
 		var animationIsDone = false;
 		var scroll = $(window).scrollTop() + $(window).height();
@@ -596,7 +596,7 @@
 	/*
 		- Onovo Button
 	*/
-	$('button.onovo-btn.onovo-hover-btn').each(function() {
+	$('button.ahaz-btn.ahaz-hover-btn').each(function() {
 		var btn_text = $(this).text();
 		$(this).html('<span>'+btn_text+'</span>');
 	});
@@ -609,17 +609,17 @@
 		var btn_prev = $(this).find('.prev');
 		btn_next.html('<i></i>');
 		btn_prev.html('<i></i>');
-		btn_next.addClass('onovo-next onovo-hover-2');
-		btn_prev.addClass('onovo-prev onovo-hover-2');
+		btn_next.addClass('ahaz-next ahaz-hover-2');
+		btn_prev.addClass('ahaz-prev ahaz-hover-2');
 	});
 
 	/*
 		- Onovo Portfolio
 	*/
-	var $container = $('.onovo-portfolio-items');
+	var $container = $('.ahaz-portfolio-items');
 	$container.imagesLoaded(function() {
 		$container.isotope({
-			itemSelector: '.onovo-portfolio-col',
+			itemSelector: '.ahaz-portfolio-col',
 			percentPosition: true,
 		});
 	});
@@ -627,35 +627,35 @@
 	/*
 		- Onovo Filter
 	*/
-	$('.onovo-filter-nav-active').each(function() {
-		$(this).css({'width':$(this).closest('.onovo-filter.filter--default').find('.item--active').parent().width()+6+'px'});
+	$('.ahaz-filter-nav-active').each(function() {
+		$(this).css({'width':$(this).closest('.ahaz-filter.filter--default').find('.item--active').parent().width()+6+'px'});
 	});
-	$('.onovo-filter').on( 'click', 'button', function() {
+	$('.ahaz-filter').on( 'click', 'button', function() {
 		var filterValue = $(this).attr('data-filter');
 		$container.isotope({ filter: filterValue });
 		$(filterValue).find('.image').attr('data-scroll','in');
 		$(filterValue).find('.splitting').attr('data-scroll','in');
 
-		$('.onovo-filter button').removeClass('item--active');
+		$('.ahaz-filter button').removeClass('item--active');
 		$(this).addClass('item--active');
 
-		var current_pos = $(this).closest('.onovo-filter.filter--default').find('.item--active').parent().position().left;
-		var current_width = $(this).closest('.onovo-filter.filter--default').find('.item--active').parent().width();
-		$(this).closest('.onovo-filter.filter--default').find('.onovo-filter-nav-active').css({'width':current_width+6+'px'});
-		$(this).closest('.onovo-filter.filter--default').find('.onovo-filter-nav-active').css({'left':current_pos-3+'px'});
+		var current_pos = $(this).closest('.ahaz-filter.filter--default').find('.item--active').parent().position().left;
+		var current_width = $(this).closest('.ahaz-filter.filter--default').find('.item--active').parent().width();
+		$(this).closest('.ahaz-filter.filter--default').find('.ahaz-filter-nav-active').css({'width':current_width+6+'px'});
+		$(this).closest('.ahaz-filter.filter--default').find('.ahaz-filter-nav-active').css({'left':current_pos-3+'px'});
 	});
 
 	/**
 		Collapse
 	**/
-	$('.onovo-collapse-item').on('click', '.onovo-collapse-btn', function(){
-		if($(this).closest('.onovo-collapse-item').hasClass('opened')) {
-			$(this).closest('.onovo-collapse-item').removeClass('opened');
+	$('.ahaz-collapse-item').on('click', '.ahaz-collapse-btn', function(){
+		if($(this).closest('.ahaz-collapse-item').hasClass('opened')) {
+			$(this).closest('.ahaz-collapse-item').removeClass('opened');
 			$(this).removeClass('active');
 			$(this).next().slideUp();
 		}
 		else {
-			$(this).closest('.onovo-collapse-item').addClass('opened');
+			$(this).closest('.ahaz-collapse-item').addClass('opened');
 			$(this).addClass('active');
 			$(this).next().slideDown();
 		}

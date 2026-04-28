@@ -59,7 +59,7 @@ const HeroSectionNew = () => {
 
             {/* <button className="sm-lp-cta-button">Get Started</button> */}
 
-            {/* <Link className="onovo-btn onovo-hover-btn btn--active" href="/projects">
+            {/* <Link className="ahaz-btn ahaz-hover-btn btn--active" href="/projects">
                 <span>See Our Projects</span>
             </Link> */}
           </div>

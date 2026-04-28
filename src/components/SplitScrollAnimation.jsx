@@ -9,7 +9,7 @@ const SplitScrollAnimation = () => {
 	useEffect(() => {
         setTimeout(function(){
             Splitting({ by: 'lines' });
-            ScrollOut({targets: '[data-onovo-scroll]', once: true});
+            ScrollOut({targets: '[data-ahaz-scroll]', once: true});
         
             wordsWrap();
             overlayAnim();

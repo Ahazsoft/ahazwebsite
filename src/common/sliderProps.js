@@ -148,7 +148,7 @@ export const sliderProps = {
     onAfterInit: function(swiper){
       let current_pos = swiper.el.querySelector('.swiper-pagination-bullet-active').offsetTop;
       swiper.el.querySelector('.swiper-nav-active').style.top = current_pos+'px';
-      swiper.el.querySelector('.onovo-paginations-container-vertical').style.opacity = 1;
+      swiper.el.querySelector('.ahaz-paginations-container-vertical').style.opacity = 1;
 
       let allImages = swiper.el.querySelectorAll('.image');
       allImages.forEach(element => {

@@ -46,14 +46,14 @@ const Careers = () => {
       />
 
       {/* Recent Jobs Section */}
-      <section className="onovo-section gap-bottom-140">
+      <section className="ahaz-section gap-bottom-140">
         <div className="container" style={{ width: "90%" }}>
           {/* Section Heading */}
-          <div className="onovo-heading gap-bottom-40">
-            <h2 className="onovo-title-2 mt-4">
+          <div className="ahaz-heading gap-bottom-40">
+            <h2 className="ahaz-title-2 mt-4">
               <span>Current Job Openings</span>
             </h2>
-            <div className="onovo-subtitle-1 mt-2">
+            <div className="ahaz-subtitle-1 mt-2">
               <span>
                 Explore opportunities to grow with us and make an impact.
               </span>
@@ -196,7 +196,7 @@ const Careers = () => {
                           <div className="career-job-detail-container">
                             <Link
                               href={`/careers/${job.id}`}
-                              className="onovo-btn onovo-hover-btn"
+                              className="ahaz-btn ahaz-hover-btn"
                               id="careers-job-detail-button"
                             >
                               <i className="arrow">
@@ -214,7 +214,7 @@ const Careers = () => {
           ) : (
             // Empty state message
             <div className="text-center py-5">
-              <div className="onovo-text-gray mb-3">
+              <div className="ahaz-text-gray mb-3">
                 <svg
                   width="60"
                   height="60"
@@ -230,10 +230,10 @@ const Careers = () => {
                   <line x1="12" y1="16" x2="12.01" y2="16"></line>
                 </svg>
               </div>
-              <h4 className="onovo-title-4 mb-2">
+              <h4 className="ahaz-title-4 mb-2">
                 Sorry, currently we have no job openings.
               </h4>
-              <p className="onovo-text-gray">
+              <p className="ahaz-text-gray">
                 Please check back later or follow us on social media for
                 updates.
               </p>

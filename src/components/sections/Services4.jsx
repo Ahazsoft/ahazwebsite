@@ -6,26 +6,26 @@ const Services4Section = ({ services }) => {
   return (
     <>
         {/* Onovo Services */}
-		<section className="onovo-section gap-bottom-140">
+		<section className="ahaz-section gap-bottom-140">
 			<div className="container">
 
 				{/* Heading */}
-				<div className="onovo-heading gap-bottom-40">
-					<div className="onovo-subtitle-1">
+				<div className="ahaz-heading gap-bottom-40">
+					<div className="ahaz-subtitle-1">
 						<span>{Data.subtitle}</span>
 					</div>
-					<h2 className="onovo-title-2">
+					<h2 className="ahaz-title-2">
 						<span>{Data.title}</span>
 					</h2>
 				</div>
 
 				{/* Services items */}
-				<div className="onovo-services-list">
+				<div className="ahaz-services-list">
 
                     {services.slice(0, Data.numOfItems).map((item, key) => (
-					<div key={`services4-item-${key}`} className="onovo-service-item-list">
-						<div className="onovo-service-item-list-inner">
-							<div className="image onovo-hover-1">
+					<div key={`services4-item-${key}`} className="ahaz-service-item-list">
+						<div className="ahaz-service-item-list-inner">
+							<div className="image ahaz-hover-1">
 								<a href={`/services/${item.id}`}>
 									<img src={item.icon} alt={item.title} />
 								</a>
@@ -38,7 +38,7 @@ const Services4Section = ({ services }) => {
 									<span>{item.title}</span>
 								</a>
 							</h5>
-							<div className="onovo-text">
+							<div className="ahaz-text">
 								<div>
 									<p>{item.short}</p>
 								</div>

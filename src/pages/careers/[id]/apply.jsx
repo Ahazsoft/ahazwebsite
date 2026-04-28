@@ -196,7 +196,7 @@ const ApplyPage = () => {
         <PageBanner pageTitle="Apply" pageDesc={fetchError || "Job not found"} />
         <div className="text-center py-5">
           <h4>Sorry, the job you're applying for doesn't exist.</h4>
-          <Link href="/careers" className="onovo-btn onovo-hover-btn mt-3">
+          <Link href="/careers" className="ahaz-btn ahaz-hover-btn mt-3">
             <i className="arrow">
               <span />
             </i>
@@ -213,7 +213,7 @@ const ApplyPage = () => {
         <PageBanner pageTitle="Apply" pageDesc={job.title} />
         <div className="text-center py-5">
           <h4>Sorry, the job you're applying is closed stay tuned for another job position.</h4>
-          <Link href="/careers" className="onovo-btn onovo-hover-btn mt-3">
+          <Link href="/careers" className="ahaz-btn ahaz-hover-btn mt-3">
             <i className="arrow">
               <span />
             </i>
@@ -228,7 +228,7 @@ const ApplyPage = () => {
     <Layouts>
       <PageBanner pageTitle={`Apply for ${job.title}`} pageDesc={job.company} />
 
-      <section className="onovo-section gap-bottom-140">
+      <section className="ahaz-section gap-bottom-140">
         <div className="container">
           <div className="row justify-content-center">
             {/* Smaller column */}
@@ -236,7 +236,7 @@ const ApplyPage = () => {
               <div className="card border-0">
                 <div className="card-body p-3">
                   <h4
-                    className="onovo-title-4 mt-3 mb-3"
+                    className="ahaz-title-4 mt-3 mb-3"
                     style={{ textAlign: "center" }}
                   >
                     Application Form
@@ -257,7 +257,7 @@ const ApplyPage = () => {
                           <polyline points="22 4 12 14.01 9 11.01" />
                         </svg>
                       </div>
-                      <h5 className="onovo-title-5 mb-2">
+                      <h5 className="ahaz-title-5 mb-2">
                         Application Submitted!
                       </h5>
                       <p className="small mb-3">
@@ -265,7 +265,7 @@ const ApplyPage = () => {
                       </p>
                       <Link
                         href="/careers"
-                        className="onovo-btn onovo-hover-btn"
+                        className="ahaz-btn ahaz-hover-btn"
                       >
                         <i className="arrow">
                           <span />
@@ -426,7 +426,7 @@ const ApplyPage = () => {
 
                       <button
                         type="submit"
-                        className="onovo-btn onovo-hover-btn w-100"
+                        className="ahaz-btn ahaz-hover-btn w-100"
                         disabled={status.submitting}
                       >
                         {status.submitting ? (

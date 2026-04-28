@@ -18,15 +18,15 @@ const ProjectsGrid2 = ({
   // Initialize Isotope
   useEffect(() => {
     setTimeout(() => {
-      isotope.current = new Isotope(".onovo-portfolio-items", {
-        itemSelector: ".onovo-portfolio-col",
+      isotope.current = new Isotope(".ahaz-portfolio-items", {
+        itemSelector: ".ahaz-portfolio-col",
         percentPosition: true,
-        masonry: { columnWidth: ".onovo-portfolio-col" },
+        masonry: { columnWidth: ".ahaz-portfolio-col" },
         animationOptions: { duration: 750, easing: "linear", queue: false },
       });
     }, 1000);
 
-    const filterNavActive = document.querySelectorAll(".onovo-filter-nav-active");
+    const filterNavActive = document.querySelectorAll(".ahaz-filter-nav-active");
     filterNavActive.forEach((item) => {
       item.style.width =
         item.parentNode.querySelector(".item--active").parentNode.offsetWidth + 6 + "px";
@@ -44,7 +44,7 @@ const ProjectsGrid2 = ({
 
   const handleFilterKeyChange = (key) => () => {
     setFilterKey(key);
-    const filterLinks = document.querySelectorAll(".js-onovo-filter li");
+    const filterLinks = document.querySelectorAll(".js-ahaz-filter li");
     filterLinks.forEach((filter) => {
       const filterValue = filter.querySelector("button").getAttribute("data-filter");
       filterValue === key
@@ -52,8 +52,8 @@ const ProjectsGrid2 = ({
         : filter.querySelector("button").classList.remove("item--active");
     });
 
-    const activeItem = document.querySelector(".onovo-filter.filter--default .item--active");
-    const activeFilterNav = document.querySelector(".onovo-filter.filter--default .onovo-filter-nav-active");
+    const activeItem = document.querySelector(".ahaz-filter.filter--default .item--active");
+    const activeFilterNav = document.querySelector(".ahaz-filter.filter--default .ahaz-filter-nav-active");
     if (activeFilterNav) {
       const current_pos = activeItem.parentNode.offsetLeft;
       const current_width = activeItem.parentNode.offsetWidth;
@@ -74,24 +74,24 @@ const ProjectsGrid2 = ({
 
   return (
     <>
-      <section className="onovo-section gap-top-140">
+      <section className="ahaz-section gap-top-140">
         <div className="container">
-          <div className={sideFilter ? "onovo-portfolio portfolio--side" : "onovo-portfolio"}>
+          <div className={sideFilter ? "ahaz-portfolio portfolio--side" : "ahaz-portfolio"}>
             <div className="row">
               {/* Filter Sidebar */}
               <div className={!sideFilter ? "col-xs-12 col-sm-12 col-md-12 col-lg-12" : "col-xs-12 col-sm-12 col-md-12 col-lg-3"}>
-                <div className="onovo-filter-container">
-                  <div className={!sideFilter ? "onovo-filter js-onovo-filter filter--default" : "onovo-filter js-onovo-filter"}>
-                    {!sideFilter && <div className="onovo-filter-nav-active" />}
+                <div className="ahaz-filter-container">
+                  <div className={!sideFilter ? "ahaz-filter js-ahaz-filter filter--default" : "ahaz-filter js-ahaz-filter"}>
+                    {!sideFilter && <div className="ahaz-filter-nav-active" />}
                     <ul>
                       <li key="categories-item-first">
-                        <button onClick={handleFilterKeyChange("*")} className="onovo-filter-item item--active" type="button" data-filter="*">
+                        <button onClick={handleFilterKeyChange("*")} className="ahaz-filter-item item--active" type="button" data-filter="*">
                           <span>All Projects</span>
                         </button>
                       </li>
                       {appData.settings.portfolio.categories.map((item, key) => (
                         <li key={`categories-item-${key}`}>
-                          <button onClick={handleFilterKeyChange(item.slug)} className="onovo-filter-item" type="button" data-filter={item.slug}>
+                          <button onClick={handleFilterKeyChange(item.slug)} className="ahaz-filter-item" type="button" data-filter={item.slug}>
                             <span>{item.label}</span>
                           </button>
                         </li>
@@ -103,20 +103,20 @@ const ProjectsGrid2 = ({
 
               {/* Projects Grid/List */}
               <div className={!sideFilter ? "col-xs-12 col-sm-12 col-md-12 col-lg-12" : "col-xs-12 col-sm-12 col-md-12 col-lg-9"}>
-                <div className="row onovo-portfolio-items">
+                <div className="row ahaz-portfolio-items">
                   {projects.map((item, key) => (
-                    <div key={`projects-item-${key}`} className={`${columns} onovo-portfolio-col ${item.category_slug}`}>
+                    <div key={`projects-item-${key}`} className={`${columns} ahaz-portfolio-col ${item.category_slug}`}>
                       {/* GRID Layout */}
                       {layout === "grid" && (
-                        <div className="onovo-portfolio-item">
-                          <div className={masonry ? "image" : "image image-square"} data-onovo-overlay data-onovo-scroll>
+                        <div className="ahaz-portfolio-item">
+                          <div className={masonry ? "image" : "image image-square"} data-ahaz-overlay data-ahaz-scroll>
                             
                             {/* If project has gallery, render 4 images */}
                             {item.gallery?.items ? (
                               <div
                                 className="image image-square "
-                                data-onovo-overlay
-                                data-onovo-scroll
+                                data-ahaz-overlay
+                                data-ahaz-scroll
                                 style={{ position: "relative" }}
                               >
                                 {/* 2x2 image grid */}
@@ -153,7 +153,7 @@ const ProjectsGrid2 = ({
                                 {/* ONE hover overlay link */}
                                 <Link
                                   href={item.link}
-                                  className="onovo-hover-3-link"
+                                  className="ahaz-hover-3-link"
                                   style={{
                                     position: "absolute",
                                     inset: 0,
@@ -164,7 +164,7 @@ const ProjectsGrid2 = ({
                             ) : (
                               <Link
                                 href={galleryMode ? item.image : `${item.link}`}
-                                className="onovo-hover-3"
+                                className="ahaz-hover-3"
                               >
                                 <img src={item.image} alt={item.title} />
                               </Link>
@@ -174,12 +174,12 @@ const ProjectsGrid2 = ({
 
                           <div className="desc">
                             <h5 className="title">
-                              <a className="onovo-lnk" href={item.link} target="_blank" rel="noopener noreferrer">
-                                <span data-splitting data-onovo-scroll>{item.title}</span>
+                              <a className="ahaz-lnk" href={item.link} target="_blank" rel="noopener noreferrer">
+                                <span data-splitting data-ahaz-scroll>{item.title}</span>
                               </a>
                             </h5>
                             <div className="text">
-                              <div data-splitting data-onovo-scroll>
+                              <div data-splitting data-ahaz-scroll>
                                 <span>{item.category}</span>
                               </div>
                             </div>
@@ -189,8 +189,8 @@ const ProjectsGrid2 = ({
 
                       {/* LIST Layout */}
                       {layout === "list" && (
-                      <div className="onovo-portfolio-item onovo-portfolio-item-list">
-                        <div className="image onovo-hover-label" data-onovo-overlay data-onovo-scroll>
+                      <div className="ahaz-portfolio-item ahaz-portfolio-item-list">
+                        <div className="image ahaz-hover-label" data-ahaz-overlay data-ahaz-scroll>
 
                           {/* Gallery projects (NO Onovo hover) */}
                           {item.gallery?.items?.length >= 2 ? (
@@ -214,7 +214,7 @@ const ProjectsGrid2 = ({
                           ) : (
 
                             /* Single image project (WITH Onovo hover) */
-                            <Link href={`${item.link}`} className="onovo-hover-3">
+                            <Link href={`${item.link}`} className="ahaz-hover-3">
                               <img src={item.image} alt={item.title} />
                               <div className="square"></div>
                             <span className='label '>
@@ -230,18 +230,18 @@ const ProjectsGrid2 = ({
 
                         <div className="desc">
                           <div className="text">
-                            <div data-splitting data-onovo-scroll>
+                            <div data-splitting data-ahaz-scroll>
                               <span>{item.category}</span>
                             </div>
                           </div>
 
                           <h5 className="title">
-                            <Link className="onovo-lnk" href={`${item.link}`}>
-                              <span data-splitting data-onovo-scroll>{item.title}</span>
+                            <Link className="ahaz-lnk" href={`${item.link}`}>
+                              <span data-splitting data-ahaz-scroll>{item.title}</span>
                             </Link>
                           </h5>
 
-                          <div className="onovo-text">
+                          <div className="ahaz-text">
                             <ul>
                               <li><strong>Project Type</strong><br />{item.type}</li>
                               <li><strong>Client</strong><br />{item.team}</li>
