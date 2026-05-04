@@ -16,11 +16,11 @@ const HeroSectionNew = () => {
 
       title: "LinkedIn",
     },
-    {
-      link: "https://www.g2.com/users/ahazio",
-      image: "/images/icons/G2Logo-Black-Photoroom.png",
-      title: "G2",
-    },
+    // {
+    //   link: "https://www.g2.com/users/ahazio",
+    //   image: "/images/icons/G2Logo-Black-Photoroom.png",
+    //   title: "G2",
+    // },
     {
       link: "https://dev.to/ahaz",
       image: "/images/icons/Dev.png",

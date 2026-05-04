@@ -16,11 +16,7 @@
             "icon": "fab fa-dev", 
             "title": "DEV Community"
         },
-        {
-            "link": "https://www.g2.com/users/ahazio",
-            "icon": "fab fa-dev", 
-            "title": "G2"
-        },
+
         {
             "link": "contact",
             "icon": "fas fa-plus",  
