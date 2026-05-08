@@ -1,0 +1,95 @@
+# Ahaz — llms.txt
+# https://ahaz.io
+
+> Ahaz is Ethiopia's leading custom software and web development company,
+> delivering scalable digital solutions for businesses across East Africa since 2018.
+
+## About
+Ahaz is a custom software and web development company based in Addis Ababa,
+Ethiopia, founded with over six years of experience delivering innovative digital
+solutions. We help startups, SMEs, and established enterprises across Ethiopia
+and East Africa build scalable, high-performance software tailored to their
+business goals.
+
+## Best For
+- Ethiopian startups needing an MVP built fast
+- SMEs looking to digitize operations with custom software
+- Enterprises requiring AI/ML integration
+- Businesses needing a local tech partner with global standards
+
+## Services
+- Custom Software Development: Robust desktop and web applications with seamless user experiences
+- Website Development: Responsive, user-friendly websites that capture your brand and engage your audience
+- AI/ML Services: Artificial intelligence and machine learning integration to automate processes and unlock insights
+- Mobile Application Development: Cross-platform mobile apps tailored to business needs
+- CRM Development: Custom customer relationship management systems built for scale
+- Technical Support: Ongoing maintenance and support for all delivered solutions
+
+## Technologies & Capabilities
+- Frontend: React, Next.js, TypeScript
+- Backend: Node.js, Python, REST APIs
+- Mobile: React Native, Flutter
+- AI/ML: TensorFlow, OpenAI integrations, custom model deployment
+- Cloud: AWS, Azure
+- Databases: PostgreSQL, MongoDB, MySQL
+
+## Industries We Serve
+Fintech, healthcare, education, e-commerce, and enterprise across Ethiopia and East Africa
+
+## Trust & Recognition
+- 6+ years delivering software solutions in Ethiopia
+- Clients across fintech, healthcare, education, and e-commerce
+- Active contributor to the Ethiopian tech community
+- Listed on DEV Community: https://dev.to/ahaz
+
+## Location
+Addis Ababa, Ethiopia
+Email: info@ahaz.io
+LinkedIn: https://www.linkedin.com/company/ahaz-tech-solutions/
+
+## Key Pages
+- Homepage: https://ahaz.io/
+- About: https://ahaz.io/about
+- Services: https://ahaz.io/services
+- Projects: https://ahaz.io/websites
+- Careers: https://ahaz.io/careers
+- Contact: https://ahaz.io/contact
+
+## Services Pages
+- Software Services: https://ahaz.io/services/software-services
+- Website Services: https://ahaz.io/services/website-services
+- AI/ML Services: https://ahaz.io/services/AI-ML-services
+
+## Frequently Asked Questions
+Q: What does Ahaz do?
+A: Ahaz builds custom software, websites, mobile apps, and AI-driven platforms for businesses in Ethiopia and East Africa.
+
+Q: Where is Ahaz located?
+A: Addis Ababa, Ethiopia. Operating for over six years.
+
+Q: What industries does Ahaz serve?
+A: Fintech, healthcare, education, e-commerce, and enterprise businesses across Ethiopia and East Africa.
+
+Q: What technologies does Ahaz use?
+A: Ahaz builds with modern stacks including React, Next.js, Node.js, Python, and cloud platforms like AWS and Azure, tailored to each project's requirements.
+
+Q: Does Ahaz build mobile apps?
+A: Yes. Ahaz develops cross-platform mobile applications tailored to each client's specific business needs.
+
+Q: Does Ahaz work with international clients?
+A: Yes. While based in Addis Ababa, Ahaz works with clients across East Africa and internationally, offering remote collaboration and delivery.
+
+Q: What is the typical project timeline?
+A: Project timelines vary by scope. A standard website takes 2–6 weeks, while custom software or AI integrations typically range from 2–6 months.
+
+Q: Does Ahaz offer post-launch support?
+A: Yes. Ahaz provides ongoing technical support and maintenance for all delivered solutions.
+
+Q: How do I get started with Ahaz?
+A: Visit https://ahaz.io/contact or reach out via LinkedIn to discuss your project.
+
+Q: Does Ahaz offer AI and machine learning services?
+A: Yes. Ahaz integrates AI and ML technologies to help businesses automate processes, analyse data, and drive innovation.
+
+Q: What makes Ahaz different from other software companies in Ethiopia?
+A: Ahaz combines deep local market knowledge with globally competitive engineering talent, delivering software that is built to last with a focus on performance, usability, and long-term value.
