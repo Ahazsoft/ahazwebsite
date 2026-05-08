@@ -15,7 +15,11 @@ import PartnersSection from "@components/sections/Partners";
 const Services = (props) => {
 
   return (
-    <Layouts>
+    <Layouts
+  pageTitle="Our Services"
+  pageDescription="Ahaz offers custom software development, website design, mobile apps, and AI/ML integration services for businesses in Ethiopia."
+  pageCanonical="https://ahaz.io/services"
+>
       <PageBanner pageTitle={"Our Services"} pageDesc={"Our values are the foundation of our success."} />
 
       <Services2Section introHidden noPaddingBottom />

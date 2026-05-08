@@ -26,12 +26,12 @@ const TeamSection = ( { team } ) => {
 							<div className="ahaz-team" data-ahaz-overlay data-ahaz-scroll>
 								<div className="ahaz-team-item ahaz-hover-3">
 									<div className="desc">
-										<h5 className="title">
+										<h3 className="title">
 											{/* <Link href={`/team/${item.id}`} className="ahaz-lnk">
 												<span data-splitting data-ahaz-scroll>{item.name}</span>
 											</Link> */}
 											<span data-splitting data-ahaz-scroll>{item.name}</span>
-										</h5>
+										</h3>
 										<div className="ahaz-subtitle-1">
 											<span data-splitting data-ahaz-scroll>{item.role}</span>
 										</div>

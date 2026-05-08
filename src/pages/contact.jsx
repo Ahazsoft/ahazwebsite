@@ -29,7 +29,11 @@ const Contact = () => {
   }
 
   return (
-    <Layouts>
+    <Layouts
+  pageTitle="Contact Us"
+  pageDescription="Get in touch with Ahaz. We are based in Addis Ababa, Ethiopia. Reach out to discuss your custom software or website project."
+  pageCanonical="https://ahaz.io/contact"
+>
         <PageBanner pageTitle={"Contact Us"} pageDesc={"Have ideas for your business? Let’s build something awesome together."} />
 
         {/* Onovo Contact Info */}

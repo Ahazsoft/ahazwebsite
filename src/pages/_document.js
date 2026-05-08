@@ -17,6 +17,26 @@ class MyDocument extends Document {
 	        <link rel="icon" href="/favicon/Favicon-01.png" type="image/x-icon" />
           
           {/* favicon */}
+          {/* Apple touch icon */}
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/Favicon-01.png" />
+
+{/* Open Graph / Social Sharing */}
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Ahaz" />
+<meta property="og:title" content="Custom Software & Web Development in Ethiopia | Ahaz" />
+<meta property="og:description" content="Ahaz builds custom software, websites, and digital solutions for businesses in Ethiopia. We create scalable, high-performance systems tailored to your goals." />
+<meta property="og:image" content="/images/logo/logo2.png" />
+<meta property="og:url" content="https://ahaz.io/" />
+<meta property="og:locale" content="en_US" />
+
+{/* Twitter Card */}
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Custom Software & Web Development in Ethiopia | Ahaz" />
+<meta name="twitter:description" content="Ahaz builds custom software, websites, and digital solutions for businesses in Ethiopia. We create scalable, high-performance systems tailored to your goals." />
+<meta name="twitter:image" content="/images/logo/logo2.png" />
+
+{/* Canonical */}
+<link rel="canonical" href="https://ahaz.io/" />
 
           {/* Fonts */}
           <link rel="dns-prefetch" href="//fonts.googleapis.com" />

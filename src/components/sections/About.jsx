@@ -43,7 +43,7 @@ const AboutSection = () => {
                 <div className="row">
                   {Data.items.map((item, key) => (
                   <div key={`about-item-${key}`} className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                    <h5 className="text-uppercase">{item.title}</h5>
+                    <h3 className="text-uppercase">{item.title}</h3>
                     <p style={{ textAlign: "justify" }} dangerouslySetInnerHTML={{ __html: item.text }} />
                     {item.button != undefined &&
                     <Link className="ahaz-btn ahaz-hover-btn" href={item.button.link}>
