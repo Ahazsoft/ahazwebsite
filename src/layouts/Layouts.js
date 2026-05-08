@@ -15,8 +15,18 @@ const Layouts = ({
   noHeader,
   noFooter,
   darkHeader,
-  cartButton
+  cartButton,
+  pageTitle,
+  pageDescription,
+  pageCanonical,
 }) => {
+  const siteTitle = pageTitle
+    ? `${pageTitle} | Ahaz – Custom Software & Web Development in Ethiopia`
+    : "Custom Software & Web Development in Ethiopia | Ahaz";
+  const siteDescription =
+    pageDescription ||
+    "Ahaz builds custom software, websites, and digital solutions for businesses in Ethiopia. We create scalable, high-performance systems tailored to your goals.";
+  const canonical = pageCanonical || "https://ahaz.io/";
   useEffect(() => {
     // preloader
     if (typeof window !== 'undefined') {
@@ -44,13 +54,16 @@ const Layouts = ({
   return (
     <>
       <Head>
-        <title>Custom Software & Web Development in Ethiopia | Ahaz</title>
-        <meta
-          name="description"
-          content="Ahaz builds custom software, websites, and digital solutions for businesses in Ethiopia. We create scalable, high-performance systems tailored to your goals."
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </Head>
+  <title>{siteTitle}</title>
+  <meta name="description" content={siteDescription} />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="canonical" href={canonical} />
+  <meta property="og:title" content={siteTitle} />
+  <meta property="og:description" content={siteDescription} />
+  <meta property="og:url" content={canonical} />
+  <meta name="twitter:title" content={siteTitle} />
+  <meta name="twitter:description" content={siteDescription} />
+</Head>
       <div className={noFooter ? "ahaz-page" : `ahaz-page footer--fixed`}>
         <Preloader />
 

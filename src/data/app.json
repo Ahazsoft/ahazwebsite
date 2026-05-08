@@ -61,7 +61,7 @@
             },
             {
                 "label": "Projects",
-                "link": "/",
+             "link": "/websites",
                 "children": [
                     {
                         "label": "Websites",
@@ -123,21 +123,20 @@
         ],
         "copy": "© 2026 Ahaz Software and Web Solutions . All rights reserved."
     },
-    "social": [
-        {
-            "link": "https://facebook.com",
-            "icon": "fab fa-facebook",
-            "title": "Facebook"
-        },
-        {
-            "link": "https://twitter.com",
-            "icon": "fab fa-twitter",
-            "title": "Twitter"
-        },
-        {
-            "link": "https://linkedin.com",
-            "icon": "fab fa-linkedin",
-            "title": "Linkedin"
-        }
-    ]
-}
+   "social": [
+    {
+        "link": "https://www.linkedin.com/company/ahaz-tech-solutions/",
+        "icon": "fab fa-linkedin",
+        "title": "LinkedIn"
+    },
+    {
+        "link": "https://dev.to/ahaz",
+        "icon": "fab fa-dev",
+        "title": "DEV Community"
+    },
+    {
+        "link": "https://twitter.com/ahaz_io",
+        "icon": "fab fa-twitter",
+        "title": "Twitter"
+    }
+]}

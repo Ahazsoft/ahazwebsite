@@ -32,7 +32,11 @@ const About = (props) => {
   }
 
   return (
-    <Layouts>
+    <Layouts
+  pageTitle="About Us"
+  pageDescription="Learn about Ahaz – a technology company in Ethiopia specialising in custom software, web development, and AI solutions. Meet our team and our story."
+  pageCanonical="https://ahaz.io/about"
+>
     	<PageBanner pageTitle={"About Us"} pageDesc={"Creative intersection of art, design and technology."} />
       
       	{/* Onovo About */}

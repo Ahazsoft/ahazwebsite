@@ -27,7 +27,6 @@ const HeroSectionNew = () => {
       title: "DEV Community",
     },
   ];
-
   return (
     <>
       <div className="sm-lp-container sm-lp-centered">
@@ -39,16 +38,19 @@ const HeroSectionNew = () => {
 
               Custom Software & Web Development in Ethiopia
             </h1>
+            <h2 className="sm-lp-subtitle" style={{ fontSize: "1.4rem", fontWeight: 500, marginBottom: "1rem" }}>
+  Scalable Digital Solutions Built for Ethiopian Businesses
+            </h2>
 
-            <p className="sm-lp-description">
-              Ahaz is a custom software development company in Ethiopia helping businesses 
-              build scalable digital solutions that include high-performance websites, 
-              robust desktop applications, CRMs, and AI-driven platforms, and we combine 
-              cutting-edge technology with exceptional user experience to deliver reliable, 
-              efficient, and growth-focused software tailored to your business goals while 
-              ensuring that every project is designed to maximize performance, usability, 
-              and long-term value for our clients.
-            </p>
+           <p className="sm-lp-description">
+ Ahaz is a custom software development company in Ethiopia providing professional web development services that help businesses
+  build scalable digital solutions. Our expertise includes high‑performance websites, robust desktop applications, advanced CRM 
+  systems, and AI‑driven platforms designed for efficiency and growth. We combine cutting‑edge technology with exceptional user 
+  experience design to deliver reliable, efficient, and growth‑focused software tailored to your business goals, ensuring every
+   project maximizes performance, usability, SEO visibility, and long‑term value for our clients.
+</p>
+
+
             <div className="sm-lp-socials">
               {socials.map((item, key) => (
                 <Link className="sm-lp-socials-icon" href={item.link}>
@@ -56,6 +58,7 @@ const HeroSectionNew = () => {
                 </Link>
               ))}
             </div>
+           
 
             {/* <button className="sm-lp-cta-button">Get Started</button> */}
 
