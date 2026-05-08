@@ -38,7 +38,7 @@ const HeroSectionNew = () => {
 
               Custom Software & Web Development in Ethiopia
             </h1>
-            <h2 className="sm-lp-subtitle" style={{ fontSize: "1.4rem", fontWeight: 500, marginBottom: "1rem" }}>
+            <h2 className="sm-lp-subtitle" style={{ fontSize: "1.4rem", fontWeight: 500, marginBottom: "1rem" ,color: "white"}}>
   Scalable Digital Solutions Built for Ethiopian Businesses
             </h2>
 
