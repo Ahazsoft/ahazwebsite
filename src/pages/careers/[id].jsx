@@ -5,9 +5,79 @@ import formatRelativeTime from "@/src/common/calculateTime";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeSanitize from "rehype-sanitize";
-import { usePathname, useSearchParams } from "next/navigation";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
-const JobDetail = ({ job }) => {
+const API_BASE = "https://ahaz-dashboard.vercel.app";
+// const API_BASE = "http://localhost:3000"; 
+
+
+const JobDetail = () => {
+  const router = useRouter();
+  const { id } = router.query;
+
+  const [job, setJob] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    if (!id) return;
+
+    let mounted = true;
+    const controller = new AbortController();
+
+    async function fetchJob() {
+      setLoading(true);
+      setError(null);
+      try {
+        const res = await fetch(`${API_BASE}/api/public/jobs/${id}`, {
+          signal: controller.signal,
+        });
+
+        if (res.status === 404) {
+          if (mounted) setJob(null);
+          return;
+        }
+
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+        if (mounted) setJob(data);
+      } catch (err) {
+        if (mounted) setError(err.message || "Failed to fetch job");
+      } finally {
+        if (mounted) setLoading(false);
+      }
+    }
+
+    fetchJob();
+
+    return () => {
+      mounted = false;
+      controller.abort();
+    };
+  }, [id]);
+
+  // Loading state
+  if (loading) {
+    return (
+      <Layouts>
+        <PageBanner pageTitle="Job Details" pageDesc="Loading..." />
+        <div className="text-center py-5">Loading job details...</div>
+      </Layouts>
+    );
+  }
+
+  // Error state
+  if (error) {
+    return (
+      <Layouts>
+        <PageBanner pageTitle="Job Details" pageDesc="Error" />
+        <div className="text-center py-5 text-danger">Error: {error}</div>
+      </Layouts>
+    );
+  }
+
+  // Not found state
   if (!job) {
     return (
       <Layouts>
@@ -19,13 +89,13 @@ const JobDetail = ({ job }) => {
     );
   }
 
+  // Share links (commented out, kept as requested)
   // const pathname = usePathname();
   // const searchParams = useSearchParams();
   // const shareUrl = typeof window !== 'undefined'
   //   ? `${window.location.origin}${pathname}${searchParams ? '?' + searchParams : ''}`
   //   : '';
-
-  //   const shareText = `Apply for ${job.title} at ${job.company}`;
+  // const shareText = `Apply for ${job.title} at ${job.company}`;
 
   return (
     <Layouts>
@@ -63,7 +133,7 @@ const JobDetail = ({ job }) => {
                   }}
                 >
                   {/* {Date.now()} */}
-                  {formatRelativeTime(job.post_date.split("T")[0])}
+                  {formatRelativeTime(job.post_date?.split("T")[0] ?? "")}
                 </div>
 
                 {/* Expiry */}
@@ -93,7 +163,7 @@ const JobDetail = ({ job }) => {
                       paddingTop: "3px",
                     }}
                   >
-                    {job.expiry_date.split("T")[0]}
+                    {job.expiry_date?.split("T")[0] ?? ""}
                   </p>
                 </div>
               </div>
@@ -106,7 +176,7 @@ const JobDetail = ({ job }) => {
                       job.company == "Ahaz Solutions"
                         ? "/images/logo/logo1.png"
                         : "/images/logo/Bala4.jpg"
-                    } 
+                    }
                     alt={job.company}
                     width="70"
                     height="70"
@@ -315,45 +385,3 @@ const JobDetail = ({ job }) => {
 
 export default JobDetail;
 
-// Generate paths for all jobs
-export async function getStaticPaths() {
-  try {
-    // const res = await fetch("http://localhost:3001/api/jobs");
-    const res = await fetch("https://backend.ahaz.io/api/jobs");
-    const jobs = await res.json();
-
-    const paths = jobs.map((job) => ({
-      params: { id: job.id },
-    }));
-
-    return {
-      paths,
-      fallback: "blocking",
-    };
-  } catch (error) {
-    console.error("Error fetching jobs for paths:", error);
-    return { paths: [], fallback: false };
-  }
-}
-
-// Fetch job data for the given id from the backend API
-export async function getStaticProps({ params }) {
-  try {
-    // const res = await fetch(`http://localhost:3001/api/job/${params.id}`);
-    const res = await fetch(`https://backend.ahaz.io/api/job/${params.id}`);
-
-    if (res.status === 404) {
-      return { notFound: true };
-    }
-
-    const job = await res.json();
-
-    return {
-      props: { job: job || null },
-      revalidate: 60,
-    };
-  } catch (error) {
-    console.error("Error fetching job:", error);
-    return { props: { job: null } };
-  }
-}
