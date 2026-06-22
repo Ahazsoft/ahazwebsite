@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 
-const API_BASE = "https://ahaz-dashboard.vercel.app";  
+const API_BASE = "https://ahaz-attendance.vercel.app";  
 // const API_BASE = "http://localhost:3000";  
 
 const ApplyPage = () => {
