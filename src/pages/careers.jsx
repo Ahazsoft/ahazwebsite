@@ -4,7 +4,7 @@ import Link from "next/link";
 import formatRelativeTime from "@/src/common/calculateTime";
 import { useEffect, useState } from "react";
 
-const API_BASE = "https://ahaz-dashboard.vercel.app";
+const API_BASE = "https://ahaz-attendance.vercel.app";
 // const API_BASE = "http://localhost:3000"; 
 const Careers = () => {
   const [jobs, setJobs] = useState([]);
