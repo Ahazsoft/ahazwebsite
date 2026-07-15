@@ -15,7 +15,6 @@ business goals.
 - Ethiopian startups needing an MVP built fast
 - SMEs looking to digitize operations with custom software
 - Enterprises requiring AI/ML integration
-- Businesses needing a local tech partner with global standards
 
 ## Services
 - Custom Software Development: Robust desktop and web applications with seamless user experiences
