@@ -1,25 +1,25 @@
 ---
 #preview
 title: DMV for Dessie
-image: /images/project-logo/dmv.png
+image: /images/project-logo/dmvlogo.jpg
 category: Website
 category_slug: organization
 type: Website Design, Website Development
-team: Ahaz Media
-date: May 2026
+team: DMV For Dessie
+date: January 2026
 link: https://dmvfor-dessie.org/
 
 #full details
 details:
     items:
         - label: "Client:"
-          value: [Client Name]
+          value: DMV For Dessie
 
         - label: "Start:"
-          value: [Start Date]
+          value: January 2026
         
         - label: "Ending:"
-          value: [End Date]
+          value: Now
         
         - label: "Website:"
           value: https://dmvfor-dessie.org/
