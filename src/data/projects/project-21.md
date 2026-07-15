@@ -1,19 +1,19 @@
 ---
 #preview
-title: RPDC
+title: Reboth Preschool and Day Care
 image: /images/project-logo/Rehoboth-Landscape-Logo-01.png
 category: Website
 category_slug: organization
 type: Website Design, Website Development
-team: Ahaz Media
-date: [Month Year]
-link: https://rpdc.ahaz.io/
+team: Bala Media
+date: April 2026
+link: https://rehoboth-preschool.com/
 
 #full details
 details:
     items:
         - label: "Client:"
-          value: [Client Name]
+          value: Bala Media
 
         - label: "Start:"
           value: [Start Date]
