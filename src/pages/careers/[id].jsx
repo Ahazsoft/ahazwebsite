@@ -5,9 +5,78 @@ import formatRelativeTime from "@/src/common/calculateTime";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeSanitize from "rehype-sanitize";
-import { usePathname, useSearchParams } from "next/navigation";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
-const JobDetail = ({ job }) => {
+const API_BASE = "https://ahaz-attendance.vercel.app";
+// const API_BASE = "http://localhost:3000";
+
+const JobDetail = () => {
+  const router = useRouter();
+  const { id } = router.query;
+
+  const [job, setJob] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    if (!id) return;
+
+    let mounted = true;
+    const controller = new AbortController();
+
+    async function fetchJob() {
+      setLoading(true);
+      setError(null);
+      try {
+        const res = await fetch(`${API_BASE}/api/public/jobs/${id}`, {
+          signal: controller.signal,
+        });
+
+        if (res.status === 404) {
+          if (mounted) setJob(null);
+          return;
+        }
+
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+        if (mounted) setJob(data);
+      } catch (err) {
+        if (mounted) setError(err.message || "Failed to fetch job");
+      } finally {
+        if (mounted) setLoading(false);
+      }
+    }
+
+    fetchJob();
+
+    return () => {
+      mounted = false;
+      controller.abort();
+    };
+  }, [id]);
+
+  // Loading state
+  if (loading) {
+    return (
+      <Layouts>
+        <PageBanner pageTitle="Job Details" pageDesc="Loading..." />
+        <div className="text-center py-5">Loading job details...</div>
+      </Layouts>
+    );
+  }
+
+  // Error state
+  if (error) {
+    return (
+      <Layouts>
+        <PageBanner pageTitle="Job Details" pageDesc="Error" />
+        <div className="text-center py-5 text-danger">Error: {error}</div>
+      </Layouts>
+    );
+  }
+
+  // Not found state
   if (!job) {
     return (
       <Layouts>
@@ -19,13 +88,16 @@ const JobDetail = ({ job }) => {
     );
   }
 
+  // Share links (commented out, kept as requested)
   // const pathname = usePathname();
   // const searchParams = useSearchParams();
   // const shareUrl = typeof window !== 'undefined'
   //   ? `${window.location.origin}${pathname}${searchParams ? '?' + searchParams : ''}`
   //   : '';
+  // const shareText = `Apply for ${job.title} at ${job.company}`;
 
-  //   const shareText = `Apply for ${job.title} at ${job.company}`;
+  const shareUrl = typeof window !== "undefined" ? window.location.href : "";
+  const shareText = `Apply for ${job.title} at ${job.company}`;
 
   return (
     <Layouts>
@@ -63,7 +135,7 @@ const JobDetail = ({ job }) => {
                   }}
                 >
                   {/* {Date.now()} */}
-                  {formatRelativeTime(job.post_date.split("T")[0])}
+                  {formatRelativeTime(job.post_date?.split("T")[0] ?? "")}
                 </div>
 
                 {/* Expiry */}
@@ -93,7 +165,7 @@ const JobDetail = ({ job }) => {
                       paddingTop: "3px",
                     }}
                   >
-                    {job.expiry_date.split("T")[0]}
+                    {job.expiry_date?.split("T")[0] ?? ""}
                   </p>
                 </div>
               </div>
@@ -106,7 +178,7 @@ const JobDetail = ({ job }) => {
                       job.company == "Ahaz Solutions"
                         ? "/images/logo/logo1.png"
                         : "/images/logo/Bala4.jpg"
-                    } 
+                    }
                     alt={job.company}
                     width="70"
                     height="70"
@@ -182,71 +254,81 @@ const JobDetail = ({ job }) => {
 
               {/* Share options */}
               <div className="ahaz-share">
-                {/* <h5
+                <h5
                   className="ahaz-title-5 mb-3"
                   style={{ color: "#1d4173", textDecoration: "underline" }}
                 >
                   Share this job
-                </h5> */}
+                </h5>
 
                 <div className="d-flex gap-3 mb-5">
-                  {/* LinkedIn */}
-                  {/* <a
+                  <a
                     href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="ahaz-btn ahaz-hover-btn"
-                    style={{  
+                    className="border border-dark rounded-circle d-flex align-items-center justify-content-center hover:bg-gray"
+                    style={{
                       height: "50px",
-                      width: "30px",
+                      width: "50px",
                       display: "flex",
-                      flexDirection: "row",
                       alignItems: "center",
                       justifyContent: "center",
-                      backgroundColor: "yellow"
+                      padding: 0,
                     }}
                   >
-                    <img src="https://img.icons8.com/?size=100&id=8808&format=png&color=000000" alt="" srcset="" style={{zIndex:1000}}/>
-                  </a> */}
+                    <i className="fab fa-linkedin-in" aria-hidden="true" />
+                  </a>
 
-                  {/* X (Twitter) */}
-                  {/* <a
+                  <a
                     href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(shareText)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="ahaz-btn ahaz-hover-btn"
-                    style={{ height: "50px", width: "50px", display: "flex", alignItems: "center", justifyContent: "center" }}
+                    className="border border-dark rounded-circle d-flex align-items-center justify-content-center hover:bg-gray"
+                    style={{
+                      height: "50px",
+                      width: "50px",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      padding: 0,
+                    }}
                   >
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" style={{color:'white'}}>
-                      <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633Z" />
-                    </svg>
-                  </a> */}
+                    <i className="fab fa-twitter" aria-hidden="true" />
+                  </a>
 
-                  {/* Facebook */}
-                  {/* <a
+                  <a
                     href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="ahaz-btn ahaz-hover-btn"
-                    style={{ height: "50px", width: "50px", display: "flex", alignItems: "center", justifyContent: "center" }}
+                    className="border border-dark rounded-circle d-flex align-items-center justify-content-center hover:bg-gray"
+                    style={{
+                      height: "50px",
+                      width: "50px",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      padding: 0,
+                    }}
                   >
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M22 12.07C22 6.47 17.52 2 11.93 2S2 6.47 2 12.07C2 17.07 5.66 21.22 10.44 22v-6.99H7.9v-3H10.44V9.41c0-2.54 1.51-3.95 3.83-3.95 1.11 0 2.27.2 2.27.2v2.5h-1.28c-1.26 0-1.65.78-1.65 1.58V12h2.81l-.45 3h-2.36V22c4.78-.78 8.44-4.93 8.44-9.93z" />
-                    </svg>
-                  </a> */}
+                    <i className="fab fa-facebook-f" aria-hidden="true" />
+                  </a>
 
-                  {/* Telegram */}
-                  {/* <a
-                    href={`https://t.me/share/url?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(shareText)}`}
+                  <a
+                    href={`https://t.me/{encodeURIComponent(shareUrl)}&text=${encodeURIComponent(shareText)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="ahaz-btn ahaz-hover-btn"
-                    style={{ height: "50px", width: "50px", display: "flex", alignItems: "center", justifyContent: "center" }}
+                    className="border border-dark rounded-circle d-flex align-items-center justify-content-center hover:bg-gray"
+                    style={{
+                      height: "50px",
+                      width: "50px",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      padding: 0,
+                    }}
                   >
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-                      <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629.093.06.183.125.27.187.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.426 1.426 0 0 0-.013-.315.337.337 0 0 0-.114-.217.526.526 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09z" />
-                    </svg>
-                  </a> */}
+                    <i className="fab fa-telegram-plane" aria-hidden="true" />
+                  </a>
                 </div>
               </div>
             </div>
@@ -314,46 +396,3 @@ const JobDetail = ({ job }) => {
 };
 
 export default JobDetail;
-
-// Generate paths for all jobs
-export async function getStaticPaths() {
-  try {
-    // const res = await fetch("http://localhost:3001/api/jobs");
-    const res = await fetch("https://backend.ahaz.io/api/jobs");
-    const jobs = await res.json();
-
-    const paths = jobs.map((job) => ({
-      params: { id: job.id },
-    }));
-
-    return {
-      paths,
-      fallback: "blocking",
-    };
-  } catch (error) {
-    console.error("Error fetching jobs for paths:", error);
-    return { paths: [], fallback: false };
-  }
-}
-
-// Fetch job data for the given id from the backend API
-export async function getStaticProps({ params }) {
-  try {
-    // const res = await fetch(`http://localhost:3001/api/job/${params.id}`);
-    const res = await fetch(`https://backend.ahaz.io/api/job/${params.id}`);
-
-    if (res.status === 404) {
-      return { notFound: true };
-    }
-
-    const job = await res.json();
-
-    return {
-      props: { job: job || null },
-      revalidate: 60,
-    };
-  } catch (error) {
-    console.error("Error fetching job:", error);
-    return { props: { job: null } };
-  }
-}
