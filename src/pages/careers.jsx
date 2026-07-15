@@ -4,6 +4,8 @@ import Link from "next/link";
 import formatRelativeTime from "@/src/common/calculateTime";
 import { useEffect, useState } from "react";
 
+const API_BASE = "https://ahaz-attendance.vercel.app";
+// const API_BASE = "http://localhost:3000"; 
 const Careers = () => {
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -15,8 +17,8 @@ const Careers = () => {
 
     async function fetchJobs() {
       try {
-        // const res = await fetch("http://localhost:3001/api/jobs", {
-        const res = await fetch("https://backend.ahaz.io/api/jobs", {
+        // Use relative URL – works on any environment (same origin)
+        const res = await fetch(`${API_BASE}/api/public/jobs`, {
           signal: controller.signal,
         });
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
@@ -38,6 +40,7 @@ const Careers = () => {
   }, []);
 
   const hasJobs = jobs.length > 0;
+
   return (
     <Layouts>
       <PageBanner
@@ -67,149 +70,140 @@ const Careers = () => {
             <div className="text-center py-5 text-danger">Error: {error}</div>
           ) : hasJobs ? (
             <div className="row">
-              {jobs
-                .filter((job) => job.status === "open")
-                .map((job) => (
-                  <div key={job.id} className="col-12 mb-4">
-                    <div className="card border-0 shadow">
-                      <div className="card-body">
-                        {/* Time (top) */}
-                        {/* <div className="text-muted small mb-2">{job.timeAgo}</div> */}
-                        <div className="d-flex flex-wrap align-items-center justify-content-between col">
-                          {/* Posted At */}
-                          <div
-                            className="badge  text-dark mb-4 px-3 py-2"
+              {/* No client-side filtering – API already returns only open jobs */}
+              {jobs.map((job) => (
+                <div key={job.id} className="col-12 mb-4">
+                  <div className="card border-0 shadow">
+                    <div className="card-body">
+                      {/* Time (top) */}
+                      <div className="d-flex flex-wrap align-items-center justify-content-between col">
+                        {/* Posted At */}
+                        <div
+                          className="badge text-dark mb-4 px-3 py-2"
+                          style={{
+                            backgroundColor: "#efefef",
+                            padding: "5px",
+                          }}
+                        >
+                          {formatRelativeTime(job.post_date)}
+                        </div>
+
+                        {/* Expiry */}
+                        <div
+                          className="badge text-dark mb-4 px-3 py-2"
+                          style={{
+                            backgroundColor: "#efefef",
+                            padding: "5px",
+                            display: "flex",
+                            flexDirection: "row",
+                            alignItems: "center",
+                            fontSize: "15px",
+                            gap: "4px",
+                          }}
+                        >
+                          <img
+                            src="/images/icons/Calendar.png"
+                            alt="Type"
+                            width="18"
+                            className="me-1"
+                          />
+                          <p
                             style={{
-                              backgroundColor: "#efefef",
-                              padding: "5px",
+                              lineHeight: "20px",
+                              margin: "0px",
+                              paddingTop: "3px",
                             }}
                           >
-                            {/* {Date.now()} */}
-                            {formatRelativeTime(job.post_date)}
-                          </div>
+                            {job.expiry_date.split("T")[0]}
+                          </p>
+                        </div>
+                      </div>
 
-                          {/* Expiry */}
+                      {/* Logo + Title/Company row */}
+                      <div className="d-flex align-items-center mb-3">
+                        <div className="me-3">
+                          <img
+                            src={
+                              job.company == "Ahaz Solutions"
+                                ? "/images/logo/logo1.png"
+                                : "/images/logo/Bala4.jpg"
+                            }
+                            alt={job.company}
+                            width="50"
+                            height="50"
+                            className="object-fit-contain img-fluid"
+                          />
+                        </div>
+                        <div>
+                          <h5 className="card-title mb-1">
+                            <Link
+                              href={`/careers/${job.id}`}
+                              className="text-decoration-none text-dark"
+                            >
+                              {job.title}
+                            </Link>
+                          </h5>
+                          <h6 className="card-subtitle text-muted">
+                            {job.company}
+                          </h6>
+                        </div>
+                      </div>
+
+                      {/* Info items + Button row */}
+                      <div className="d-flex flex-wrap align-items-center justify-content-between">
+                        <div className="d-flex flex-column flex-sm-row align-items-center align-items-sm-start gap-3 gap-sm-4 mb-2 mb-sm-0">
                           <div
-                            className="badge  text-dark mb-4 px-3 py-2 "
-                            style={{
-                              backgroundColor: "#efefef",
-                              padding: "5px",
-                              display: "flex",
-                              flexDirection: "row",
-                              alignItems: "center",
-                              fontSize: "15px",
-                              gap: "4px",
-                            }}
+                            className="d-flex align-items-center"
+                            id="careers-fulltime-container"
                           >
                             <img
-                              src="/images/icons/Calendar.png"
+                              src="/images/icons/Briefcase.png"
                               alt="Type"
                               width="18"
                               className="me-1"
                             />
-                            <p
-                              style={{
-                                lineHeight: "20px",
-                                // fontSize:"15px",
-                                margin: "0px",
-                                paddingTop: "3px",
-                              }}
-                            >
-                              {job.expiry_date.split("T")[0]}
-                            </p>
+                            <span className="px-2">{job.job_type}</span>
                           </div>
-                        </div>
 
-                        {/* Logo + Title/Company row */}
-                        <div className="d-flex align-items-center mb-3">
-                          <div className="me-3">
+                          <div className="d-flex align-items-center">
                             <img
-                              src={
-                                job.company == "Ahaz Solutions"
-                                  ? "/images/logo/logo1.png"
-                                  : "/images/logo/Bala4.jpg"
-                              }
-                              alt={job.company}
-                              width="50"
-                              height="50"
-                              className=" object-fit-contain img-fluid"
+                              src="/images/icons/Wallet.png"
+                              alt="Salary"
+                              width="18"
+                              className="me-1"
                             />
+                            <span className="px-2">{job.salary}</span>
                           </div>
-                          <div>
-                            <h5 className="card-title mb-1">
-                              <Link
-                                href={`/careers/${job.id}`}
-                                className="text-decoration-none text-dark"
-                              >
-                                {job.title}
-                              </Link>
-                            </h5>
-                            <h6 className="card-subtitle text-muted">
-                              {job.company}
-                            </h6>
+
+                          <div className="d-flex align-items-center">
+                            <img
+                              src="/images/icons/Location.png"
+                              alt="Location"
+                              width="18"
+                              className="me-1"
+                            />
+                            <span className="px-2">{job.location}</span>
                           </div>
                         </div>
 
-                        {/* Info items + Button row */}
-                        <div className="d-flex flex-wrap align-items-center justify-content-between">
-                          <div className="d-flex flex-column flex-sm-row align-items-center align-items-sm-start gap-3 gap-sm-4 mb-2 mb-sm-0">
-                            <div
-                              className="d-flex align-items-center"
-                              id="careers-fulltime-container"
-                              style={
-                                {
-                                  // border: "1px solid red",
-                                }
-                              }
-                            >
-                              <img
-                                src="/images/icons/Briefcase.png"
-                                alt="Type"
-                                width="18"
-                                className="me-1"
-                              />
-                              <span className="px-2">{job.job_type}</span>
-                            </div>
-
-                            <div className="d-flex align-items-center">
-                              <img
-                                src="/images/icons/Wallet.png"
-                                alt="Salary"
-                                width="18"
-                                className="me-1"
-                              />
-                              <span className="px-2">{job.salary}</span>
-                            </div>
-
-                            <div className="d-flex align-items-center">
-                              <img
-                                src="/images/icons/Location.png"
-                                alt="Location"
-                                width="18"
-                                className="me-1"
-                              />
-                              <span className="px-2">{job.location}</span>
-                            </div>
-                          </div>
-
-                          {/* Job Details Button – exactly the same style as before */}
-                          <div className="career-job-detail-container">
-                            <Link
-                              href={`/careers/${job.id}`}
-                              className="ahaz-btn ahaz-hover-btn"
-                              id="careers-job-detail-button"
-                            >
-                              <i className="arrow">
-                                <span />
-                              </i>
-                              <span>Job Details</span>
-                            </Link>
-                          </div>
+                        {/* Job Details Button */}
+                        <div className="career-job-detail-container">
+                          <Link
+                            href={`/careers/${job.id}`}
+                            className="ahaz-btn ahaz-hover-btn"
+                            id="careers-job-detail-button"
+                          >
+                            <i className="arrow">
+                              <span />
+                            </i>
+                            <span>Job Details</span>
+                          </Link>
                         </div>
                       </div>
                     </div>
                   </div>
-                ))}
+                </div>
+              ))}
             </div>
           ) : (
             // Empty state message
@@ -252,7 +246,6 @@ const Careers = () => {
             .career-job-detail-container {
               width: 100%;
               padding: 20px 0;
-              // border: 1px solid red;
               display: flex;
               align-items: center;
               justify-content: center;

@@ -4,6 +4,9 @@ import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 
+const API_BASE = "https://ahaz-attendance.vercel.app";  
+// const API_BASE = "http://localhost:3000";  
+
 const ApplyPage = () => {
   const router = useRouter();
   const { id } = router.query;
@@ -50,7 +53,7 @@ const ApplyPage = () => {
     if (!allowedTypes.includes(file.type)) {
       setFileError("Only PDF, DOC, or DOCX files are allowed.");
       setCvFile(null);
-      e.target.value = ""; // clear input
+      e.target.value = "";
       return;
     }
 
@@ -98,15 +101,6 @@ const ApplyPage = () => {
 
     setStatus({ submitting: true, error: "", success: false });
 
-    // const formDataPayload = new FormData();
-    // formDataPayload.append("firstName", formData.firstName);
-    // formDataPayload.append("lastName", formData.lastName);
-    // formDataPayload.append("email", formData.email);
-    // formDataPayload.append("phone", formData.phone);
-    // formDataPayload.append("jobTitle", job.title);
-    // formDataPayload.append("company", job.company);
-    // formDataPayload.append("cv", cvFile);
-
     const formDataPayload = new FormData();
     formDataPayload.append("firstName", formData.firstName);
     formDataPayload.append("lastName", formData.lastName);
@@ -127,12 +121,8 @@ const ApplyPage = () => {
     formDataPayload.append("cv", cvFile);
 
     try {
-      // const response = await fetch("http://localhost:3001/api/apply", {
-      //   method: "POST",
-      //   body: formDataPayload,
-      // });
-
-      const response = await fetch(`https://backend.ahaz.io/api/apply`, {
+      // ✅ Fixed URL: use the backend API (port 3000)
+      const response = await fetch(`${API_BASE}/api/public/jobs/${job.id}/apply`, {
         method: "POST",
         body: formDataPayload,
       });
@@ -162,13 +152,10 @@ const ApplyPage = () => {
   useEffect(() => {
     if (!id) return;
 
-    const API_BASE = "https://backend.ahaz.io/api";
-
     setLoading(true);
     setFetchError("");
 
-    // fetch(`http://localhost:3001/api/job/${id}`)
-    fetch(`https://backend.ahaz.io/api/job/${id}`)
+    fetch(`${API_BASE}/api/public/jobs/${id}`)
       .then((res) => {
         if (res.status === 404) throw new Error("Job not found");
         if (!res.ok) throw new Error("Failed to fetch job");
@@ -179,6 +166,7 @@ const ApplyPage = () => {
       .finally(() => setLoading(false));
   }, [id]);
 
+  // loading / error / closed / form – unchanged UI below
   if (loading) {
     return (
       <Layouts>
@@ -231,7 +219,6 @@ const ApplyPage = () => {
       <section className="ahaz-section gap-bottom-140">
         <div className="container">
           <div className="row justify-content-center">
-            {/* Smaller column */}
             <div className="col-lg-5 col-md-7">
               <div className="card border-0">
                 <div className="card-body p-3">
@@ -366,7 +353,6 @@ const ApplyPage = () => {
                           htmlFor="gitHub"
                           className="form-label small mb-1"
                         >
-                          {/* GitHub */}
                           Portfolio link
                         </label>
                         <input

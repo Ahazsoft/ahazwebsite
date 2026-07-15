@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@calcom/embed-react": "^1.5.3",
     "date-fns": "^2.30.0",
     "formik": "^2.4.2",
     "gray-matter": "^4.0.3",
@@ -30,5 +31,9 @@
     "scroll-out": "^2.2.12",
     "splitting": "^1.0.6",
     "swiper": "10.0.4"
+  },
+  "devDependencies": {
+    "@types/node": "26.1.1",
+    "typescript": "7.0.2"
   }
 }
