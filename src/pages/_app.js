@@ -21,11 +21,6 @@ function MyApp({ Component, pageProps }) {
           {/* seo end */}        
       </Head>
       <Component {...pageProps} />
-      export default function MyApp({ Component, pageProps }) {
-  return (
-    <>
-      {/* ... any existing providers, layouts ... */}
-      <Component {...pageProps} />
 
       {/* Google Analytics – load after page becomes interactive */}
       <Script
