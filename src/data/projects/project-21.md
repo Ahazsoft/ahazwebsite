@@ -1,10 +1,10 @@
 ---
 #preview
-title: Reboth Preschool and Day Care
+title: Rehoboth Preschool and Day Care
 image: /images/project-logo/Rehoboth-Landscape-Logo-01.png
 category: Website
 category_slug: organization
-type: Website Design, Website Development
+type: Website Design,Development and maintenance
 team: Bala Media
 date: April 2026
 link: https://rehoboth-preschool.com/
