@@ -2,7 +2,6 @@ import React from "react";
 import Head from "next/head";
 import appData from "@data/app.json";
 import Script from 'next/script';
-
 import '../styles/scss/style.scss';
 import "../styles/globals.css";
 
@@ -47,9 +46,7 @@ function MyApp({ Component, pageProps }) {
       />
     </>
   );
-
-    </>
-  );
 }
+ 
 
 export default MyApp;
