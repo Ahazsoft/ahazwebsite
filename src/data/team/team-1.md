@@ -3,16 +3,16 @@
 image: /images/team/dereje-2026.jpg
 hover_image: /images/team/dereje-smile-2026.jpg
 name: Dereje T. Abzaw
-role: Project Lead | Senior Fullstack Developer
+role: Founder & Product Lead
 first_letter: D
 social:
+  - link: https://www.linkedin.com/in/dereje-t-abzaw-aa83ab225/
+    icon: fab fa-linkedin-in
+    title: Linkedin
+
   - link: https://github.com/derejetabzaw
     icon: fab fa-github
     title: Github
-
-  - link: https://www.linkedin.com/in/dereje-abzaw-aa83ab225/
-    icon: fab fa-linkedin-in
-    title: Linkedin
 
 #full details
 info:

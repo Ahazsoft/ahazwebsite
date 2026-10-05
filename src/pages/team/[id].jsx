@@ -25,9 +25,11 @@ const TeamDetail = ( { postData, projects, services } ) => {
 							<h2>
 								<span data-splitting data-ahaz-scroll>{postData.name}</span>
 							</h2>
+							{postData.role ? (
 							<h5>
 								<span data-splitting data-ahaz-scroll>{postData.role}</span>
 							</h5>
+							) : null}
 							{typeof postData.info != "undefined" &&
 							<div className="ahaz-team-info">
 								<ul>

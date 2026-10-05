@@ -323,7 +323,7 @@ const TeamSection = ( { team } ) => {
 							</button>
 							<div className="ahaz-team-carousel-desc">
 								<h5 className="title">{item.name}</h5>
-								<div className="role">{item.role}</div>
+								{item.role ? <div className="role">{item.role}</div> : null}
 								<ul className="social">
 									{item.social.map((link, link_key) => (
 									<li key={`team-slide-${key}-social-${link_key}`}>

@@ -2,10 +2,17 @@
 #preview details
 image: /images/team/kidist-2026.jpg
 hover_image: /images/team/kidist-smile-2026.jpg
-name: Kidist
-role: Team Member
+name: Kidist M. Gemechu
+role: DevOps
 first_letter: K
-social: []
+social:
+  - link: https://www.linkedin.com/in/kidist-mekuria-6a4427344/
+    icon: fab fa-linkedin-in
+    title: Linkedin
+
+  - link: https://github.com/kidist809
+    icon: fab fa-github
+    title: Github
 
 #full details
 info:

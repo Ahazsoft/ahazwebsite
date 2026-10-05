@@ -2,10 +2,17 @@
 #preview details
 image: /images/team/yeabsira-2026.jpg
 hover_image: /images/team/yeabsira-smile-2026.jpg
-name: Yeabsira
-role: Team Member
+name: Yeabsira G. Asefa
+role: ""
 first_letter: Y
-social: []
+social:
+  - link: http://www.linkedin.com/in/yeabsira-getachew/
+    icon: fab fa-linkedin-in
+    title: Linkedin
+
+  - link: https://github.com/yeabget
+    icon: fab fa-github
+    title: Github
 
 #full details
 info:

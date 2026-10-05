@@ -45,9 +45,11 @@ const Team = ( props ) => {
 											<span data-splitting data-ahaz-scroll>{item.name}</span>
 										</Link>
 									</h5>
+									{item.role ? (
 									<div className="ahaz-subtitle-1">
 										<span data-splitting data-ahaz-scroll>{item.role}</span>
 									</div>
+									) : null}
 								</div>
 							</div>
 						</div>

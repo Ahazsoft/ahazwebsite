@@ -2,17 +2,17 @@
 #preview details
 image: /images/team/abel-2026.jpg
 hover_image: /images/team/abel-smile-2026.jpg
-name: Abel Tesfaye
-role: UI/UX Designer
+name: Abel T. Tezazu
+role: UI / UX Designer
 first_letter: A
 social:
-  - link: https://www.behance.net/abel_tezazu
-    icon: fab fa-behance
-    title: Behance
-
   - link: https://www.linkedin.com/in/abeltezazu/
     icon: fab fa-linkedin-in
     title: Linkedin
+
+  - link: https://www.behance.net/abel_tezazu
+    icon: fab fa-behance
+    title: Behance
 
 #full details
 info:

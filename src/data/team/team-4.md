@@ -2,10 +2,17 @@
 #preview details
 image: /images/team/abigia-2026.jpg
 hover_image: /images/team/abigia-smile-2026.jpg
-name: Abigia
-role: Team Member
+name: Abigia T. Legese
+role: Full Stack Developer
 first_letter: A
-social: []
+social:
+  - link: https://www.linkedin.com/in/abigia-tarekegn/
+    icon: fab fa-linkedin-in
+    title: Linkedin
+
+  - link: https://github.com/abigia-t
+    icon: fab fa-github
+    title: Github
 
 #full details
 info:
