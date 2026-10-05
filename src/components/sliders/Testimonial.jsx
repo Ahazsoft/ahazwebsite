@@ -48,7 +48,7 @@ const TestimonialSlider = () => {
                   <i className="fas fa-star" />
                 </span>
               </div>
-              <p className="ahaz-voice-card-mark" aria-hidden="true">“</p>
+              <p className="ahaz-voice-card-mark" aria-hidden="true">«</p>
               <div className="ahaz-voice-card-quote" dangerouslySetInnerHTML={{ __html: item.text }} />
             </article>
           ))}

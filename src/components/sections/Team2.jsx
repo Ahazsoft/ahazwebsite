@@ -1,7 +1,13 @@
 import Data from "@data/sections/team2.json";
+import TeamData from "@data/sections/team.json";
 import Link from "next/link";
 
 const Team2Section = ( { team } ) => {
+    const ordered = (TeamData.homepageIds || [])
+        .map((id) => team.find((item) => item.id === id))
+        .filter(Boolean);
+    const list = ordered.length ? ordered : team.slice(0, Data.numOfItems);
+
     return (
         <>
             {/* Onovo Team */}
@@ -26,7 +32,7 @@ const Team2Section = ( { team } ) => {
 						{/* team items */}
 						<div className="col-xs-12 col-sm-12 col-md-1 col-lg-1"></div>
 
-						{team.slice(0, Data.numOfItems).map((item, key) => (
+						{list.map((item, key) => (
 
 						<div key={`team2-item-${key}`} className="col-xs-12 col-sm-12 col-md-6 col-lg-3">
 							<div className="ahaz-team-two">
@@ -37,7 +43,7 @@ const Team2Section = ( { team } ) => {
 										</a>
 										<div className="ahaz-social-2">
 											<ul>
-                                                {item.social.map((social, social_key) => (
+                                                {(item.social || []).map((social, social_key) => (
 												<li key={`team2-item-${key}-social-${social_key}`}>
 													<a className="ahaz-social-link ahaz-hover-2" href={social.link} title={social.title} target="_blank">
 														<i aria-hidden="true" className={social.icon} />
@@ -53,9 +59,11 @@ const Team2Section = ( { team } ) => {
 												<span data-splitting data-ahaz-scroll>{item.name}</span>
 											</a>
 										</h5>
+										{item.role ? (
 										<div className="ahaz-subtitle-1">
 											<span data-splitting data-ahaz-scroll>{item.role}</span>
 										</div>
+										) : null}
 									</div>
 								</div>
 							</div>

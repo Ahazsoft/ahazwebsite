@@ -3,7 +3,7 @@
 image: /images/team/kidist-2026.jpg
 hover_image: /images/team/kidist-smile-2026.jpg
 name: Kidist M. Gemechu
-role: DevOps
+role: Devops & Infrastructure Engineer
 first_letter: K
 social:
   - link: https://www.linkedin.com/in/kidist-mekuria-6a4427344/
