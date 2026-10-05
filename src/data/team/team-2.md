@@ -3,7 +3,7 @@
 image: /images/team/yeabsira-2026.jpg
 hover_image: /images/team/yeabsira-smile-2026.jpg
 name: Yeabsira G. Asefa
-role: ""
+role: Junior Full Stack Developer
 first_letter: Y
 social:
   - link: http://www.linkedin.com/in/yeabsira-getachew/

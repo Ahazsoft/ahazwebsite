@@ -28,7 +28,7 @@ const Testimonial2Slider = () => {
                                         <SwiperSlide key={`tst2-slide-${key}`} className="swiper-slide ahaz-reviews-item">
                                             <div className="text">
                                                 <div data-splitting>
-                                                    <p dangerouslySetInnerHTML={{__html: "“"+item.text+"”"}} />
+                                                    <p dangerouslySetInnerHTML={{__html: "«"+item.text+"»"}} />
                                                 </div>
                                             </div>
                                             <h5 className="title">

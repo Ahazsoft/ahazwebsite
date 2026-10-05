@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import Data from "@data/sections/team.json";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -6,6 +6,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
 const SIDE_SCALE = 0.65;
+const MOVE_MS = 380;
+const HOLD_MS = 1200;
 
 const TeamSection = ( { team } ) => {
     const list = (Data.homepageIds || []).length
@@ -17,33 +19,8 @@ const TeamSection = ( { team } ) => {
     const firstSlide = members.length;
 
     const sectionRef = useRef(null);
-    const stickyRef = useRef(null);
     const swiperRef = useRef(null);
-    const stepRef = useRef(0);
-    const stickyTopRef = useRef(0);
-    const [active, setActive] = useState(0);
-
-    const getScrollRange = () => {
-        const section = sectionRef.current;
-        const sticky = stickyRef.current;
-        if (!section || !sticky) return { top: window.scrollY, distance: 0 };
-
-        const top = section.getBoundingClientRect().top + window.scrollY - stickyTopRef.current;
-        return { top, distance: section.offsetHeight - sticky.offsetHeight };
-    };
-
-    const isPinned = () => {
-        const { top, distance } = getScrollRange();
-        return window.scrollY >= top - 1 && window.scrollY <= top + distance + 1;
-    };
-
-    const goToMember = (step) => {
-        const { top, distance } = getScrollRange();
-        window.scrollTo({
-            top: top + (distance * step) / members.length,
-            behavior: isPinned() ? "instant" : "smooth",
-        });
-    };
+    const showMemberRef = useRef(() => {});
 
     useEffect(() => {
         const section = sectionRef.current;
@@ -51,6 +28,7 @@ const TeamSection = ( { team } ) => {
         if (!section || !swiper || swiper.destroyed) return;
         const el = swiper.el;
         const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        const span = members.length;
 
         const reveal = new IntersectionObserver(([entry]) => {
             if (!entry.isIntersecting) return;
@@ -59,30 +37,19 @@ const TeamSection = ( { team } ) => {
         }, { rootMargin: "0px 0px -25% 0px" });
         reveal.observe(section);
 
-        let frame = null;
-        let lastTime = 0;
         let position = 0;
         let drag = null;
         let suppressClick = false;
+        let normalizeTimer = null;
+        let autoplayTimer = null;
+        let scrollIdle = null;
+        let followFrame = null;
+        let animToken = 0;
+        let goal = 0;
+        let inView = false;
+        let paused = false;
 
-        const measure = () => {
-            const sticky = stickyRef.current;
-            if (!sticky || !el.isConnected) return;
-
-            const stepHeight = window.innerHeight * (window.innerWidth < 768 ? 0.32 : 0.4);
-            const cardTop = el.getBoundingClientRect().top - sticky.getBoundingClientRect().top;
-            const stickyTop = Math.min(0, Math.max(window.innerHeight - sticky.offsetHeight, 16 - cardTop));
-
-            stickyTopRef.current = stickyTop;
-            sticky.style.top = `${stickyTop}px`;
-            section.style.height = `${sticky.offsetHeight + members.length * stepHeight}px`;
-        };
-
-        const getTarget = () => {
-            const { top, distance } = getScrollRange();
-            const progress = distance > 0 ? Math.min(Math.max((window.scrollY - top) / distance, 0), 1) : 0;
-            return progress * members.length;
-        };
+        const wrap = (value) => ((value % span) + span) % span;
 
         const translateAt = (pos) => {
             const grid = swiper.slidesGrid;
@@ -105,55 +72,128 @@ const TeamSection = ( { team } ) => {
             swiper.setTranslate(translateAt(position));
             swiper.updateActiveIndex();
             swiper.updateSlidesClasses();
-            stepRef.current = ((swiper.activeIndex % members.length) + members.length) % members.length;
         };
 
-        const tick = (time) => {
-            frame = null;
-            if (swiper.destroyed || !sectionRef.current || !stickyRef.current || (drag && drag.moved)) return;
+        const stopFollow = () => {
+            if (followFrame !== null) cancelAnimationFrame(followFrame);
+            followFrame = null;
+        };
 
-            const target = getTarget();
-            const dt = lastTime ? Math.min(time - lastTime, 64) : 16;
-            lastTime = time;
-            position += (target - position) * (reduceMotion ? 1 : 1 - Math.exp(-dt / 110));
-            if (Math.abs(target - position) < 0.0005) position = target;
+        const rebase = () => {
+            while (position >= span && goal >= span) {
+                position -= span;
+                goal -= span;
+            }
+            while (position < 0 && goal < 0) {
+                position += span;
+                goal += span;
+            }
+        };
+
+        const follow = () => {
+            followFrame = null;
+            rebase();
+            const diff = goal - position;
+            if (Math.abs(diff) < 0.003) {
+                position = goal;
+                swiper.setTransition(0);
+                if (swiper.wrapperEl) swiper.wrapperEl.style.transitionDuration = "0ms";
+                render();
+                return;
+            }
+            position += diff * (reduceMotion ? 1 : 0.42);
+            swiper.setTransition(0);
+            if (swiper.wrapperEl) swiper.wrapperEl.style.transitionDuration = "0ms";
+            swiper.slides.forEach((slide) => {
+                const card = slide.querySelector(".ahaz-team-carousel-card");
+                if (card) card.style.transitionDuration = "0ms";
+            });
             render();
-
-            if (position !== target) frame = requestAnimationFrame(tick);
-            else lastTime = 0;
+            followFrame = requestAnimationFrame(follow);
         };
 
-        const start = () => {
-            if (frame === null) frame = requestAnimationFrame(tick);
+        const normalize = () => {
+            const wrapped = wrap(position);
+            const shift = wrapped - position;
+            if (Math.abs(shift) < 0.001) return;
+            swiper.setTransition(0);
+            if (swiper.wrapperEl) swiper.wrapperEl.style.transitionDuration = "0ms";
+            swiper.slides.forEach((slide) => {
+                const card = slide.querySelector(".ahaz-team-carousel-card");
+                const desc = slide.querySelector(".ahaz-team-carousel-desc");
+                if (card) card.style.transitionDuration = "0ms";
+                if (desc) desc.style.transition = "none";
+            });
+            position = wrapped;
+            goal += shift;
+            render();
+            requestAnimationFrame(() => {
+                if (swiper.destroyed) return;
+                swiper.slides.forEach((slide) => {
+                    const desc = slide.querySelector(".ahaz-team-carousel-desc");
+                    if (desc) desc.style.transition = "";
+                });
+            });
         };
 
-        const stop = () => {
-            if (frame !== null) cancelAnimationFrame(frame);
-            frame = null;
-            lastTime = 0;
+        const animateTo = (next) => {
+            const token = ++animToken;
+            stopFollow();
+            const duration = reduceMotion ? 0 : MOVE_MS;
+            goal = next;
+            position = next;
+            requestAnimationFrame(() => {
+                if (token !== animToken || swiper.destroyed) return;
+                if (swiper.wrapperEl) swiper.wrapperEl.style.transitionDuration = `${duration}ms`;
+                swiper.setTranslate(translateAt(position));
+                if (swiper.wrapperEl) swiper.wrapperEl.style.transitionDuration = `${duration}ms`;
+                swiper.updateActiveIndex();
+                swiper.updateSlidesClasses();
+            });
+            clearTimeout(normalizeTimer);
+            normalizeTimer = setTimeout(() => {
+                if (token !== animToken) return;
+                normalize();
+            }, duration + 40);
         };
 
-        const resize = new ResizeObserver(() => {
-            measure();
-            start();
-        });
-        if (stickyRef.current) resize.observe(stickyRef.current);
+        const stopAutoplay = () => {
+            clearTimeout(autoplayTimer);
+            autoplayTimer = null;
+        };
 
-        const onResize = () => {
-            measure();
-            start();
+        const queueAutoplay = () => {
+            stopAutoplay();
+            if (paused || !inView || reduceMotion) return;
+            autoplayTimer = setTimeout(() => {
+                if (paused || !inView || drag) return;
+                animateTo(Math.round(wrap(position)) + 1);
+                queueAutoplay();
+            }, HOLD_MS + MOVE_MS);
+        };
+
+        showMemberRef.current = (memberIndex) => {
+            const current = wrap(position);
+            let delta = memberIndex - current;
+            if (delta > span / 2) delta -= span;
+            if (delta < -span / 2) delta += span;
+            if (delta === 0) return;
+            animateTo(current + delta);
+            queueAutoplay();
         };
 
         const onKeyDown = (e) => {
-            if ((e.key !== "ArrowRight" && e.key !== "ArrowLeft") || !isPinned()) return;
-            const step = (stepRef.current + (e.key === "ArrowRight" ? 1 : -1) + members.length) % members.length;
+            if (!inView || (e.key !== "ArrowRight" && e.key !== "ArrowLeft")) return;
             e.preventDefault();
-            goToMember(step);
+            showMemberRef.current(wrap(wrap(position) + (e.key === "ArrowRight" ? 1 : -1)));
         };
 
         const onPointerDown = (e) => {
             if (e.pointerType === "mouse" && e.button !== 0) return;
-            drag = { id: e.pointerId, x: e.clientX, y: e.clientY, translate: swiper.translate, moved: false };
+            drag = { id: e.pointerId, x: e.clientX, y: e.clientY, moved: false };
+            paused = true;
+            stopAutoplay();
+            swiper.setTransition(0);
         };
 
         const onPointerMove = (e) => {
@@ -167,31 +207,38 @@ const TeamSection = ( { team } ) => {
                     return;
                 }
                 drag.moved = true;
-                stop();
+                drag.origin = position;
+                goal = position;
                 el.classList.add("is-dragging");
             }
 
-            swiper.setTranslate(drag.translate + dx);
+            const slideWidth = swiper.slides[0]?.offsetWidth || 1;
+            position = drag.origin - dx / slideWidth;
+            goal = position;
+            render();
         };
 
         const onPointerUp = (e) => {
             if (!drag || e.pointerId !== drag.id) return;
             const { moved, x } = drag;
             drag = null;
-            if (!moved) return;
+            if (!moved) {
+                paused = false;
+                queueAutoplay();
+                return;
+            }
 
             el.classList.remove("is-dragging");
             suppressClick = true;
             setTimeout(() => { suppressClick = false; }, 0);
 
             const dx = e.type === "pointercancel" ? 0 : e.clientX - x;
-            const slideWidth = swiper.slides[0].offsetWidth;
-            const shift = Math.abs(dx) < 40 ? 0 : -Math.sign(dx) * Math.max(1, Math.round(Math.abs(dx) / slideWidth));
-            const target = ((stepRef.current + shift) % members.length + members.length) % members.length;
-
-            position = positionAt(swiper.translate);
-            if (target !== stepRef.current) goToMember(target);
-            start();
+            const visual = positionAt(swiper.translate);
+            const snapped = Math.abs(dx) < 40 ? Math.round(visual) : Math.round(visual - Math.sign(dx) * 0.5);
+            goal = snapped;
+            animateTo(snapped);
+            paused = false;
+            queueAutoplay();
         };
 
         const onClickCapture = (e) => {
@@ -200,8 +247,34 @@ const TeamSection = ( { team } ) => {
             e.stopPropagation();
         };
 
-        window.addEventListener("scroll", start, { passive: true });
-        window.addEventListener("resize", onResize);
+        const seen = new IntersectionObserver(([entry]) => {
+            inView = entry.isIntersecting && entry.intersectionRatio >= 0.35;
+            if (inView) queueAutoplay();
+            else stopAutoplay();
+        }, { threshold: [0, 0.35, 0.6] });
+        seen.observe(section);
+
+        let lastScroll = window.scrollY;
+        const onScroll = () => {
+            const y = window.scrollY;
+            const dy = y - lastScroll;
+            lastScroll = y;
+            if (!inView || !dy || drag) return;
+
+            animToken += 1;
+            clearTimeout(normalizeTimer);
+            paused = true;
+            stopAutoplay();
+            goal += dy / (window.innerWidth < 768 ? 140 : 180);
+            if (followFrame === null) followFrame = requestAnimationFrame(follow);
+            clearTimeout(scrollIdle);
+            scrollIdle = setTimeout(() => {
+                paused = false;
+                queueAutoplay();
+            }, 280);
+        };
+
+        window.addEventListener("scroll", onScroll, { passive: true });
         window.addEventListener("keydown", onKeyDown);
         window.addEventListener("pointermove", onPointerMove);
         window.addEventListener("pointerup", onPointerUp);
@@ -209,17 +282,17 @@ const TeamSection = ( { team } ) => {
         el.addEventListener("pointerdown", onPointerDown);
         el.addEventListener("click", onClickCapture, true);
 
-        measure();
         swiper.setTransition(0);
-        position = getTarget();
         render();
 
         return () => {
-            stop();
+            clearTimeout(normalizeTimer);
+            clearTimeout(scrollIdle);
+            stopFollow();
+            stopAutoplay();
             reveal.disconnect();
-            resize.disconnect();
-            window.removeEventListener("scroll", start);
-            window.removeEventListener("resize", onResize);
+            seen.disconnect();
+            window.removeEventListener("scroll", onScroll);
             window.removeEventListener("keydown", onKeyDown);
             window.removeEventListener("pointermove", onPointerMove);
             window.removeEventListener("pointerup", onPointerUp);
@@ -227,17 +300,47 @@ const TeamSection = ( { team } ) => {
             el.removeEventListener("pointerdown", onPointerDown);
             el.removeEventListener("click", onClickCapture, true);
         };
-    }, [members.length]);
+    }, [members.length, firstSlide]);
 
     const layoutCards = (swiper) => {
         const spaceBetween = swiper.params.spaceBetween || 0;
-        swiper.slides.forEach((slide) => {
+        const viewportCap = window.innerWidth < 768 ? 1.15 : window.innerWidth < 1200 ? 2.15 : 2.75;
+        const maxDistance = Math.min(viewportCap, Math.max(members.length / 2 - 0.45, 0.9));
+        const activeIndex = swiper.activeIndex || 0;
+        const nearest = new Map();
+
+        swiper.slides.forEach((slide, index) => {
+            const member = Number(slide.dataset.member);
+            const dist = Number.isFinite(slide.progress) ? Math.abs(slide.progress) : Math.abs(index - activeIndex);
+            const current = nearest.get(member);
+            const closerToCenter = current && Math.abs(index - firstSlide) < Math.abs(current.index - firstSlide);
+            if (!current || dist < current.dist - 0.02 || (Math.abs(dist - current.dist) <= 0.02 && closerToCenter)) {
+                nearest.set(member, { dist, index });
+            }
+        });
+
+        swiper.slides.forEach((slide, index) => {
             const card = slide.querySelector(".ahaz-team-carousel-card");
             if (!card) return;
             const slideWidth = slide.offsetWidth;
             const width = card.offsetWidth;
             const offset = -slide.progress;
             const distance = Math.abs(offset);
+            const member = Number(slide.dataset.member);
+            const chosen = nearest.get(member);
+
+            const desc = slide.querySelector(".ahaz-team-carousel-desc");
+
+            if (!chosen || chosen.index !== index || distance > maxDistance) {
+                card.style.visibility = "hidden";
+                card.style.pointerEvents = "none";
+                if (desc) desc.style.visibility = "hidden";
+                return;
+            }
+
+            card.style.visibility = "visible";
+            card.style.pointerEvents = "";
+            if (desc) desc.style.visibility = "";
             const gap = width * 0.18;
             const sideWidth = width * SIDE_SCALE;
             const firstStep = width / 2 + gap + sideWidth / 2;
@@ -266,7 +369,7 @@ const TeamSection = ( { team } ) => {
 				className="ahaz-section ahaz-team-carousel"
 				style={{ "--team-count": members.length }}
 			>
-				<div ref={stickyRef} className="ahaz-team-carousel-sticky">
+				<div className="ahaz-team-carousel-sticky">
 
 					{/* Heading */}
 					<div className="container ahaz-team-carousel-head">
@@ -283,7 +386,7 @@ const TeamSection = ( { team } ) => {
 						centeredSlides
 						initialSlide={firstSlide}
 						allowTouchMove={false}
-						speed={550}
+						speed={380}
 						spaceBetween={0}
 						slidesPerView={2.1}
 						watchSlidesProgress
@@ -299,12 +402,12 @@ const TeamSection = ( { team } ) => {
 						onProgress={layoutCards}
 						onResize={layoutCards}
 						onSetTransition={setCardsTransition}
-						onActiveIndexChange={(swiper) => setActive(((swiper.activeIndex % members.length) + members.length) % members.length)}
 						className="ahaz-team-carousel-swiper"
 					>
 						{slides.map((item, key) => (
 						<SwiperSlide
 							key={`team-slide-${item.id}-${key}`}
+							data-member={key % members.length}
 							className="ahaz-team-carousel-slide"
 							style={{ "--reveal-delay": `${0.1 + Math.abs(key - firstSlide) * 0.08}s` }}
 						>
@@ -314,7 +417,7 @@ const TeamSection = ( { team } ) => {
 								aria-label={`Show ${item.name}`}
 								aria-hidden={Math.floor(key / members.length) !== 1 ? "true" : undefined}
 								tabIndex={Math.floor(key / members.length) !== 1 ? -1 : undefined}
-								onClick={() => goToMember(key % members.length)}
+								onClick={() => showMemberRef.current(key % members.length)}
 							>
 								<img decoding="async" src={item.image} alt={item.name} draggable={false} />
 								{item.hover_image &&
@@ -325,7 +428,7 @@ const TeamSection = ( { team } ) => {
 								<h5 className="title">{item.name}</h5>
 								{item.role ? <div className="role">{item.role}</div> : null}
 								<ul className="social">
-									{item.social.map((link, link_key) => (
+									{(item.social || []).map((link, link_key) => (
 									<li key={`team-slide-${key}-social-${link_key}`}>
 										<a href={link.link} title={link.title} target="_blank" rel="noreferrer">
 											<i aria-hidden="true" className={link.icon} />
@@ -337,19 +440,6 @@ const TeamSection = ( { team } ) => {
 						</SwiperSlide>
 						))}
 					</Swiper>
-					</div>
-
-					<div className="ahaz-team-carousel-pagination">
-						{members.map((item, key) => (
-						<button
-							key={`team-dot-${item.id}`}
-							type="button"
-							className={key === active ? "dot is-active" : "dot"}
-							aria-label={`Show ${item.name}`}
-							aria-current={key === active ? "true" : undefined}
-							onClick={() => goToMember(key)}
-						/>
-						))}
 					</div>
 
 				</div>
