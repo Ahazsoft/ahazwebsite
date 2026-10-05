@@ -1,6 +1,7 @@
 ---
 #preview details
-image: /images/team/dereje.jpg
+image: /images/team/dereje-2026.jpg
+hover_image: /images/team/dereje-smile-2026.jpg
 name: Dereje T. Abzaw
 role: Project Lead | Senior Fullstack Developer
 first_letter: D

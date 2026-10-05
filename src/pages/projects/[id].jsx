@@ -251,7 +251,7 @@ export async function getStaticPaths() {
 }
 export async function getStaticProps({ params }) {
     const postData = await getProjectData(params.id)
-    const allProjects = await getSortedProjectsData()
+    const allProjects = (await getSortedProjectsData()).filter((item) => !!item.showcase === !!postData.showcase)
 
     
     return {

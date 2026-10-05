@@ -1,17 +1,11 @@
 ---
 #preview details
-image: /images/team/8.jpg
-name: Abel Tesfaye
-role: UI/UX Designer
-first_letter: A
-social:
-  - link: https://www.behance.net/abel_tezazu
-    icon: fab fa-behance
-    title: Behance
-
-  - link: https://www.linkedin.com/in/abeltezazu/
-    icon: fab fa-linkedin-in
-    title: Linkedin
+image: /images/team/kidist-2026.jpg
+hover_image: /images/team/kidist-smile-2026.jpg
+name: Kidist
+role: Team Member
+first_letter: K
+social: []
 
 #full details
 info:

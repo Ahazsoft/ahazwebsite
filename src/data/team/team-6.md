@@ -1,17 +1,11 @@
 ---
 #preview details
-image: /images/team/9.jpg
-name: Isreal Abebe
-role: Senior Backend Developer
-first_letter: I
-social:
-  - link: https://github.com/israel0x7CF/
-    icon: fab fa-github
-    title: Github
-
-  - link: https://www.linkedin.com/in/israel-asefa-978529202/
-    icon: fab fa-linkedin-in
-    title: Linkedin
+image: /images/team/eyuel-2026.jpg
+hover_image: /images/team/eyuel-smile-2026.jpg
+name: Eyuel
+role: Team Member
+first_letter: E
+social: []
 
 #full details
 info:
@@ -21,11 +15,6 @@ info:
   - label: 
     value: 
   
-  # - label: Email
-  #   value: lina.watson@domain.com
-
-  # - label: Phone No
-  #   value: +44 (0) 20 7430 2973
 
 services: 
   - service-1

@@ -12,8 +12,8 @@ const HeroSectionNew = () => {
   const socials = [
     {
       link: "https://www.linkedin.com/company/ahaz-tech-solutions/",
-      image: "/images/icons/LinkedIn.png",
-
+      icon: "fab fa-linkedin-in",
+      label: "Follow us on LinkedIn",
       title: "LinkedIn",
     },
     // {
@@ -23,7 +23,8 @@ const HeroSectionNew = () => {
     // },
     {
       link: "https://dev.to/ahaz",
-      image: "/images/icons/Dev.png",
+      icon: "fab fa-dev",
+      label: "Read our DEV articles",
       title: "DEV Community",
     },
   ];
@@ -53,8 +54,19 @@ const HeroSectionNew = () => {
 
             <div className="sm-lp-socials">
               {socials.map((item, key) => (
-                <Link className="sm-lp-socials-icon" href={item.link}>
-                  <img src={item.image} alt={item.title} />
+                <Link
+                  key={`hero-social-${key}`}
+                  className={key === 0 ? "sm-lp-social-btn is-primary" : "sm-lp-social-btn"}
+                  href={item.link}
+                  title={item.title}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span className="sm-lp-social-btn-icon">
+                    <i aria-hidden="true" className={item.icon} />
+                  </span>
+                  <span>{item.label}</span>
+                  <i aria-hidden="true" className="sm-lp-social-btn-arrow fas fa-arrow-right" />
                 </Link>
               ))}
             </div>

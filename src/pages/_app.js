@@ -1,7 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import appData from "@data/app.json";
-import Script from 'next/script';
+
 import '../styles/scss/style.scss';
 import "../styles/globals.css";
 
@@ -21,27 +21,8 @@ function MyApp({ Component, pageProps }) {
           {/* seo end */}        
       </Head>
       <Component {...pageProps} />
-
-      {/* Google Analytics – load after page becomes interactive */}
-      <Script
-        strategy="afterInteractive"
-        src="https://www.googletagmanager.com/gtag/js?id=G-045ZRL47E2"
-      />
-      <Script
-        id="google-analytics"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-045ZRL47E2');
-          `,
-        }}
-      />
     </>
   );
 }
- 
 
 export default MyApp;

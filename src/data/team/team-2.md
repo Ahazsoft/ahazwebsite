@@ -1,31 +1,20 @@
 ---
 #preview details
-image: /images/team/2.jpg
-name: Sidona Hadis
-role: Senior Web & Mobile Developer
-first_letter: S
-social:
-  - link: https://github.com/sidonah
-    icon: fab fa-github
-    title: Github
-
-  - link: https://et.linkedin.com/in/sidona-hadis
-    icon: fab fa-linkedin-in
-    title: Linkedin
+image: /images/team/yeabsira-2026.jpg
+hover_image: /images/team/yeabsira-smile-2026.jpg
+name: Yeabsira
+role: Team Member
+first_letter: Y
+social: []
 
 #full details
 info:
-  - label: Work Experience
-    value: 2+ years 
+  - label: 
+    value: 
   
-  - label: Education
-    value: BS Computer Science - HiLCoE  - 2023
+  - label: 
+    value: 
   
-  # - label: Email
-  #   value: sidona.hadis18@gmail.com
-
-  # - label: Phone No
-  #   value: +44 (0) 20 7430 2973
 
 services: 
   - service-1
@@ -36,25 +25,31 @@ services:
 
 awards:
   - label: 7 SOTD <br> 17 HONORABLE MENTION <br> 3 MOBILE EXCELLENCE
-    value: 15
+    value: 31
     image: /images/award1.png
 
   - label: 11 SOTD <br> 5 SPECIAL KUDOS
-    value: 11
+    value: 16
     image: /images/award2.png
 
   - label: AWARD 2019 <br> 1 GLOBAL COMPETITION
-    value: 24
+    value: 20
     image: /images/award3.png
 
 projects: 
-  - project-01
-  - project-02
-  - project-03
   - project-04
+  - project-05
+  - project-06
+  - project-07
 ---
 
 ### What is your professional passion?
+
+- Far curiosity incommode now led smallness allowance.
+- Favour bed assure son things yet.
+- She consisted consulted elsewhere happiness.
+- Widow downs you new shade drift hopes small.
+- Interested discretion estimating on stimulated.
 
 The most exciting would be that no day is ever the same and each day brings new challenges. My professional passion would be team morale and relationship building. I think the true measure of success in an organization is to gage employee satisfaction, engagement nd the relationships that they build. I truly never envisioned that Construction would have been the organization that empowers. The most exciting would be that no day is ever the same and each day brings new challenges. My professional passion would be team morale and relationship building.
 

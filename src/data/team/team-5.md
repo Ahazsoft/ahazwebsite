@@ -1,33 +1,27 @@
 ---
 #preview details
-image: /images/team/5big.jpg
-name: Mehretab Hailegebriel 
-role: Project Lead | Senior Backend Developer
-first_letter: M
+image: /images/team/abel-2026.jpg
+hover_image: /images/team/abel-smile-2026.jpg
+name: Abel Tesfaye
+role: UI/UX Designer
+first_letter: A
 social:
-  - link: https://github.com/cyrmee
-    icon: fab fa-github
-    title: Github
+  - link: https://www.behance.net/abel_tezazu
+    icon: fab fa-behance
+    title: Behance
 
-  - link: https://et.linkedin.com/in/mehretab-hailegebriel
+  - link: https://www.linkedin.com/in/abeltezazu/
     icon: fab fa-linkedin-in
     title: Linkedin
 
 #full details
 info:
-  - label: Work Experience
-    value: 4+ years 
-
-  - label: Education
-    value: BS Computer Science - HiLCoE  - 2022
+  - label: 
+    value: 
   
-
+  - label: 
+    value: 
   
-  # - label: Email
-  #   value: alexander.bravo@domain.com
-
-  # - label: Phone No
-  #   value: +44 (0) 20 7430 2973
 
 services: 
   - service-1
@@ -50,18 +44,20 @@ awards:
     image: /images/award3.png
 
 projects: 
-  - project-03
   - project-04
   - project-05
   - project-06
+  - project-07
 ---
 
-Our knowledgeable cost management experts understand the importance of delivering a project to meet your expectations in terms of cost, time, and quality. We will work with you to find the right, flexible and valuable solutions. No matter what sector you operate in, or the **scale of your project**, our team have the experience and know-how to support you with your goals.
-
-The most exciting would be that no day is ever the same and each day brings new challenges. My professional passion would be team morale and relationship building. I think the true measure of success in an organization is to gage employee satisfaction, engagement nd the relationships that they build. I truly never envisioned that Construction would have been the organization that empowers. The most exciting would be that no day is ever the same and each day brings new challenges. My professional passion would be team morale and relationship building.
+### What is your professional passion?
 
 - Far curiosity incommode now led smallness allowance.
 - Favour bed assure son things yet.
 - She consisted consulted elsewhere happiness.
 - Widow downs you new shade drift hopes small.
 - Interested discretion estimating on stimulated.
+
+The most exciting would be that no day is ever the same and each day brings new challenges. My professional passion would be team morale and relationship building. I think the true measure of success in an organization is to gage employee satisfaction, engagement nd the relationships that they build. I truly never envisioned that Construction would have been the organization that empowers. The most exciting would be that no day is ever the same and each day brings new challenges. My professional passion would be team morale and relationship building.
+
+Moorings Park Grande Lake. It’s my favorite because of the vast layers of the project from building structure to the customization in the building. (Only one I’ve been on so far but LOVE it)
