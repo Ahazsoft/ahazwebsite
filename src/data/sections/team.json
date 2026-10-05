@@ -1,5 +1,6 @@
 {
-    "subtitle": "Team Members",
-    "title": "We provide exceptional services <br>for our clients.",
-    "numOfItems": 4
+    "title": "Discover the people behind Ahaz.",
+    "numOfItems": 5,
+    "startWith": "team-1",
+    "homepageIds": ["team-1", "team-4", "team-2", "team-6", "team-3"]
 }

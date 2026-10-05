@@ -1,30 +1,27 @@
 ---
 #preview details
-image: /images/team/4.jpg
-name: Nardos Mehari
-role: Senior Backend Developer
-first_letter: N
+image: /images/team/abigia-2026.jpg
+hover_image: /images/team/abigia-smile-2026.jpg
+name: Abigia T. Legese
+role: Full Stack Developer
+first_letter: A
 social:
-  - link: https://github.com/Nardos-D
-    icon: fab fa-github
-    title: Github
-
-  - link: https://www.linkedin.com/in/nardos-mehari-32749519b/
+  - link: https://www.linkedin.com/in/abigia-tarekegn/
     icon: fab fa-linkedin-in
     title: Linkedin
 
+  - link: https://github.com/abigia-t
+    icon: fab fa-github
+    title: Github
+
 #full details
 info:
-  - label: Work Experience
-    value: 2+ years 
+  - label: 
+    value: 
   
-  - label: Education
-    value: BS Computer Science - HiLCoE  - 2023
+  - label: 
+    value: 
   
-  # - label: Email
-  #   value: charlotte.johnson@domain.com
-
-
 
 services: 
   - service-1
@@ -35,26 +32,32 @@ services:
 
 awards:
   - label: 7 SOTD <br> 17 HONORABLE MENTION <br> 3 MOBILE EXCELLENCE
-    value: 21
+    value: 31
     image: /images/award1.png
 
   - label: 11 SOTD <br> 5 SPECIAL KUDOS
-    value: 15
+    value: 16
     image: /images/award2.png
 
   - label: AWARD 2019 <br> 1 GLOBAL COMPETITION
-    value: 19
+    value: 20
     image: /images/award3.png
 
 projects: 
+  - project-04
   - project-05
   - project-06
   - project-07
-  - project-08
 ---
 
 ### What is your professional passion?
 
+- Far curiosity incommode now led smallness allowance.
+- Favour bed assure son things yet.
+- She consisted consulted elsewhere happiness.
+- Widow downs you new shade drift hopes small.
+- Interested discretion estimating on stimulated.
+
 The most exciting would be that no day is ever the same and each day brings new challenges. My professional passion would be team morale and relationship building. I think the true measure of success in an organization is to gage employee satisfaction, engagement nd the relationships that they build. I truly never envisioned that Construction would have been the organization that empowers. The most exciting would be that no day is ever the same and each day brings new challenges. My professional passion would be team morale and relationship building.
 
-In addition to construction consultancy services **Bureau Veritas is a global leader in testing**, inspection and certification (TIC) and we have more than 190+ years of experience meaning that we also can assist you in other areas of your business if needed.
+Moorings Park Grande Lake. It’s my favorite because of the vast layers of the project from building structure to the customization in the building. (Only one I’ve been on so far but LOVE it)

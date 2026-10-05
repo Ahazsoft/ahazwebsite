@@ -1,29 +1,20 @@
 ---
 #preview details
-image: /images/team/3big.jpg
-name: Nathnael T. Woldekidan
-role: Project Lead | Senior Backend Developer
-first_letter: N
-social:
-  - link: https://github.com/nhattytw/
-    icon: fab fa-github
-    title: Github
-
-  - link: https://www.linkedin.com/in/nathnael-woldekidan/
-    icon: fab fa-linkedin-in
-    title: Linkedin
+image: /images/team/yeabsire-2026.jpg
+hover_image: /images/team/yeabsire-smile-2026.jpg
+name: Yeabsira D. Aweke
+role: Accounts Manager
+first_letter: Y
+social: []
 
 #full details
 info:
-  - label: Work Experience
-    value: 4+ Years 
+  - label: 
+    value: 
   
-  - label: Education
-    value: BS Computer Science - HiLCoE - 2022
+  - label: 
+    value: 
   
-  # - label: Email
-  #   value: steven.morrison@domain.com
-
 
 services: 
   - service-1
@@ -34,25 +25,25 @@ services:
 
 awards:
   - label: 7 SOTD <br> 17 HONORABLE MENTION <br> 3 MOBILE EXCELLENCE
-    value: 17
+    value: 31
     image: /images/award1.png
 
   - label: 11 SOTD <br> 5 SPECIAL KUDOS
-    value: 13
+    value: 16
     image: /images/award2.png
 
   - label: AWARD 2019 <br> 1 GLOBAL COMPETITION
-    value: 22
+    value: 20
     image: /images/award3.png
 
 projects: 
   - project-04
-  - project-03
-  - project-02
-  - project-01
+  - project-05
+  - project-06
+  - project-07
 ---
 
-Our knowledgeable cost management experts understand the importance of delivering a project to meet your expectations in terms of cost, time, and quality. We will work with you to find the right, flexible and valuable solutions. No matter what sector you operate in, or the **scale of your project**, our team have the experience and know-how to support you with your goals.
+### What is your professional passion?
 
 - Far curiosity incommode now led smallness allowance.
 - Favour bed assure son things yet.
@@ -60,4 +51,6 @@ Our knowledgeable cost management experts understand the importance of deliverin
 - Widow downs you new shade drift hopes small.
 - Interested discretion estimating on stimulated.
 
-In addition to construction consultancy services **Bureau Veritas is a global leader in testing**, inspection and certification (TIC) and we have more than 190+ years of experience meaning that we also can assist you in other areas of your business if needed.
+The most exciting would be that no day is ever the same and each day brings new challenges. My professional passion would be team morale and relationship building. I think the true measure of success in an organization is to gage employee satisfaction, engagement nd the relationships that they build. I truly never envisioned that Construction would have been the organization that empowers. The most exciting would be that no day is ever the same and each day brings new challenges. My professional passion would be team morale and relationship building.
+
+Moorings Park Grande Lake. It’s my favorite because of the vast layers of the project from building structure to the customization in the building. (Only one I’ve been on so far but LOVE it)

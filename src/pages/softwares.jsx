@@ -20,7 +20,7 @@ const Portfolio = (props) => {
 export default Portfolio;
 
 export async function getStaticProps() {
-  const allProjects = getSortedProjectsData();
+  const allProjects = getSortedProjectsData().filter((item) => item.showcase);
 
   return {
     props: {
