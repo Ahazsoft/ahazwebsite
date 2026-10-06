@@ -6,8 +6,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
 const SIDE_SCALE = 0.65;
-const MOVE_MS = 380;
-const HOLD_MS = 1200;
+const MOVE_MS = 560;
+const HOLD_MS = 2200;
 
 const TeamSection = ( { team } ) => {
     const list = (Data.homepageIds || []).length
@@ -101,7 +101,7 @@ const TeamSection = ( { team } ) => {
                 render();
                 return;
             }
-            position += diff * (reduceMotion ? 1 : 0.42);
+            position += diff * (reduceMotion ? 1 : 0.28);
             swiper.setTransition(0);
             if (swiper.wrapperEl) swiper.wrapperEl.style.transitionDuration = "0ms";
             swiper.slides.forEach((slide) => {
@@ -265,7 +265,7 @@ const TeamSection = ( { team } ) => {
             clearTimeout(normalizeTimer);
             paused = true;
             stopAutoplay();
-            goal += dy / (window.innerWidth < 768 ? 140 : 180);
+            goal += dy / (window.innerWidth < 768 ? 200 : 260);
             if (followFrame === null) followFrame = requestAnimationFrame(follow);
             clearTimeout(scrollIdle);
             scrollIdle = setTimeout(() => {
@@ -386,7 +386,7 @@ const TeamSection = ( { team } ) => {
 						centeredSlides
 						initialSlide={firstSlide}
 						allowTouchMove={false}
-						speed={380}
+						speed={560}
 						spaceBetween={0}
 						slidesPerView={2.1}
 						watchSlidesProgress
