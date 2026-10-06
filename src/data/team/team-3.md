@@ -5,7 +5,10 @@ hover_image: /images/team/yeabsire-smile-2026.jpg
 name: Yeabsira D. Aweke
 role: Accounts Manager
 first_letter: Y
-social: []
+social:
+  - link: https://www.linkedin.com/in/yeabsera-digafe-842120440/
+    icon: fab fa-linkedin-in
+    title: Linkedin
 
 #full details
 info:
