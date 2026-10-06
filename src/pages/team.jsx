@@ -3,11 +3,17 @@ import Layouts from "@layouts/Layouts";
 import Link from "next/link";
 
 import { getSortedTeamData } from "@library/team";
+import TeamData from "@data/sections/team.json";
 
 import CallToActionSection from "@components/sections/CallToAction";
 import PartnersSection from "@components/sections/Partners"
 
 const Team = ( props ) => {
+  const ordered = (TeamData.homepageIds || [])
+    .map((id) => props.team.find((item) => item.id === id))
+    .filter(Boolean);
+  const team = ordered.length ? ordered : props.team;
+
   return (
     <Layouts>
 		<PageBanner pageTitle={"Our Team"} pageDesc={"Meet our creativity company family."} />
@@ -17,9 +23,9 @@ const Team = ( props ) => {
 			<div className="container">
 
 				{/* Team items */}
-				<div className="row gap-row align-center">
+				<div className="row gap-row align-center ahaz-about-team-row">
 
-					{props.team.map((item, key) => (
+					{team.map((item, key) => (
 					<div key={`team-item-${key}`} className="col-xs-12 col-sm-12 col-md-6 col-lg-3">
 						<div className="ahaz-team-two">
 							<div className="ahaz-team-two-item">
@@ -29,7 +35,7 @@ const Team = ( props ) => {
 									</Link>
 									<div className="ahaz-social-2">
 										<ul>
-											{item.social.map((link, link_key) => (
+											{(item.social || []).map((link, link_key) => (
 											<li key={`team-item-${key}-link-${link_key}`}>
 												<a key={`teamsocial-item-${link_key}`} className="ahaz-social-link ahaz-hover-2" href={link.link} title={link.title} target="_blank">
 													<i aria-hidden="true" className={link.icon} />

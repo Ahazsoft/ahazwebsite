@@ -14,12 +14,9 @@ const Team2Section = ( { team } ) => {
 			<section className="ahaz-section gap-top-140 gap-bottom-140">
 				<div className="container">
 
-					{/* Team items */}
-					<div className="row gap-row align-center">
-
-						{/* Heading */}
-						<div className="col-xs-12 col-sm-12 col-md-11 col-lg-5">
-							<div className="ahaz-heading align-left">
+					<div className="row">
+						<div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<div className="ahaz-heading align-left gap-bottom-40">
 								<div className="ahaz-subtitle-1">
 									<span>{Data.subtitle}</span>
 								</div>
@@ -28,9 +25,10 @@ const Team2Section = ( { team } ) => {
 								</h2>
 							</div>
 						</div>
+					</div>
 
-						{/* team items */}
-						<div className="col-xs-12 col-sm-12 col-md-1 col-lg-1"></div>
+					{/* Team items */}
+					<div className="row gap-row ahaz-about-team-row">
 
 						{list.map((item, key) => (
 
@@ -71,6 +69,9 @@ const Team2Section = ( { team } ) => {
 
 						))}
 
+					</div>
+
+					<div className="row">
 						{/* Button */}
 						{/* <div className="col-xs-12 col-sm-12 col-md-6 col-lg-3 align-center align-self-center">
 							<Link className="ahaz-btn-circle ahaz-hover-2" href={Data.button.link}>

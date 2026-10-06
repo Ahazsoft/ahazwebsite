@@ -5848,6 +5848,15 @@ ul.ahaz-footer-menu li {
 /*---
 	16. Team
 ---*/
+.ahaz-about-team-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.ahaz-about-team-row > div {
+  float: none;
+}
+
 .ahaz-team-two-item {
   position: relative;
   overflow: hidden;
