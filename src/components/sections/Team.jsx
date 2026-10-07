@@ -6,8 +6,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
 const SIDE_SCALE = 0.65;
-const MOVE_MS = 560;
-const HOLD_MS = 2200;
 
 const TeamSection = ( { team } ) => {
     const list = (Data.homepageIds || []).length
@@ -19,6 +17,7 @@ const TeamSection = ( { team } ) => {
     const firstSlide = members.length;
 
     const sectionRef = useRef(null);
+    const stickyRef = useRef(null);
     const swiperRef = useRef(null);
     const showMemberRef = useRef(() => {});
 
@@ -27,6 +26,7 @@ const TeamSection = ( { team } ) => {
         const swiper = swiperRef.current;
         if (!section || !swiper || swiper.destroyed) return;
         const el = swiper.el;
+        const sticky = stickyRef.current;
         const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
         const span = members.length;
 
@@ -37,19 +37,25 @@ const TeamSection = ( { team } ) => {
         }, { rootMargin: "0px 0px -25% 0px" });
         reveal.observe(section);
 
+        let frame = null;
+        let lastTime = 0;
         let position = 0;
+        let bias = 0;
+        let clickTarget = null;
         let drag = null;
         let suppressClick = false;
-        let normalizeTimer = null;
-        let autoplayTimer = null;
-        let scrollIdle = null;
-        let followFrame = null;
-        let animToken = 0;
-        let goal = 0;
-        let inView = false;
-        let paused = false;
+        let stickyTop = 0;
 
-        const wrap = (value) => ((value % span) + span) % span;
+        const range = () => {
+            if (!section || !sticky) return { top: window.scrollY, distance: 0 };
+            const top = section.getBoundingClientRect().top + window.scrollY - stickyTop;
+            return { top, distance: section.offsetHeight - sticky.offsetHeight };
+        };
+
+        const scrollProgress = () => {
+            const { top, distance } = range();
+            return distance > 0 ? Math.min(Math.max((window.scrollY - top) / distance, 0), 1) : 0;
+        };
 
         const translateAt = (pos) => {
             const grid = swiper.slidesGrid;
@@ -68,131 +74,115 @@ const TeamSection = ( { team } ) => {
             return grid.length - 1 - firstSlide;
         };
 
+        const loopEnd = span;
+        const endHold = 0.45;
+        const clampIndex = (value) => Math.min(Math.max(value, 0), loopEnd);
+
+        const scrollIndex = () => {
+            const progress = scrollProgress();
+            return Math.min(progress * (loopEnd + endHold), loopEnd);
+        };
+
+        const biasInfluence = (base) => {
+            if (loopEnd === 0) return 0;
+            return Math.min(Math.max(Math.min(base, loopEnd - base) / 0.5, 0), 1);
+        };
+
         const render = () => {
+            position = clampIndex(position);
+            swiper.setTransition(0);
+            if (swiper.wrapperEl) swiper.wrapperEl.style.transitionDuration = "0ms";
+            swiper.slides.forEach((slide) => {
+                const card = slide.querySelector(".ahaz-team-carousel-card");
+                if (card) card.style.transitionDuration = "0ms";
+            });
             swiper.setTranslate(translateAt(position));
             swiper.updateActiveIndex();
             swiper.updateSlidesClasses();
         };
 
-        const stopFollow = () => {
-            if (followFrame !== null) cancelAnimationFrame(followFrame);
-            followFrame = null;
+        const measure = () => {
+            if (!sticky || !el.isConnected) return;
+            const stepHeight = window.innerHeight * (window.innerWidth < 768 ? 0.32 : 0.4);
+            const cardTop = el.getBoundingClientRect().top - sticky.getBoundingClientRect().top;
+            stickyTop = Math.min(0, Math.max(window.innerHeight - sticky.offsetHeight, 16 - cardTop));
+            sticky.style.top = `${stickyTop}px`;
+            section.style.height = `${sticky.offsetHeight + (loopEnd + endHold) * stepHeight}px`;
         };
 
-        const rebase = () => {
-            while (position >= span && goal >= span) {
-                position -= span;
-                goal -= span;
-            }
-            while (position < 0 && goal < 0) {
-                position += span;
-                goal += span;
-            }
+        const getTarget = () => {
+            if (clickTarget !== null) return clampIndex(clickTarget);
+            const base = scrollIndex();
+            return clampIndex(base + bias * biasInfluence(base));
         };
 
-        const follow = () => {
-            followFrame = null;
-            rebase();
-            const diff = goal - position;
-            if (Math.abs(diff) < 0.003) {
-                position = goal;
-                swiper.setTransition(0);
-                if (swiper.wrapperEl) swiper.wrapperEl.style.transitionDuration = "0ms";
-                render();
-                return;
+        const tick = (time) => {
+            frame = null;
+            if (swiper.destroyed || !sectionRef.current || !stickyRef.current || (drag && drag.moved)) return;
+
+            const target = getTarget();
+            const dt = lastTime ? Math.min(time - lastTime, 64) : 16;
+            lastTime = time;
+            position += (target - position) * (reduceMotion ? 1 : 1 - Math.exp(-dt / 110));
+            if (Math.abs(target - position) < 0.0005) position = target;
+            if (clickTarget !== null && Math.abs(position - clickTarget) < 0.01) {
+                position = clickTarget;
+                clickTarget = null;
             }
-            position += diff * (reduceMotion ? 1 : 0.28);
-            swiper.setTransition(0);
-            if (swiper.wrapperEl) swiper.wrapperEl.style.transitionDuration = "0ms";
-            swiper.slides.forEach((slide) => {
-                const card = slide.querySelector(".ahaz-team-carousel-card");
-                if (card) card.style.transitionDuration = "0ms";
-            });
             render();
-            followFrame = requestAnimationFrame(follow);
+
+            if (clickTarget !== null || Math.abs(getTarget() - position) > 0.0005) frame = requestAnimationFrame(tick);
+            else lastTime = 0;
         };
 
-        const normalize = () => {
-            const wrapped = wrap(position);
-            const shift = wrapped - position;
-            if (Math.abs(shift) < 0.001) return;
-            swiper.setTransition(0);
-            if (swiper.wrapperEl) swiper.wrapperEl.style.transitionDuration = "0ms";
-            swiper.slides.forEach((slide) => {
-                const card = slide.querySelector(".ahaz-team-carousel-card");
-                const desc = slide.querySelector(".ahaz-team-carousel-desc");
-                if (card) card.style.transitionDuration = "0ms";
-                if (desc) desc.style.transition = "none";
-            });
-            position = wrapped;
-            goal += shift;
-            render();
-            requestAnimationFrame(() => {
-                if (swiper.destroyed) return;
-                swiper.slides.forEach((slide) => {
-                    const desc = slide.querySelector(".ahaz-team-carousel-desc");
-                    if (desc) desc.style.transition = "";
-                });
-            });
+        const start = () => {
+            if (frame === null) frame = requestAnimationFrame(tick);
         };
 
-        const animateTo = (next) => {
-            const token = ++animToken;
-            stopFollow();
-            const duration = reduceMotion ? 0 : MOVE_MS;
-            goal = next;
-            position = next;
-            requestAnimationFrame(() => {
-                if (token !== animToken || swiper.destroyed) return;
-                if (swiper.wrapperEl) swiper.wrapperEl.style.transitionDuration = `${duration}ms`;
-                swiper.setTranslate(translateAt(position));
-                if (swiper.wrapperEl) swiper.wrapperEl.style.transitionDuration = `${duration}ms`;
-                swiper.updateActiveIndex();
-                swiper.updateSlidesClasses();
-            });
-            clearTimeout(normalizeTimer);
-            normalizeTimer = setTimeout(() => {
-                if (token !== animToken) return;
-                normalize();
-            }, duration + 40);
-        };
-
-        const stopAutoplay = () => {
-            clearTimeout(autoplayTimer);
-            autoplayTimer = null;
-        };
-
-        const queueAutoplay = () => {
-            stopAutoplay();
-            if (paused || !inView || reduceMotion) return;
-            autoplayTimer = setTimeout(() => {
-                if (paused || !inView || drag) return;
-                animateTo(Math.round(wrap(position)) + 1);
-                queueAutoplay();
-            }, HOLD_MS + MOVE_MS);
+        const stop = () => {
+            if (frame !== null) cancelAnimationFrame(frame);
+            frame = null;
+            lastTime = 0;
         };
 
         showMemberRef.current = (memberIndex) => {
-            const current = wrap(position);
+            const current = ((position % span) + span) % span;
             let delta = memberIndex - current;
             if (delta > span / 2) delta -= span;
             if (delta < -span / 2) delta += span;
-            if (delta === 0) return;
-            animateTo(current + delta);
-            queueAutoplay();
+            const next = clampIndex(position + delta);
+            if (Math.abs(next - position) < 0.001) return;
+            const base = scrollIndex();
+            const influence = biasInfluence(base);
+            if (influence > 0.35) bias = (next - base) / influence;
+            clickTarget = next;
+            start();
+        };
+
+        const alignBias = (next) => {
+            const clamped = clampIndex(next);
+            const base = scrollIndex();
+            const influence = biasInfluence(base);
+            bias = influence > 0.35 ? (clamped - base) / influence : 0;
+            clickTarget = clamped;
+            start();
         };
 
         const onKeyDown = (e) => {
-            if (!inView || (e.key !== "ArrowRight" && e.key !== "ArrowLeft")) return;
+            if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
+            const { top, distance } = range();
+            const pinned = window.scrollY >= top - 1 && window.scrollY <= top + distance + 1;
+            if (!pinned) return;
+            const next = Math.round(position) + (e.key === "ArrowRight" ? 1 : -1);
+            if (next < 0 || next > loopEnd) return;
             e.preventDefault();
-            showMemberRef.current(wrap(wrap(position) + (e.key === "ArrowRight" ? 1 : -1)));
+            showMemberRef.current(next);
         };
 
         const onPointerDown = (e) => {
             if (e.pointerType === "mouse" && e.button !== 0) return;
             drag = { id: e.pointerId, x: e.clientX, y: e.clientY, moved: false };
-            paused = true;
-            stopAutoplay();
+            clickTarget = null;
             swiper.setTransition(0);
         };
 
@@ -208,13 +198,12 @@ const TeamSection = ( { team } ) => {
                 }
                 drag.moved = true;
                 drag.origin = position;
-                goal = position;
+                stop();
                 el.classList.add("is-dragging");
             }
 
             const slideWidth = swiper.slides[0]?.offsetWidth || 1;
-            position = drag.origin - dx / slideWidth;
-            goal = position;
+            position = clampIndex(drag.origin - dx / slideWidth);
             render();
         };
 
@@ -222,11 +211,7 @@ const TeamSection = ( { team } ) => {
             if (!drag || e.pointerId !== drag.id) return;
             const { moved, x } = drag;
             drag = null;
-            if (!moved) {
-                paused = false;
-                queueAutoplay();
-                return;
-            }
+            if (!moved) return;
 
             el.classList.remove("is-dragging");
             suppressClick = true;
@@ -235,10 +220,7 @@ const TeamSection = ( { team } ) => {
             const dx = e.type === "pointercancel" ? 0 : e.clientX - x;
             const visual = positionAt(swiper.translate);
             const snapped = Math.abs(dx) < 40 ? Math.round(visual) : Math.round(visual - Math.sign(dx) * 0.5);
-            goal = snapped;
-            animateTo(snapped);
-            paused = false;
-            queueAutoplay();
+            alignBias(snapped);
         };
 
         const onClickCapture = (e) => {
@@ -247,34 +229,19 @@ const TeamSection = ( { team } ) => {
             e.stopPropagation();
         };
 
-        const seen = new IntersectionObserver(([entry]) => {
-            inView = entry.isIntersecting && entry.intersectionRatio >= 0.35;
-            if (inView) queueAutoplay();
-            else stopAutoplay();
-        }, { threshold: [0, 0.35, 0.6] });
-        seen.observe(section);
+        const resize = new ResizeObserver(() => {
+            measure();
+            start();
+        });
+        if (sticky) resize.observe(sticky);
 
-        let lastScroll = window.scrollY;
-        const onScroll = () => {
-            const y = window.scrollY;
-            const dy = y - lastScroll;
-            lastScroll = y;
-            if (!inView || !dy || drag) return;
-
-            animToken += 1;
-            clearTimeout(normalizeTimer);
-            paused = true;
-            stopAutoplay();
-            goal += dy / (window.innerWidth < 768 ? 200 : 260);
-            if (followFrame === null) followFrame = requestAnimationFrame(follow);
-            clearTimeout(scrollIdle);
-            scrollIdle = setTimeout(() => {
-                paused = false;
-                queueAutoplay();
-            }, 280);
+        const onResize = () => {
+            measure();
+            start();
         };
 
-        window.addEventListener("scroll", onScroll, { passive: true });
+        window.addEventListener("scroll", start, { passive: true });
+        window.addEventListener("resize", onResize);
         window.addEventListener("keydown", onKeyDown);
         window.addEventListener("pointermove", onPointerMove);
         window.addEventListener("pointerup", onPointerUp);
@@ -282,17 +249,16 @@ const TeamSection = ( { team } ) => {
         el.addEventListener("pointerdown", onPointerDown);
         el.addEventListener("click", onClickCapture, true);
 
-        swiper.setTransition(0);
+        measure();
+        position = scrollIndex();
         render();
 
         return () => {
-            clearTimeout(normalizeTimer);
-            clearTimeout(scrollIdle);
-            stopFollow();
-            stopAutoplay();
+            stop();
             reveal.disconnect();
-            seen.disconnect();
-            window.removeEventListener("scroll", onScroll);
+            resize.disconnect();
+            window.removeEventListener("scroll", start);
+            window.removeEventListener("resize", onResize);
             window.removeEventListener("keydown", onKeyDown);
             window.removeEventListener("pointermove", onPointerMove);
             window.removeEventListener("pointerup", onPointerUp);
@@ -306,17 +272,13 @@ const TeamSection = ( { team } ) => {
         const spaceBetween = swiper.params.spaceBetween || 0;
         const viewportCap = window.innerWidth < 768 ? 1.15 : window.innerWidth < 1200 ? 2.15 : 2.75;
         const maxDistance = Math.min(viewportCap, Math.max(members.length / 2 - 0.45, 0.9));
-        const activeIndex = swiper.activeIndex || 0;
         const nearest = new Map();
 
         swiper.slides.forEach((slide, index) => {
             const member = Number(slide.dataset.member);
-            const dist = Number.isFinite(slide.progress) ? Math.abs(slide.progress) : Math.abs(index - activeIndex);
+            const dist = Number.isFinite(slide.progress) ? Math.abs(slide.progress) : Math.abs(index - (swiper.activeIndex || 0));
             const current = nearest.get(member);
-            const closerToCenter = current && Math.abs(index - firstSlide) < Math.abs(current.index - firstSlide);
-            if (!current || dist < current.dist - 0.02 || (Math.abs(dist - current.dist) <= 0.02 && closerToCenter)) {
-                nearest.set(member, { dist, index });
-            }
+            if (!current || dist < current.dist - 0.02) nearest.set(member, { dist, index });
         });
 
         swiper.slides.forEach((slide, index) => {
@@ -324,10 +286,9 @@ const TeamSection = ( { team } ) => {
             if (!card) return;
             const slideWidth = slide.offsetWidth;
             const width = card.offsetWidth;
-            const offset = -slide.progress;
+            const offset = Number.isFinite(slide.progress) ? -slide.progress : index - (swiper.activeIndex || firstSlide);
             const distance = Math.abs(offset);
-            const member = Number(slide.dataset.member);
-            const chosen = nearest.get(member);
+            const chosen = nearest.get(Number(slide.dataset.member));
 
             const desc = slide.querySelector(".ahaz-team-carousel-desc");
 
@@ -369,7 +330,7 @@ const TeamSection = ( { team } ) => {
 				className="ahaz-section ahaz-team-carousel"
 				style={{ "--team-count": members.length }}
 			>
-				<div className="ahaz-team-carousel-sticky">
+				<div ref={stickyRef} className="ahaz-team-carousel-sticky">
 
 					{/* Heading */}
 					<div className="container ahaz-team-carousel-head">
@@ -419,10 +380,10 @@ const TeamSection = ( { team } ) => {
 								tabIndex={Math.floor(key / members.length) !== 1 ? -1 : undefined}
 								onClick={() => showMemberRef.current(key % members.length)}
 							>
-								<img decoding="async" src={item.image} alt={item.name} draggable={false} />
-								{item.hover_image &&
-								<img className="ahaz-team-carousel-hover" decoding="async" src={item.hover_image} alt="" aria-hidden="true" draggable={false} />
-								}
+								<img className="ahaz-team-carousel-base" decoding="async" src={item.image} alt={item.name} draggable={false} />
+								{item.hover_image ? (
+								<img className="ahaz-team-carousel-alt" decoding="async" src={item.hover_image} alt="" aria-hidden="true" draggable={false} />
+								) : null}
 							</button>
 							<div className="ahaz-team-carousel-desc">
 								<h5 className="title">{item.name}</h5>
