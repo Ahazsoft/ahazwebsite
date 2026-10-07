@@ -2,7 +2,7 @@
 #preview details
 image: /images/team/yeabsire-2026.jpg
 hover_image: /images/team/yeabsire-smile-2026.jpg
-name: Yeabsira D. Aweke
+name: Yeabsera D. Awoke
 role: Accounts Manager
 first_letter: Y
 social:
