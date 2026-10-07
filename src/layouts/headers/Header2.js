@@ -71,12 +71,7 @@ const Header2 = ({ darkHeader, cartButton }) => {
           <div className="container">
             <div className="row">
               {/* logo */}
-              <div
-                className="col-4 col-xs-4 col-sm-4 col-md-4 col-lg-3 align-self-center"
-                style={{
-                  width: "20%",
-                }}
-              >
+              <div className="col-4 col-xs-4 col-sm-4 col-md-4 col-lg-3 align-self-center ahaz-header-logo">
                 {/* Logo */}
                 <div className="ahaz-logo-image" style={{ maxWidth: "70px" }}>
                   <Link href="/">
@@ -94,12 +89,7 @@ const Header2 = ({ darkHeader, cartButton }) => {
               </div>
 
               {/* navs */}
-              <div
-                className="col-8 col-xs-8 col-sm-8 col-md-4 col-lg-6 align-self-center align-center m-align-right"
-                style={{
-                  width: "55%",
-                }}
-              >
+              <div className="col-8 col-xs-8 col-sm-8 col-md-4 col-lg-6 align-self-center align-center m-align-right ahaz-header-nav">
                 {/* Menu Horizontal */}
                 <div className="ahaz-menu-horizontal">
                   <ul className="ahaz-menu-nav">
@@ -153,7 +143,6 @@ const Header2 = ({ darkHeader, cartButton }) => {
                       ? "ahaz-menu-btn btn--active"
                       : "ahaz-menu-btn"
                   }
-                  style={{ display: "none" }}
                   onClick={(e) => clickedDesktopMenu(e)}
                 >
                   <span />
@@ -206,13 +195,16 @@ const Header2 = ({ darkHeader, cartButton }) => {
                             </li>
                           ))}
                         </ul>
+                        <Link className="ahaz-btn ahaz-hover-btn btn--active ahaz-menu-cta" href={appData.header.button2.link}>
+                          <span>{appData.header.button2.label}</span>
+                        </Link>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
               {/* button */}
-              <div className="col-4 col-xs-4 col-sm-4 col-md-4 col-lg-3 align-self-center align-right hide-on-mobile-extra">
+              <div className="col-4 col-xs-4 col-sm-4 col-md-4 col-lg-3 align-self-center align-right ahaz-header-actions">
                 {/* Button */}
                 <Link
                   className="ahaz-btn ahaz-hover-btn btn--active"
