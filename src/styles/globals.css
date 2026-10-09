@@ -1040,3 +1040,328 @@ a.ahaz-team-carousel-meet:focus {
     transition: none;
   }
 }
+
+.ahaz-profile {
+  background: #f6f4ef;
+  color: #121212;
+}
+
+.ahaz-page:has(.ahaz-profile) .wrapper {
+  padding-bottom: 0;
+}
+
+.ahaz-profile-mast {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(260px, 0.85fr);
+  gap: 40px 56px;
+  align-items: end;
+  min-height: 100vh;
+  padding: 132px 7vw 80px;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(0, 64, 121, 0.55), transparent 42%),
+    #071a33;
+  color: #fff;
+}
+
+.ahaz-profile.is-flip .ahaz-profile-mast {
+  grid-template-columns: minmax(260px, 0.85fr) minmax(0, 1.15fr);
+}
+
+.ahaz-profile.is-flip .ahaz-profile-mast-copy {
+  order: 2;
+}
+
+.ahaz-profile-kicker {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 0 0 28px;
+  font-size: 13px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.ahaz-profile-kicker a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.ahaz-profile-name {
+  margin: 0;
+  max-width: 9ch;
+  color: #fff;
+  font-weight: 500;
+  letter-spacing: -0.045em;
+  line-height: 0.92;
+  text-wrap: balance;
+}
+
+.ahaz-profile.is-short .ahaz-profile-name {
+  font-size: clamp(64px, 8vw, 124px);
+}
+
+.ahaz-profile.is-medium .ahaz-profile-name {
+  font-size: clamp(48px, 6.2vw, 96px);
+}
+
+.ahaz-profile.is-long .ahaz-profile-name {
+  font-size: clamp(40px, 5vw, 76px);
+  max-width: 12ch;
+}
+
+.ahaz-profile-role {
+  max-width: 18ch;
+  margin: 28px 0 0;
+  font-size: clamp(18px, 2vw, 28px);
+  font-weight: 400;
+  line-height: 1.25;
+  color: rgba(255, 255, 255, 0.78);
+  text-wrap: balance;
+}
+
+.ahaz-profile-portrait {
+  position: relative;
+  margin: 0;
+}
+
+.ahaz-profile-portrait img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 18px;
+}
+
+.ahaz-profile-portrait-alt {
+  position: absolute;
+  right: 6%;
+  bottom: -7%;
+  width: 34%;
+  border: 6px solid #071a33;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+}
+
+.ahaz-profile.is-flip .ahaz-profile-portrait-alt {
+  right: auto;
+  left: 6%;
+}
+
+.ahaz-profile-sheet {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.55s ease, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.ahaz-profile.is-shown .ahaz-profile-sheet,
+.ahaz-profile.is-shown .ahaz-profile-portrait img {
+  opacity: 1;
+  transform: none;
+}
+
+.ahaz-profile-portrait img {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.ahaz-profile-body {
+  display: grid;
+  grid-template-columns: 140px minmax(0, 720px);
+  gap: 18px 40px;
+  align-items: start;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 96px 7vw 28px;
+}
+
+.ahaz-profile-label {
+  margin: 8px 0 0;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #6d6a64;
+}
+
+.ahaz-profile-bio {
+  margin: 0;
+  font-size: clamp(26px, 3vw, 40px);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1.25;
+}
+
+.ahaz-profile-education {
+  margin: 0;
+  max-width: 38em;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #3e3e3e;
+}
+
+.ahaz-profile-social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ahaz-profile-social a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 0 18px;
+  border: 1px solid #d9d4cb;
+  border-radius: 999px;
+  background: #fff;
+  color: #121212;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.ahaz-profile-social a:hover {
+  border-color: #004079;
+  color: #004079;
+}
+
+.ahaz-profile .ahaz-page-navigation {
+  max-width: 1180px;
+  margin: 48px auto 0;
+}
+
+.ahaz-profile .ahaz-page-navigation-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 88px;
+}
+
+.ahaz-profile .ahaz-page-navigation a.page-navigation__prev,
+.ahaz-profile .ahaz-page-navigation a.page-navigation__next {
+  float: none;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex: 1;
+  min-width: 0;
+  color: #121212;
+  text-decoration: none;
+}
+
+.ahaz-profile .ahaz-page-navigation a.page-navigation__next {
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.ahaz-profile .ahaz-page-navigation-photo {
+  width: 56px;
+  height: 70px;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 10px;
+  flex: 0 0 auto;
+}
+
+.ahaz-profile .ahaz-page-navigation-label small,
+.ahaz-profile .ahaz-page-navigation-label em {
+  display: block;
+  font-style: normal;
+  color: #6d6a64;
+}
+
+.ahaz-profile .ahaz-page-navigation-label small {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.ahaz-profile .ahaz-page-navigation-label {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+  color: #121212;
+}
+
+.ahaz-profile .ahaz-page-navigation-label strong {
+  display: block;
+  margin-top: 2px;
+  color: #121212;
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+.ahaz-profile .ahaz-page-navigation-label em {
+  margin-top: 2px;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+@media (max-width: 900px) {
+  .ahaz-profile-mast,
+  .ahaz-profile.is-flip .ahaz-profile-mast {
+    grid-template-columns: 1fr;
+    min-height: 0;
+    padding: 112px 24px 72px;
+  }
+
+  .ahaz-profile.is-flip .ahaz-profile-mast-copy {
+    order: 0;
+  }
+
+  .ahaz-profile-name,
+  .ahaz-profile.is-long .ahaz-profile-name {
+    max-width: none;
+  }
+
+  .ahaz-profile-portrait {
+    max-width: 460px;
+  }
+
+  .ahaz-profile-body {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 72px 24px 12px;
+  }
+
+  .ahaz-profile-label {
+    margin-top: 22px;
+  }
+
+  .ahaz-profile .ahaz-page-navigation {
+    margin: 32px 24px 0;
+  }
+
+  .ahaz-profile .ahaz-page-navigation-content {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .ahaz-profile .ahaz-page-navigation a.page-navigation__next {
+    justify-content: flex-start;
+    text-align: left;
+    flex-direction: row-reverse;
+  }
+
+  .ahaz-profile .ahaz-page-navigation a.page-navigation__posts {
+    position: static;
+    width: auto;
+    height: auto;
+    margin: 0;
+    align-self: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ahaz-profile-sheet,
+  .ahaz-profile-portrait img {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
