@@ -1,224 +1,151 @@
-import Layouts from "@layouts/Layouts";
-import PageBanner from "@components/PageBanner";
+import { useEffect, useState } from "react";
+import Head from "next/head";
 import Link from "next/link";
+import Layouts from "@layouts/Layouts";
 
-import { getAllTeamIds, getTeamData } from "@library/team";
-import { getFeaturedProjectsData } from "@library/projects";
-import { getFeaturedServicesData } from "@library/services";
+import TeamData from "@data/sections/team.json";
+import { getAllTeamIds, getSortedTeamData, getTeamData } from "@library/team";
 
-const TeamDetail = ( { postData, projects, services } ) => {
+const nameScale = (name) => {
+  if (name.length > 18) return "is-long";
+  if (name.length > 14) return "is-medium";
+  return "is-short";
+};
+
+const TeamDetail = ({ postData, index, total, prev, next }) => {
+  const [shown, setShown] = useState(false);
+  const social = postData.social || [];
+  const number = String(index + 1).padStart(2, "0");
+  const count = String(total).padStart(2, "0");
+
+  useEffect(() => {
+    setShown(false);
+    const frame = requestAnimationFrame(() => setShown(true));
+    return () => cancelAnimationFrame(frame);
+  }, [postData.id]);
+
   return (
-    <Layouts>
-      <PageBanner pageTitle={postData.name} pageDesc={"Meet our creativity company family."} />
+    <Layouts
+      pageTitle={postData.name}
+      pageDescription={`${postData.name}, ${postData.role} at Ahaz. ${postData.bio}`}
+      pageCanonical={`https://ahaz.io/team/${postData.id}`}
+    >
+      <Head>
+        <title>{`${postData.name} | Ahaz`}</title>
+      </Head>
 
-      	{/* Onovo Team Detail */}
-		<section className="ahaz-section gap-top-140 gap-bottom-140">
-			<div className="container">
+      <article className={`ahaz-profile ${nameScale(postData.name)} ${index % 2 ? "is-flip" : ""} ${shown ? "is-shown" : ""}`}>
+        <header className="ahaz-profile-mast">
+          <div className="ahaz-profile-mast-copy">
+            <p className="ahaz-profile-kicker">
+              <Link href="/team">Team</Link>
+              <span>{number} / {count}</span>
+            </p>
+            <h1 className="ahaz-profile-name">{postData.name}</h1>
+            {postData.role ? <p className="ahaz-profile-role">{postData.role}</p> : null}
+          </div>
 
-				{/* Team Card */}
-				<div className="ahaz-team-detail">
-					<div className="row gap-140 gap-top-60 gap-bottom-0">
-						<div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-							<img loading="lazy" src={postData.image} className="team-detail-img" alt={postData.name} />
-						</div>
-						<div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 align-self-center">
-							<h2>
-								<span data-splitting data-ahaz-scroll>{postData.name}</span>
-							</h2>
-							{postData.role ? (
-							<h5>
-								<span data-splitting data-ahaz-scroll>{postData.role}</span>
-							</h5>
-							) : null}
-							{typeof postData.info != "undefined" &&
-							<div className="ahaz-team-info">
-								<ul>
-									{postData.info.map((item, key) => (
-									<li key={`info-item-${key}`}>
-										<div className="title">
-											<span data-splitting data-ahaz-scroll>{item.label}</span>
-										</div>
-										<div className="ahaz-text">
-											<div data-splitting data-ahaz-scroll>
-												<p>{item.value}</p>
-											</div>
-										</div>
-									</li>
-									))}
-								</ul>
-							</div>
-							}
-							{typeof postData.social != "undefined" &&
-							<div className="ahaz-social-1 mb-5">
-								<ul>
-									{postData.social.map((item, key) => (
-									<li key={`teamsocial-item-${key}`}>
-										<a className="ahaz-social-link ahaz-hover-2" href={item.link} title={item.title} target="_blank">
-											<i aria-hidden="true" className={item.icon} />
-										</a>
-									</li>
-									))}
-								</ul>
-							</div>
-							}
-						</div>
-					</div>
-				</div>
-		
-				{/* {postData.contentHtml != "" &&
-				<div className="ahaz-text gap-top-140">
-					<div dangerouslySetInnerHTML={{__html : postData.contentHtml}} />
-				</div>
-				} */}
+          <figure className="ahaz-profile-portrait">
+            <img src={postData.image} alt={postData.name} />
+            {postData.hover_image ? (
+              <img className="ahaz-profile-portrait-alt" src={postData.hover_image} alt="" />
+            ) : null}
+          </figure>
+        </header>
 
+        <div className="ahaz-profile-sheet">
+          <section className="ahaz-profile-body">
+            <h2 className="ahaz-profile-label">Profile</h2>
+            <p className="ahaz-profile-bio">{postData.bio}</p>
 
-			</div>
-		</section>
-	
-		{/* {typeof postData.services != "undefined" &&
-		<section className="ahaz-section gap-bottom-140">
-			<div className="container"> */}
+            {postData.education ? (
+              <>
+                <h2 className="ahaz-profile-label">Education</h2>
+                <p className="ahaz-profile-education">{postData.education}</p>
+              </>
+            ) : null}
 
-				{/* Heading */}
-				{/* <div className="ahaz-heading gap-bottom-40">
-					<h5 className="ahaz-subtitle-1">
-						<span> What we do </span>
-					</h5>
-				</div> */}
+            {social.length ? (
+              <>
+                <h2 className="ahaz-profile-label">Connect</h2>
+                <ul className="ahaz-profile-social">
+                  {social.map((item) => (
+                    <li key={item.link}>
+                      <a href={item.link} target="_blank" rel="noreferrer">
+                        <i aria-hidden="true" className={item.icon} />
+                        <span>{item.title}</span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            ) : null}
+          </section>
 
-				{/* Services items */}
-				{/* <div className="ahaz-services-list">
-
-					{services.map((item, key) => (
-					<div key={`services-item-${key}`} className="ahaz-service-item-list">
-						<div className="ahaz-service-item-list-inner">
-							<div className="image ahaz-hover-1">
-								<Link href={`/services/${item.id}`}>
-									<img src={item.icon} alt={item.title} />
-								</Link>
-							</div>
-							<div className="num">
-								<span>0{key+1}.</span>
-							</div>
-							<h5 className="title">
-								<a href={`/services/${item.id}`}>
-									<span>{item.title}</span>
-								</a>
-							</h5>
-							<div className="ahaz-text">
-								<div>
-									<p>{item.short}</p>
-								</div>
-							</div>
-						</div>
-					</div>
-					))}
-
-				</div> */}
-{/* 				
-			</div>
-		</section>
-		} */}
-
-		{/* {typeof postData.awards != "undefined" &&
-		<section className="ahaz-section gap-bottom-140">
-			<div className="container"> */}
-
-				{/* Heading */}
-				{/* <div className="ahaz-heading">
-					<h5 className="ahaz-subtitle-1">
-						<span> Awards </span>
-					</h5>
-				</div> */}
-
-				{/* Awards items */}
-				{/* <div className="row gap-row">
-
-					{postData.awards.map((item, key) => (
-					<div key={`awards-item-${key}`} className="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-						<p><img src={item.image} alt="image" /></p>
-						<h5 className="ahaz-title-1">{item.value}</h5>
-						<span dangerouslySetInnerHTML={{__html : item.label}} />
-					</div>
-					))}
-
-				</div> */}
-		
-				
-			{/* </div>
-		</section>
-		} */}
-
-      	{/* {typeof postData.projects != "undefined" &&
-		<section className="ahaz-section">
-			<div className="container"> */}
-
-				{/* Heading */}
-				{/* <div className="ahaz-heading gap-bottom-40">
-					<h5 className="ahaz-subtitle-1">
-						<span> Work Showcase </span>
-					</h5>
-				</div> */}
-
-				{/* Projects items */}
-				{/* <div className="ahaz-portfolio">
-					<div className="row gap-row ahaz-portfolio-items">
-
-						{projects.map((item, key) => (
-						<div key={`projects-item-${key}`} className="col-xs-12 col-sm-12 col-md-6 col-lg-6 ahaz-portfolio-col">
-							<div className="ahaz-portfolio-item">
-								<div className="image" data-ahaz-overlay data-ahaz-scroll>
-									<Link href={`/projects/${item.id}`} className="ahaz-hover-3">
-										<img src={item.image} alt={item.title} />
-									</Link>
-								</div>
-								<div className="desc">
-									<h5 className="title">
-										<Link className="ahaz-lnk" href={`/projects/${item.id}`}>
-											<span data-splitting data-ahaz-scroll>{item.title}</span>
-										</Link>
-									</h5>
-									<div className="text">
-										<div data-splitting data-ahaz-scroll>
-											<span>{item.category}</span>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						))}
-
-					</div>
-				</div> */}
-				
-			{/* </div>
-		</section>
-      	} */}
-
+          <nav className="ahaz-page-navigation" aria-label="Other team members">
+            <div className="ahaz-page-navigation-content">
+              <Link href={`/team/${prev.id}`} className="page-navigation__prev">
+                <span className="ahaz-prev ahaz-hover-2">
+                  <i />
+                </span>
+                <img className="ahaz-page-navigation-photo" src={prev.image} alt="" />
+                <span className="ahaz-page-navigation-label">
+                  <small>Previous</small>
+                  <strong>{prev.name}</strong>
+                  <em>{prev.role}</em>
+                </span>
+              </Link>
+              <Link href="/team" className="page-navigation__posts">
+                <i className="fas fa-th" />
+              </Link>
+              <Link href={`/team/${next.id}`} className="page-navigation__next">
+                <span className="ahaz-page-navigation-label">
+                  <small>Next</small>
+                  <strong>{next.name}</strong>
+                  <em>{next.role}</em>
+                </span>
+                <img className="ahaz-page-navigation-photo" src={next.image} alt="" />
+                <span className="ahaz-next ahaz-hover-2">
+                  <i />
+                </span>
+              </Link>
+            </div>
+          </nav>
+        </div>
+      </article>
     </Layouts>
   );
 };
+
 export default TeamDetail;
 
 export async function getStaticPaths() {
-    const paths = getAllTeamIds()
+  const paths = getAllTeamIds();
 
-    return {
-      paths,
-      fallback: false
-    }
+  return {
+    paths,
+    fallback: false,
+  };
 }
 
 export async function getStaticProps({ params }) {
-    const postData = await getTeamData(params.id)
-    const projects = await getFeaturedProjectsData(postData.projects)
-    const services = await getFeaturedServicesData(postData.services)
-    
-    return {
-      props: {
-        postData,
-        projects,
-        services
-      }
-    }
+  const postData = await getTeamData(params.id);
+  const all = getSortedTeamData();
+  const order = (TeamData.homepageIds || [])
+    .map((id) => all.find((item) => item.id === id))
+    .filter(Boolean);
+  const index = Math.max(order.findIndex((item) => item.id === params.id), 0);
+  const total = order.length || 1;
+  const prev = order[(index - 1 + total) % total];
+  const next = order[(index + 1) % total];
+
+  return {
+    props: {
+      postData,
+      index,
+      total,
+      prev,
+      next,
+    },
+  };
 }
