@@ -38,11 +38,11 @@ const Layouts = ({
           loader[0].classList.add('closed');
           document.querySelector('body').classList.add('animated--swiper--active');
           loader[0].querySelector('.preloader__spinner').style.opacity = 0;
-        }, 500);
+        }, 4200);
         setTimeout(function(){
           loader[0].classList.add('loaded');
           document.querySelector('body').classList.add('animated--active');
-        }, 1500);
+        }, 5200);
       } else {
         loader[0].classList.add('loaded');
         document.querySelector('body').classList.add('animated--swiper--active');
