@@ -2328,10 +2328,22 @@ button > span,
 
 .preloader__spinner {
   position: relative;
-  width: 50px;
-  height: 50px;
+  width: 168px;
+  height: auto;
   align-self: center;
   z-index: 2;
+}
+
+.preloader__spinner svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 767px) {
+  .preloader__spinner {
+    width: 132px;
+  }
 }
 
 .preloader__double-bounce {
