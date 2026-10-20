@@ -19,8 +19,8 @@ details:
         - label: "Platform:"
           value: Web & Mobile Scanner
 
-        - label: "Stack:"
-          value: Next.js, Prisma, PostgreSQL
+        # - label: "Stack:"
+        #   value: Next.js, Prisma, PostgreSQL
 
 gallery: 
     items:

@@ -130,9 +130,9 @@
         "title": "LinkedIn"
     },
     {
-        "link": "https://dev.to/ahaz",
-        "icon": "fab fa-dev",
-        "title": "DEV Community"
+        "link": "https://clutch.co/profile/ahaz-software-web-technology-solutions",
+        "image": "/images/icons/clutch.png",
+        "title": "Clutch"
     },
     {
         "link": "https://twitter.com/ahaz_io",

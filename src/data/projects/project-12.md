@@ -1,5 +1,7 @@
 ---
 #preview
+# Hidden from the websites list for now. Remove draft to show it again.
+draft: true
 title: Aman Asrat - Photofolio
 image: /images/project-logo/AA-I-O.png
 category: Website

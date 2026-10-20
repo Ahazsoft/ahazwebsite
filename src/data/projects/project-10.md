@@ -1,5 +1,7 @@
 ---
 #preview
+# Hidden from the websites list for now. Remove draft to show it again.
+draft: true
 title: M & H Construction Group
 image: /images/project-logo/M & H - Logo_Yellow.png
 category: Website

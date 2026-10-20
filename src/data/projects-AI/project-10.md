@@ -19,8 +19,8 @@ details:
         - label: "Website:"
           value: crm.travelwithyuyana.com
 
-        - label: "Stack:"
-          value: Next.js, Prisma, PostgreSQL
+        # - label: "Stack:"
+        #   value: Next.js, Prisma, PostgreSQL
 
 gallery: 
     items:

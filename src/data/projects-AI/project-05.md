@@ -8,6 +8,7 @@ category_slug: portfolios
 type: Website Design, Website Development 
 team: NthDS
 date: 2019 - 2020
+showcase: true
 # link: https://www.yohanasahle.com/
 
 #full details

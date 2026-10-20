@@ -1812,9 +1812,17 @@ button > span,
 }
 
 .ahaz-social-1 ul li a i,
-.ahaz-social-1 ul li a span {
+.ahaz-social-1 ul li a span,
+.ahaz-social-1 ul li a img.social-logo {
   position: relative;
   z-index: 2;
+}
+
+.ahaz-social-1 ul li a img.social-logo {
+  width: 34px;
+  height: 34px;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
 .ahaz-social-1 ul li a:hover {

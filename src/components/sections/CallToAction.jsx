@@ -52,10 +52,10 @@ const CallToActionSection = () => {
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                             >
-                                                {item.title === 'G2' ? (
+                                                {item.image ? (
                                                 <img
-                                                    src="images/icons/G2Logo-Black.png"
-                                                    alt="G2"
+                                                    src={item.image}
+                                                    alt=""
                                                     className="custom-icon"
                                                     aria-hidden="true"
                                                 />

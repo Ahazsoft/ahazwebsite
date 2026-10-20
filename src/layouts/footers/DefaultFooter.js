@@ -76,7 +76,11 @@ const DefaultFooter = () => {
                                     {appData.social.map((item, key) => (
                                     <li key={`fsocial-item-${key}`}>
                                         {<a className="ahaz-social-link ahaz-hover-2" href={item.link} title={item.title} target="_blank">
-                                            <i className={item.icon}></i>
+                                            {item.image ? (
+                                                <img src={item.image} alt="" className="social-logo" />
+                                            ) : (
+                                                <i className={item.icon}></i>
+                                            )}
                                         </a> }
                                     </li>
                                     ))}

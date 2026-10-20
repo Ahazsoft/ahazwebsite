@@ -8,7 +8,9 @@ const projectsDirectory = path.join(process.cwd(), 'src/data/projects')
 
 export function getSortedProjectsData() {
   // Get file names under /posts
-  const fileNames = fs.readdirSync(projectsDirectory)
+  const fileNames = fs.readdirSync(projectsDirectory).filter((fileName) =>
+    /^project-\d+\.md$/.test(fileName)
+  )
   const allData = fileNames.map(fileName => {
     // Remove ".md" from file name to get id
     const id = fileName.replace(/\.md$/, '')
@@ -27,7 +29,9 @@ export function getSortedProjectsData() {
     }
   })
   // Sort posts by date
-  return allData.sort((a, b) => {
+  return allData
+    .filter((item) => item.draft !== true)
+    .sort((a, b) => {
     if (a.id > b.id) {
       return 1
     } else {

@@ -16,17 +16,6 @@ const HeroSectionNew = () => {
       label: "Follow us on LinkedIn",
       title: "LinkedIn",
     },
-    // {
-    //   link: "https://www.g2.com/users/ahazio",
-    //   image: "/images/icons/G2Logo-Black-Photoroom.png",
-    //   title: "G2",
-    // },
-    {
-      link: "https://dev.to/ahaz",
-      icon: "fab fa-dev",
-      label: "Read our DEV articles",
-      title: "DEV Community",
-    },
   ];
   return (
     <>

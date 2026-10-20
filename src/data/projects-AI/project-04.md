@@ -7,6 +7,7 @@ category_slug: portfolios
 type: Media Monitoring
 team: 
 date: 2019 - 2020
+showcase: true
 # link: https://www.yohanasahle.com/
 
 #full details
