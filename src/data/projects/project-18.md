@@ -11,7 +11,7 @@ category_slug: corporate
 type: Website Design, Development & Maintenance
 team: Yabets T. Bifitu, MD 
 date: June 2024
-link: https://lhsethiopia.com/
+link: https://lighthouse.healthcare/
 # link: http://localhost:3000/projects/project-16
 #full details
 details:
@@ -26,7 +26,7 @@ details:
           value: December 2025
         
         - label: "Website:"
-          value: https://lhsethiopia.com/
+          value: https://lighthouse.healthcare/
 # gallery: 
 #     items:
 #         - image: /images/project-2-2-1200x982.jpg

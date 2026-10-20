@@ -19,8 +19,8 @@ details:
         - label: "Platform:"
           value: Web Dashboard & Mobile App
 
-        - label: "Stack:"
-          value: Next.js, Node.js, PostgreSQL
+        # - label: "Stack:"
+        #   value: Next.js, Node.js, PostgreSQL
 
 additional:
     heading: Project Result
