@@ -1,5 +1,7 @@
 import { useEffect } from "react";
 import Head from "next/head";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import appData from "@data/app.json";
 import Footer from "./footers/Index";
 import Header from "./headers/Index";
@@ -83,6 +85,8 @@ const Layouts = ({
         {!noFooter && <Footer footer={2} />}
 
         <SplitScrollAnimation />
+        <Analytics />
+        <SpeedInsights />
       </div>
     </>
   );
